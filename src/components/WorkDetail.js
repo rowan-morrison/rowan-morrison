@@ -36,7 +36,7 @@ const workDetails = {
 '/images/Archive-14.JPG',
 '/images/Archive-15.JPG',
 '/images/Archive-16.JPG',
-'/images/Archive-17.JPG',
+'/images/Archive-17.jpg',
     ],
   },
   'Art-of-Wishes': {
