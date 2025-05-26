@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.portfolio-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  padding: 2rem;
+}
+
+canvas {
+  background: transparent;
+  position: absolute;
+  display: block;
+  z-index: -100;
+  pointer-events: auto;
+  }
+
+  /*body {
+  background-color: var(--seasalt);
+  color: var(--black-olive);
+  -ms-overflow-style: none;
+  }
+
+  body.dark-mode {
+  background-color: black; 
+  color: var(--seasalt);
+  }*/

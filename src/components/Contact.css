@@ -1,0 +1,65 @@
+.contact {
+    max-width: 600px;
+    margin: 10vh auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pigeon-mail {
+    width: 40%;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #000;
+  }
+  
+  .contact-form button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    color: var(--kelly-green);
+    border-color: var(--kelly-green);
+  }
+  
+  html.dark-mode .contact-form input,
+  html.dark-mode .contact-form textarea {
+    background: #222;
+    border: 1px solid #555;
+    color: #eee;
+  }
+  
+  html.dark-mode .contact-form button {
+    border: 1px solid var(--seasalt);
+    color: white;
+  }

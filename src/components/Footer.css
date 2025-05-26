@@ -1,0 +1,52 @@
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.circle-container {
+	position: fixed; 
+	margin-top: auto;
+	bottom: 0;
+	right: 0;
+	width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+  }
+
+.mode-toggle-button {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--black-olive); 
+        border-radius: 50%; 
+        transition: all 0.1s ease; 
+      }
+
+ .mode-toggle-button:hover {
+    background-color: var(--black-olive);
+    cursor: pointer;
+  }
+  
+html.dark-mode .mode-toggle-button {
+	border: 2px solid var(--seasalt); 
+  }
+
+  html.dark-mode .mode-toggle-button:hover {
+    background-color: var(--seasalt); 
+    }
+
+    #footer p {
+      font-variant: small-caps;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--black-olive);
+    }

@@ -1,0 +1,151 @@
+:root {
+	--light-color: #f0ece6;
+	--seasalt: #f9f9f9;
+	--beige: #f5f7dc;
+	--baby-powder: #f7f9f7;
+	--platinum: #d8dbe2;
+	--rose-quartz: #A7A2A9;
+	--dark-color: #261b13;
+	--highlight-color: #4040e3;
+	--celadon: #B5D99C;
+	--fern-green: #3a7d44;
+	--emerald: #69b548;
+	--kelly-green: #76b041;
+	--cal-poly-green: #254d32;
+	--vanilla: #d0db97;
+	--argentinian-blue: #5aa9e6;
+	--black-olive: #353531;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+@media screen and (max-width: 480px) {
+
+  html, body {
+    min-width: 320px;
+  }
+
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  line-height: 21px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  box-sizing: border-box;
+  background-color: var(--seasalt);
+  color: black;
+  transition: background-color 0.5 ease, color 0.5 ease;
+}
+
+html, body {
+  transition: all 0.4s ease;
+}
+
+html.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1, a, p, q, cite, nav {
+  color: black;
+  text-decoration: none;
+  white-space: pre-line;
+}
+
+html.dark-mode h1,
+html.dark-mode a,
+html.dark-mode p,
+html.dark-mode q,
+html.dark-mode cite {
+  color: white;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/public/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-variant-numeric: tabular-nums;
+}
+
+@font-face {
+  font-family: 'EB Garamond Italic';
+  src: url('/public/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  font-variant-numeric: tabular-nums;
+}
+
+@font-face {
+  font-family: 'Readex Pro';
+  src: url('/public/fonts/ReadexPro-VariableFont_HEXP,wght.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+  font-variant-numeric: tabular-nums;
+}
+
+
+@font-face {
+  font-family: 'Didact Gothic';
+  src: url('/public/fonts/DidactGothic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-variant-numeric: tabular-nums;
+}
+
+
+@font-face {
+  font-family: 'Figtree';
+  src: url('/public/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-variant-numeric: tabular-nums;
+}
+
+h2 {
+  font-size: 0.8rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+body {
+  font-family: 'EB Garamond', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+q {
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+cite {
+  font-family: 'EB Garamond Italic', serif;
+  font-size: 0.95rem;
+}

@@ -1,0 +1,59 @@
+#main {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: -10px; 
+  margin-top: 10vh;
+  height: 100%;
+  width: 100%;
+  gap: 10px;
+}
+
+.my-masonry-grid_column {
+  padding-left: 10px;
+  background-clip: padding-box;
+}
+
+.my-masonry-grid_column > .grid-item {
+  margin-bottom: 10px;
+}
+
+.grid-item {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+}
+
+.grid-image, .grid-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.grid-item p {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+  
