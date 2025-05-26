@@ -15,6 +15,7 @@ const workItems = [
   { id: 'oracle-cats-concept-02', image: '/images/oracle-cats-concept-02.png' },
   { id: 'object-studies', image: '/images/object-studies.png' },
   { id: 'Downtown-rings-tool', image: '/images/Downtown-rings-tool.mp4' },
+  { id: 'Animation', image: '/images/Carolina-Bucci-Multi-Wish-Lucky-Bracelet-Animation_WEB.mp4' },
   { id: 'Lucky-4', image: '/images/Lucky-4.jpg' },
    { id: 'Memory-Pendants', image: '/images/Memory-Pendants-11.mp4' },
   { id: 'Central-23-2', image: '/images/Central-23-2.jpg' },

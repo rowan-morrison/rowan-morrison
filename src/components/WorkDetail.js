@@ -32,11 +32,14 @@ const workDetails = {
      '/images/pear-study.png',
      '/images/spinach-leaf-study.png',
      '/images/lemon-study.png',
+     '/images/Archive-09.jpeg',
+     '/images/Archive-07.jpeg',
      '/images/Archive-13.JPG',
 '/images/Archive-14.JPG',
 '/images/Archive-15.JPG',
 '/images/Archive-16.JPG',
 '/images/Archive-17.jpg',
+'/images/Wes-1.jpg',
     ],
   },
   'Art-of-Wishes': {
@@ -66,6 +69,7 @@ const workDetails = {
         '/images/Lucky-12.jpg',
         '/images/Lucky-13.jpg',
         '/images/Lucky-14.jpg',
+        '/images/Lucky-17.jpg',
         '/images/Lucky-15.jpg',
         '/images/Lucky-16.jpg',
   ]
@@ -104,12 +108,13 @@ const workDetails = {
   ]
   },
   'Central-23-2': {
-    title: 'Dinosaurs, Jungles & Princesses',
+    title: 'Frogs, Dinosaurs, Jungles & Princesses',
      descriptionStart: "Wrapping paper designs for award-winning packaging brand ",
   linkText: "Central23",
   link: "https://central23.co/en-uk",
   descriptionEnd: ".",
-    image: ['/images/Central-23-1.jpg', 
+    image: ['/images/Central-23-4.jpg',
+      '/images/Central-23-1.jpg', 
       '/images/Central-23-2.jpg', 
       '/images/Central-23-3.jpg',]
   },
@@ -160,7 +165,8 @@ const workDetails = {
     image: ['/images/La-Catena-website-2.jpg',
       '/images/La-Catena-website-1.mp4',
       '/images/La-Catena-website-3.jpg',
-      '/images/La-Catena-12.jpg', ]
+      '/images/La-Catena-12.jpg',
+    '/images/Madame_Vo_Newsletter_crop.png'],
   },
   'open-source': {
     title: 'Open Collab',
@@ -173,6 +179,15 @@ const workDetails = {
     '/images/open-source-3.gif',
   '/images/open-source-4.gif',
 '/images/open-source-5.gif',]
+  },
+   'Animation': {
+    title: 'Multi-Wish Lucky Bracelet Animation',
+  caption: '© 2025 Carolina Bucci Firenze. All rights reserved.',
+     descriptionStart: "An animation to show the components of Carolina Bucci's Multi-Wish Lucky Bracelet. See the animation ",
+  linkText: "here",
+  link: "https://carolinabucci.com/products/bespoke-multi-wish-lucky-bracelet/",
+  descriptionEnd: ".",
+    image: [ '/images/Carolina-Bucci-Multi-Wish-Lucky-Bracelet-Animation_WEB.mp4',],
   },
 };
 
