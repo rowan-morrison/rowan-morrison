@@ -152,13 +152,13 @@ const workDetails = {
   },
   'La-Catena-12': {
     title: 'La Catena',
-    descriptionStart: "La Catena is Carolina Bucci’s blog and annual magazine. I was responsible for the editorial design of Issues 2 & 3. \n\nYen Vo and Jimmy Ly First Bonded over Beignets",
-  linkText: "read more",
+    descriptionStart: "La Catena is Carolina Bucci’s blog and annual magazine. I worked on the editorial design of Issues 2 & 3, as well as illustrations for the online blog. \n\nRead ‘Yen Vo and Jimmy Ly First Bonded over Beignets’ on La Catena ",
+  linkText: "here",
   link: "https://carolinabucci.com/blogs/la-catena/yen-vo-and-jimmy-ly-first-bonded-over-beignets?srsltid=AfmBOoqCOjSa0M06g-Pv2UUyRh0VxbOA2v3kqt9go_bd4W0FODp02M6Y",
   descriptionEnd: ".",
     caption: '© 2025 Carolina Bucci Firenze. All rights reserved.',
-    image: ['/images/La-Catena-website-1.mp4',
-      '/images/La-Catena-website-2.jpg',
+    image: ['/images/La-Catena-website-2.jpg',
+      '/images/La-Catena-website-1.mp4',
       '/images/La-Catena-website-3.jpg',
       '/images/La-Catena-12.jpg', ]
   },
@@ -265,7 +265,9 @@ arrow_back
     <Masonry
          breakpointCols={
         id === 'La-Catena-12'
-          ? { default: 2, 1100: 1, 700: 1, 500: 1 }
+          ? { default: 1, 1100: 1, 700: 1, 500: 1 }
+          : id === 'Lucky-4'
+          ? { default: 2, 1100: 2, 700: 2, 500: 1 }
           : images.length < 4
             ? { default: images.length, 1100: images.length, 700: images.length, 500: 1 }
             : workDetailBreakpointColumnsObj
@@ -312,6 +314,14 @@ arrow_back
         <img src="/images/arrow-back-icon.svg" alt="back-button"/>
         </button>
   <AnimatePresence mode="wait">
+     <motion.div
+    key={id}
+    className={`work-detail work-detail-${id}`}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+  >
   {images[previewIndex]?.endsWith('.mp4') ? (
     <motion.video
       key={previewIndex}
@@ -340,6 +350,7 @@ arrow_back
       onClick={(e) => e.stopPropagation()}
     />
   )}
+  </motion.div>
 </AnimatePresence>
 <figcaption>
         {work.previewCaptions?.[previewIndex] || work.caption || `${work.title} – Image ${previewIndex + 1}`}

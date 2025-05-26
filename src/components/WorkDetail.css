@@ -13,12 +13,27 @@
     }
   }
 
+  .grid-image,
+  .work-detail-image {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
    .work-info {
     flex: 1;
     padding: 2rem;
     margin-top: 20%;
     flex-wrap: wrap;
     overflow-y: hidden;
+  }
+
+    @media screen and (max-width: 575px) {
+    .work-info {
+    max-height: 20vh;
+     background-color: none;
+     margin-top: 40px;
+     position: sticky;
+    }
   }
   
   .work-image {
@@ -104,7 +119,8 @@
 
 .image-preview {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(0,0,0,0.85);
@@ -122,6 +138,7 @@
   object-fit: contain;
   margin-bottom: 1rem;
   transition: opacity 0.3s ease-in-out;
+     margin: auto;
 }
 
 .preview-close,
@@ -213,11 +230,19 @@ html.dark-mode .preview-next {
 .work-detail-masonry-grid {
   display: flex;
   margin-left: -10px;
+  margin-bottom: 10px;
   width: 100%;
-  height: 100%;
   top: 8vh;
   position: relative;
   flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 575px) {
+  .work-detail-masonry-grid {
+    margin-top: -200px;
+    height: 100%;
+  }
 }
 
 .work-detail-masonry-grid_column {
@@ -230,6 +255,7 @@ html.dark-mode .preview-next {
   width: 100%;
   display: block;
   object-fit: contain;
+  margin-bottom: 10px;
 }
 
  .work-detail-object-studies .work-image img,
@@ -240,12 +266,25 @@ html.dark-mode .preview-next {
   gap: 20px;
   }
 
-  .work-detail-La-Catena-12 .work-image img,
-  .work-detail-La-Catena-12 .work-image video {
-  display: block;
-  width: 100%;
+.work-detail-La-Catena-12 {
+  display: flex;
+  flex-direction: row;
   height: 100vh;
+  overflow: hidden;
+}
+
+.work-detail-La-Catena-12 .work-image img,
+.work-detail-La-Catena-12 .work-image video {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.work-detail-Lucky-4 .work-image img {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  padding: 0 40px;
   object-fit: contain;
-  margin: 0;
-  border: 1px solid blue;
+  display: inline-block;
 }

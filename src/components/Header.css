@@ -21,24 +21,6 @@
     opacity: 0.2;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 991px) {
-    .rowan-logo {
-      height: 4em;
-    }
-  }
-  
-  @media screen and (min-width: 576px) and (max-width: 767px) {
-    .rowan-logo {
-      height: 4em;
-    }
-  }
-  
-  @media screen and (max-width: 575px) {
-    .rowan-logo {
-      height: 8em;
-    }
-  }
-
   nav {
     display: flex;
     position: absolute;
@@ -47,6 +29,17 @@
     gap: 5rem;
     z-index: 5;
     padding: 35px;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-header {
+      padding: 10px;
+    }
+    
+    nav {
+      padding: 20px;
+      gap: 2rem;
+    }
   }
 
   .nav a {
@@ -75,7 +68,6 @@
   .nav a:hover::after {
     transform: translateX(-50%) scaleX(1);
   }
-
 
 .dropdown {
   position: relative;

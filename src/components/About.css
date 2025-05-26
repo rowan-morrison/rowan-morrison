@@ -1,8 +1,8 @@
 .about-container {
     display: flex;
     flex-direction: column;
-    height: 80vh;
-    width: 80vw;
+    height: auto;
+    width: 100vw;
     background-color: transparent;
     margin: auto;
     align-items: center;
@@ -11,6 +11,7 @@
 
 .about-container h2 {
   text-align: center;
+  padding-top: 1rem;
 }
 
 .about, .socials, .reviews {
@@ -19,13 +20,19 @@
     font-size: 1.1rem;
     line-height: 1.6;
     text-align: center;
-     max-width: 800px;
+    max-width: 800px;
   }
 
   .about {
     flex: 4;
     padding: 2rem;
-    margin-top: 5%;
+    margin-top: 5vh;
+  }
+
+  @media (max-width: 768px) {
+    .about, .socials, .reviews {
+      width: 90vw;
+    }
   }
 
   .about-portrait {
@@ -36,11 +43,11 @@
   
   .about-container h2 {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.3rem;
   }
 
   .socials {
-    height: 50px;
+    height: 40px;
     justify-content: center;
     align-items: center;
   }
@@ -69,7 +76,6 @@
 
   .reviews {
     flex: 3;
-    padding: 2rem;
     display: flex-end;
   }
 
@@ -79,3 +85,9 @@
     align-items: center;
   }
 
+  .about-container p, 
+  .about-container q {
+    padding: 0;
+    min-width: 300px;
+    max-width: 800px;
+  }
