@@ -46,6 +46,10 @@ function Footer() {
     return () => {
       if (el) el.removeEventListener("click", handleClick);
       systemSettingDark.removeEventListener("change", applyDarkMode);
+      
+      document.querySelector('.mode-toggle-button').addEventListener('click', function() {
+      this.classList.toggle('active');
+});
     };
   }, []);
 
@@ -63,9 +67,9 @@ function Footer() {
   return (
     <footer id="footer">
       <p hidden>&copy; 2025 rowan morrison</p>
-      <li className="circle-container">
+      <div className="circle-container">
         <div id="mode-toggle" aria-label="Toggle dark mode">
-          <motion.span
+          <motion.div
             ref={toggleRef}
             className="mode-toggle-button"
             id="light-icon"
@@ -78,7 +82,7 @@ function Footer() {
             }}
           />
         </div>
-      </li>
+      </div>
     </footer>
   );
 }

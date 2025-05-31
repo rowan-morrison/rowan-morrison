@@ -260,22 +260,23 @@ arrow_back
   </div>
 )}
 
-{work.contextImages && (
-  <section className="context-image-grid">
-    <h3 hidden>Context & References</h3>
-    <div className="context-grid">
-      {work.contextImages.map((src, index) => (
-        <img key={index} src={src} alt={`Context ${index + 1}`} className="context-image" />
-      ))}
-    </div>
-  </section>
-)}
 
+    {work.contextImages && (
+      <section className="context-image-grid">
+        <h3 hidden>Context & References</h3>
+        <div className="context-grid">
+          {work.contextImages.map((src, index) => (
+            <img key={index} src={src} alt={`Context ${index + 1}`} className="context-image" />
+          ))}
+        </div>
+      </section>
+    )}
     </motion.section>
 
     <motion.section 
   className="work-image" 
   layoutId={`work-image-${id}-container`}>
+    
 
     <Masonry
          breakpointCols={
@@ -317,8 +318,8 @@ arrow_back
     )}
   </Masonry>
 </motion.section>
-
     </div>
+    
     {previewIndex !== null && (
       <div className="image-preview" onClick={closePreview}>
         <button className="preview-close" onClick={(e) => stopAnd(e, closePreview)}>
@@ -328,6 +329,7 @@ arrow_back
         >
         <img src="/images/arrow-back-icon.svg" alt="back-button"/>
         </button>
+        
   <AnimatePresence mode="wait">
      <motion.div
     key={id}
@@ -337,6 +339,7 @@ arrow_back
     exit={{ opacity: 0 }}
     transition={{ duration: 0.5 }}
   >
+    
   {images[previewIndex]?.endsWith('.mp4') ? (
     <motion.video
       key={previewIndex}
@@ -366,7 +369,9 @@ arrow_back
     />
   )}
   </motion.div>
+  
 </AnimatePresence>
+
 <figcaption>
         {work.previewCaptions?.[previewIndex] || work.caption || `${work.title} – Image ${previewIndex + 1}`}
         </figcaption>

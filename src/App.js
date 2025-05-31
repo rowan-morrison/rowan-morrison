@@ -27,8 +27,8 @@ function App() {
   return (
     <Router>
       <Header />
-      <AnimatedRoutes />
       <Footer />
+      <AnimatedRoutes />
     </Router>
   );
 }

@@ -2,34 +2,54 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: auto;
-  text-align: center;
-  padding: 1rem;
-  z-index: 10;
+  right: 0;
+  margin: 0 5% 5% 0;
+  height: 40px;
+  width: 95%;
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  box-sizing: border-box;
 }
 
 .circle-container {
-	position: fixed; 
-	margin-top: auto;
-	bottom: 0;
-	right: 0;
-	width: 100px;
-	height: 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 2;
+	position: relative; 
+	width: 40px;
+	height: 100%;
+  margin-left: auto;
   }
 
+  #mode-toggle {
+     all: unset;
+  }
+
+.mode-toggle-button::marker {
+  content: none;
+  display: none !important;
+}
+
 .mode-toggle-button {
-        display: block;
-        width: 40px;
-        height: 40px;
-        border: 2px solid var(--black-olive); 
-        border-radius: 50%; 
-        transition: all 0.1s ease; 
-      }
+  list-style: none;
+  display: block;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--black-olive); 
+  border-radius: 50%; 
+  transition: all 0.1s ease; 
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+  box-sizing: border-box;
+  transform-origin: center;
+  content: '';
+}
 
  .mode-toggle-button:hover {
     background-color: var(--black-olive);
@@ -44,9 +64,17 @@ html.dark-mode .mode-toggle-button {
     background-color: var(--seasalt); 
     }
 
-    #footer p {
+.mode-toggle-button.active {
+  background-color: transparent;
+}
+
+html.dark-mode .mode-toggle-button.active {
+  background-color: transparent;
+}
+
+    /*#footer p {
       font-variant: small-caps;
       font-weight: 600;
       letter-spacing: 0.5px;
       color: var(--black-olive);
-    }
+    }*/

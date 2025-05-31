@@ -1,15 +1,19 @@
 .work-detail {
   display: flex;
   flex-direction: row;
-  height: 100vh;
-  width: 100vw;
-  z-index: 5;
-  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  z-index: 1;
+  overflow-y: auto;
+  padding: 0.5rem;
+  align-items: center;
   }
 
   @media screen and (max-width: 575px) {
     .work-detail {
-      overflow-y: auto;
+      margin-top: 20%;
+      flex-direction: column;
+      height: auto;
     }
   }
 
@@ -20,33 +24,64 @@
   }
 
    .work-info {
-    flex: 1;
+    min-width: 33.33vw;
+    position: static;
     padding: 2rem;
-    margin-top: 20%;
-    flex-wrap: wrap;
-    overflow-y: hidden;
+    margin-top: -10rem;
+    background-color: none;
   }
 
     @media screen and (max-width: 575px) {
     .work-info {
-    max-height: 20vh;
-     background-color: none;
-     margin-top: 40px;
-     position: sticky;
+    flex: none;
+    min-width: 100vw;
+    padding: none;
+    margin-top: 1vh;
+    overflow-y: visible;
+    padding-bottom: 0.5rem;
     }
   }
   
+ .work-image {
+  /*flex: 2;*/
+  position: relative;
+  display: block;  
+  cursor: pointer;
+  z-index: 10;
+  overflow: hidden;   
+  height: 100%;
+}
+
+@media screen and (max-width: 575px) {
   .work-image {
-    flex: 2;
-    align-items: center;
-    justify-content: center;
-    overflow-y: auto;
-    display: grid;
-    grid-template-columns: auto auto; 
-    gap: 10px;
-    margin: auto 0;
-    cursor: pointer;
+    flex: none;
+    height: auto;
+    overflow-y: visible;
+    min-width: 100vw;
   }
+}
+
+.work-detail-masonry-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+@media screen and (max-width: 575px) {
+  .work-detail-masonry-grid {
+    margin: 0.15%;
+    min-width: 100%;
+  }
+}
+
+/*.work-detail-masonry-grid_column {
+  background-clip: padding-box;
+  border: 1px solid red;
+}*/
 
   .work-info h1 {
     font-size: 1.7rem;
@@ -176,32 +211,38 @@ html.dark-mode .preview-next {
 }
 
 .coming-soon-tag {
-  position: absolute;
+  position: relative;
   color: inherit;
   text-transform: uppercase;
 }
 
 .context-image-grid {
+  position: relative;
   width: 100%;
   margin-top: 1rem;
   overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 5rem;
+  padding-bottom: 1rem;
+  z-index: -1; 
 }
 
   .context-grid {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
     padding-bottom: 1rem;
-    min-width: 100%;
+    width: max-content;
   }
 
 .context-image {
-  height: auto;
   width: 10vw;
+  max-width: 120px;
+  height: auto;
+  flex-shrink: 0;
   object-fit: cover;
   opacity: 0.85;
   transition: opacity 0.3s ease;
-  flex-shrink: 0;
 }
 
 .context-image:hover {
@@ -225,29 +266,6 @@ html.dark-mode .preview-next {
   max-width: 600px;
   width: 100%;
   margin: 0 auto;
-}
-
-.work-detail-masonry-grid {
-  display: flex;
-  margin-left: -10px;
-  margin-bottom: 10px;
-  width: 100%;
-  top: 8vh;
-  position: relative;
-  flex-wrap: wrap;
-  overflow-y: auto;
-}
-
-@media screen and (max-width: 575px) {
-  .work-detail-masonry-grid {
-    margin-top: -200px;
-    height: 100%;
-  }
-}
-
-.work-detail-masonry-grid_column {
-  padding-left: 10px;
-  background-clip: padding-box;
 }
 
 .work-detail-masonry-grid_column > img,
