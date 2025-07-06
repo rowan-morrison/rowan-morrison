@@ -26,7 +26,7 @@
   .about {
     flex: 4;
     padding: 2rem;
-    margin-top: 5vh;
+    margin-top: 20vh; /* 5vh if portrait visible */
   }
 
   @media (max-width: 768px) {
@@ -39,6 +39,7 @@
     width: 200px;
     height: 200px;
     border: 1px solid black;
+    display: none; /* Hidden for now */
   }
   
   .about-container h2 {
@@ -83,6 +84,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 2vw;
   }
 
   .about-container p, 
@@ -90,4 +92,13 @@
     padding: 0;
     min-width: 300px;
     max-width: 800px;
+  }
+  
+  #nojo-link {
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+  }
+
+    #nojo-link:hover {
+    color: var(--rose-quartz);
   }

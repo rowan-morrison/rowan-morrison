@@ -44,7 +44,10 @@ const workDetails = {
   },
   'Art-of-Wishes': {
     title: 'Carolina Bucci x Art of Wishes',
-    description: "Collateral supporting Carolina Bucci’s collaboration with Art of Wishes, in support of Make-A-Wish UK.\n\nTo donate, visit the Art of Wishes website here. ",
+    descriptionStart: "Collateral supporting Carolina Bucci’s collaboration with Art of Wishes, in support of Make-A-Wish UK®.\n\nTo learn more and support Make-A-Wish UK®, read the full article ",
+    linkText: "here",
+  link: "https://carolinabucci.com/blogs/la-catena/wishful-thinking",
+  descriptionEnd: ".",
     caption: '© 2025 Carolina Bucci Firenze. All rights reserved.',
     image: [ '/images/Art-of-Wishes-1.jpg',
       '/images/Art-of-Wishes-2.jpg',],
@@ -85,7 +88,7 @@ const workDetails = {
 },
   'Memory-Pendants': {
     title: 'Memory Pendants',
-     descriptionStart: "Drawing pendants to forever capture clients’ memories in 18k gold and precious stones. See my animation  ",
+     descriptionStart: "Drawing pendants to capture clients’ memories forever in 18k gold and precious stones. See my animation  ",
   linkText: "here",
   link: "https://carolinabucci.com/products/pineider-lucky-stationery-set",
   descriptionEnd: " by scrolling down.",
@@ -94,21 +97,31 @@ const workDetails = {
       'A pendant with a drawing of a dog.',
       'A pendant with a drawing of a cat.',],
     image: [ '/images/Memory-Pendants-11.mp4',
-      '/images/Memory-Pendants-4.jpg',
+      /*'/images/Memory-Pendants-4.jpg',
       '/images/Memory-Pendants-5.jpg',
       '/images/Memory-Pendants-6.jpg',
       '/images/Memory-Pendants-7.jpg',
       '/images/Memory-Pendants-8.jpg', 
       '/images/Memory-Pendants-9.jpg', 
-      '/images/Memory-Pendants-10.jpg',],
+      '/images/Memory-Pendants-10.jpg',*/
+    '/images/Carolina-Bucci-Memory-Pendant_BLUEBERRY.mp4',
+  '/images/Carolina-Bucci-Memory-Pendant_CABINA.mp4',
+'/images/Carolina-Bucci-Memory-Pendant_VOLCANO.mp4',
+'/images/Carolina-Bucci-Memory-Pendant_LEOPARD.mp4',
+'/images/Carolina-Bucci-Memory-Pendant_CACTUS.mp4',
+'/images/Carolina-Bucci-Memory-Pendant_BULLDOG.mp4',
+'/images/Carolina-Bucci-Memory-Pendant_PINECONE.mp4',],
     contextImages: [
-    '/images/Memory-Pendants-2.jpg',
+    '/images/Memory-Pendants-13.jpg',
     '/images/Memory-Pendants-1.jpg',
       '/images/Memory-Pendants-3.jpg',
+        '/images/Memory-Pendants-11.jpg',
+          '/images/Memory-Pendants-12.jpg',
+          '/images/Memory-Pendants-2.jpg',
   ]
   },
   'Central-23-2': {
-    title: 'Frogs, Dinosaurs, Jungles & Princesses',
+    title: 'Frogs, Dinosaurs,\nJungles & Princesses',
      descriptionStart: "Wrapping paper designs for award-winning packaging brand ",
   linkText: "Central23",
   link: "https://central23.co/en-uk",
@@ -189,6 +202,15 @@ const workDetails = {
   descriptionEnd: ".",
     image: [ '/images/Carolina-Bucci-Multi-Wish-Lucky-Bracelet-Animation_WEB.mp4',],
   },
+     'EveryDay': {
+    title: 'EveryDay Animation',
+  caption: '© 2025 Carolina Bucci Firenze. All rights reserved.',
+     descriptionStart: "An animation to show the personalisable elements of Carolina Bucci's EveryDay Bracelets and Necklaces. See the animation ",
+  linkText: "here",
+  link: "https://carolinabucci.com/collections/everyday/",
+  descriptionEnd: ".",
+    image: [ '/images/Carolina-Bucci-EveryDay-animation_4x5.mp4',],
+  },
 };
 
 function WorkDetail() {
@@ -251,6 +273,7 @@ arrow_back
     target="_blank" 
     rel="noopener noreferrer" 
     style={{ textDecoration: "underline" }}
+    id="link"
   >
     {work.linkText}
   </a>

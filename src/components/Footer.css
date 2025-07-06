@@ -72,9 +72,7 @@ html.dark-mode .mode-toggle-button.active {
   background-color: transparent;
 }
 
-    /*#footer p {
-      font-variant: small-caps;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      color: var(--black-olive);
-    }*/
+#footer p {
+      padding-left: 4vw;
+      font-size: 0.8rem;
+    }

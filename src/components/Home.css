@@ -7,11 +7,19 @@
 
 .home-masonry-grid {
   display: flex;
-  margin-left: -10px; 
   margin-top: 10vh;
   height: 100%;
   width: 100%;
   gap: 10px;
+  padding: 0 2vw;
+}
+
+@media screen and (max-width: 575px) {
+  .home-masonry-grid {
+    margin: auto;
+    width: 100%;
+    padding: 4vh 4vw;
+  }
 }
 
 .home-masonry-grid_column {

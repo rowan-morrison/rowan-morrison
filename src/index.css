@@ -137,11 +137,13 @@ html.dark-mode cite {
 
 h1 {
   font-size: 2rem;
+  line-height: 1em;
 }
 
 h2 {
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
+  line-height: 1.6em;
 }
 
 body {

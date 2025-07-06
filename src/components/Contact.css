@@ -1,12 +1,13 @@
 .contact {
     max-width: 600px;
-    margin: 10vh auto;
+    margin: 5vh auto;
     padding: 2rem;
     text-align: center;
   }
   
   .contact h2 {
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   .pigeon-mail {
@@ -44,11 +45,15 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-align: center;
+    min-width: 20%;
+    margin: auto;
   }
   
-  .contact-form button:hover {
-    color: var(--kelly-green);
-    border-color: var(--kelly-green);
+  .contact-form button:hover,
+  html.dark-mode .contact-form button:hover {
+    color: var(--rose-quartz);
+    border-color: var(--rose-quartz);
   }
   
   html.dark-mode .contact-form input,

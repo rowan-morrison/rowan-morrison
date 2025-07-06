@@ -11,7 +11,7 @@ function About() {
       <h2>About</h2>
       <p>
         Rowan Morrison is a multidisciplinary illustrator and graphic designer based in London, UK.
-        They create expressive visuals and intuitive digital experiences, blending storytelling and technology to create something new.
+        She creates expressive visuals and intuitive digital experiences, blending storytelling and technology to create something new.
       </p>
       <br></br>
       <p>
@@ -30,7 +30,7 @@ function About() {
         <q>Everyone comments on how great the branding is.
           <br></br>
           I’m sure we will work together again.</q>
-      <cite>Simona Deifta, Founder of NOJO</cite>
+      <cite>Simona Deifta, Founder of <a id="nojo-link" rel="noreferrer" href="https://nojolondon.co.uk/" target="_blank">NOJO</a></cite>
       </div>
     </section>
     </div>

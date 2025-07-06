@@ -13,17 +13,18 @@ const breakpointColumnsObj = {
 
 const workItems = [
   { id: 'oracle-cats-concept-02', image: '/images/oracle-cats-concept-02.png' },
+  { id: 'Art-of-Wishes', image: '/images/Art-of-Wishes-2.jpg' },
+   { id: 'Memory-Pendants', image: '/images/Memory-Pendants-11.mp4' },
   { id: 'object-studies', image: '/images/object-studies.png' },
   { id: 'Downtown-rings-tool', image: '/images/Downtown-rings-tool.mp4' },
   { id: 'Animation', image: '/images/Carolina-Bucci-Multi-Wish-Lucky-Bracelet-Animation_WEB.mp4' },
   { id: 'Lucky-4', image: '/images/Lucky-4.jpg' },
-   { id: 'Memory-Pendants', image: '/images/Memory-Pendants-11.mp4' },
   { id: 'Central-23-2', image: '/images/Central-23-2.jpg' },
-  // { id: 'Art-of-Wishes', image: '/images/Art-of-Wishes-1.jpg' },
   { id: 'Archive', image: '/images/Archive-06.gif' },
+  { id: 'EveryDay', image: '/images/Carolina-Bucci-EveryDay-animation_4x5.mp4' },
   { id: 'La-Catena-12', image: '/images/La-Catena-12.jpg' },
-  { id: 'open-source', image: '/images/open-source-1.gif' },
-  //{ id: 'Macro', image: '/images/Macro-2.jpg' },
+  //{ id: 'open-source', image: '/images/open-source-1.gif' },
+  { id: 'Macro', image: '/images/Macro-2.jpg' },
 ];
 
 function Home() {
