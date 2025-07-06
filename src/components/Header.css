@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     margin: auto;
-    z-index: 999;
+    z-index: 800;
     padding: 20px;
   }
   
@@ -18,18 +18,14 @@
     transition: opacity 0.5 ease, transform 0.5 ease;
   }
 
-  html.dark-mode .rowan-logo {
-    opacity: 0.2;
-  }
-
   nav {
     display: flex;
     position: absolute;
     top: 0;
     right: 0;
-    gap: 5rem;
+    gap: 3rem;
     z-index: 5;
-    padding: 35px;
+    padding: 4.2vh 3vw;
   }
 
   @media (max-width: 768px) {
@@ -38,7 +34,7 @@
     }
     
     nav {
-      padding: 20px;
+      padding: 1.2rem 1.6rem;
       gap: 2rem;
     }
   }
@@ -47,8 +43,6 @@
     position: relative;
     display: inline-block;
     text-decoration: none;
-    /*font-variant: small-caps;*/
-    /*letter-spacing: 0.1em;*/
     font-weight: 200;
     color: inherit;
   }
@@ -64,6 +58,10 @@
     height: 1px;
     background-color: black;
     transition: transform 0.3s ease;
+  }
+
+   html.dark-mode .nav a::after {
+    background-color: white;
   }
   
   .nav a:hover::after {

@@ -10,12 +10,12 @@ function About() {
         <img src="/images/website-portrait.jpeg" className="about-portrait" alt="portrait of Rowan Morrison"></img>
       <h2>About</h2>
       <p>
-        I’m Rowan Morrison, a multidisciplinary illustrator and graphic designer based in London.
-        I create expressive visuals and intuitive digital experiences, blending storytelling and technology to create something new.
+        Rowan Morrison is a multidisciplinary illustrator and graphic designer based in London, UK.
+        They create expressive visuals and intuitive digital experiences, blending storytelling and technology to create something new.
       </p>
       <br></br>
       <p>
-        With a background in both graphic design and front-end development, I enjoy working across disciplines to bring ideas to life.
+        With a background in both graphic design and front-end development, Rowan enjoys working across disciplines to bring ideas to life.
       </p>
     </section>
     <section className="socials">
@@ -27,7 +27,9 @@ function About() {
     <section className="reviews">
         <h2>Accolades</h2>
         <div className="quote-block">
-        <q>Everyone comments on how great the branding is. I’m sure we will work together again.</q>
+        <q>Everyone comments on how great the branding is.
+          <br></br>
+          I’m sure we will work together again.</q>
       <cite>Simona Deifta, Founder of NOJO</cite>
       </div>
     </section>

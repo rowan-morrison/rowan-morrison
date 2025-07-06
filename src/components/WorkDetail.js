@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import './WorkDetail.css';
@@ -199,6 +199,18 @@ function WorkDetail() {
 
   const [previewIndex, setPreviewIndex] = useState(null);
 
+  const scrollRef = useRef();
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el && el.scrollWidth > el.clientWidth) {
+      setIsOverflowing(true);
+    } else {
+      setIsOverflowing(false);
+    }
+  }, [work?.contextImages]);
+
   const stopAnd = (e, action) => {
     e.stopPropagation();
     action();
@@ -260,14 +272,33 @@ arrow_back
   </div>
 )}
 
-
     {work.contextImages && (
-      <section className="context-image-grid">
-        <h3 hidden>Context & References</h3>
-        <div className="context-grid">
-          {work.contextImages.map((src, index) => (
-            <img key={index} src={src} alt={`Context ${index + 1}`} className="context-image" />
-          ))}
+      <section className="context-image-wrapper">
+        {isOverflowing && (
+          <>
+            <button
+              className="scroll-arrow left"
+              onClick={() => scrollRef.current.scrollBy({ left: -100, behavior: 'smooth' })}
+            >
+                            <img src="/images/arrow-back-icon.svg" alt="Scroll left" />
+              <span className="visually-hidden"></span>
+            </button>
+            <button
+              className="scroll-arrow right"
+              onClick={() => scrollRef.current.scrollBy({ left: 100, behavior: 'smooth' })}
+            >
+              <img src="/images/arrow-forward-icon.svg" alt="Scroll right" />
+              <span className="visually-hidden"></span>
+            </button>
+          </>
+        )}
+        <div className="context-image-grid" ref={scrollRef}>
+          <h3 hidden>Context & References</h3>
+          <div className="context-grid">
+            {work.contextImages.map((src, index) => (
+              <img key={index} src={src} alt={`Context ${index + 1}`} className="context-image" />
+            ))}
+          </div>
         </div>
       </section>
     )}
@@ -322,62 +353,64 @@ arrow_back
     
     {previewIndex !== null && (
       <div className="image-preview" onClick={closePreview}>
-        <button className="preview-close" onClick={(e) => stopAnd(e, closePreview)}>
-          <img src="/images/close-icon.svg" alt="close-button"/>
-        </button>
-        <button className="preview-prev" onClick={(e) => stopAnd(e, handlePrev)} disabled={previewIndex === 0}
-        >
-        <img src="/images/arrow-back-icon.svg" alt="back-button"/>
-        </button>
-        
-  <AnimatePresence mode="wait">
-     <motion.div
-    key={id}
-    className={`work-detail work-detail-${id}`}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    
-  {images[previewIndex]?.endsWith('.mp4') ? (
-    <motion.video
-      key={previewIndex}
-      className="preview-artwork"
-      src={images[previewIndex]}
-      autoPlay
-      loop
-      muted
-      playsInline
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      onClick={(e) => e.stopPropagation()}
-    />
-  ) : (
-    <motion.img
-      key={previewIndex}
-      className="preview-artwork"
-      src={images[previewIndex]}
-      alt={`Preview ${previewIndex + 1}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      onClick={(e) => e.stopPropagation()}
-    />
-  )}
-  </motion.div>
-  
-</AnimatePresence>
+        <div className="preview-content">
+          
+          <button className="preview-close" onClick={(e) => { e.stopPropagation(); setPreviewIndex(null); }}>
+            <img src="/images/close-icon.svg" alt="close-button" />
+          </button>
 
-<figcaption>
-        {work.previewCaptions?.[previewIndex] || work.caption || `${work.title} – Image ${previewIndex + 1}`}
-        </figcaption>
-        <button className="preview-next" onClick={(e) => stopAnd(e, handleNext)} disabled={previewIndex === images.length - 1}>
-        <img src="/images/arrow-forward-icon.svg" alt="next-button"/>
-        </button>
+          <button
+            className="preview-prev"
+            onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+            disabled={previewIndex === 0}
+          >
+            <img src="/images/arrow-back-icon.svg" alt="back-button" />
+          </button>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={id}
+              className={`work-detail work-detail-${id}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {images[previewIndex]?.endsWith(".mp4") ? (
+                <motion.video
+                  key={previewIndex}
+                  className="preview-artwork"
+                  src={images[previewIndex]}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              ) : (
+                <motion.img
+                  key={previewIndex}
+                  className="preview-artwork"
+                  src={images[previewIndex]}
+                  alt={`Preview ${previewIndex + 1}`}
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
+
+          <figcaption>
+            {work.previewCaptions?.[previewIndex] ||
+              work.caption ||
+              `${work.title} – Image ${previewIndex + 1}`}
+          </figcaption>
+
+          <button
+            className="preview-next"
+            onClick={(e) => { e.stopPropagation(); handleNext(); }}
+            disabled={previewIndex === images.length - 1}
+          >
+            <img src="/images/arrow-forward-icon.svg" alt="next-button" />
+          </button>
+        </div>
       </div>
     )}
     </>

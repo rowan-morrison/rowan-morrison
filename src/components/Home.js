@@ -30,8 +30,8 @@ function Home() {
   return (
     <Masonry
   breakpointCols={breakpointColumnsObj}
-  className="my-masonry-grid"
-  columnClassName="my-masonry-grid_column"
+  className="home-masonry-grid"
+  columnClassName="home-masonry-grid_column"
 >
       {workItems.map(item => (
         <motion.div 

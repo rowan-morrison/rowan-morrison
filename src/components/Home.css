@@ -5,7 +5,7 @@
   overflow-y: auto;
 }
 
-.my-masonry-grid {
+.home-masonry-grid {
   display: flex;
   margin-left: -10px; 
   margin-top: 10vh;
@@ -14,16 +14,16 @@
   gap: 10px;
 }
 
-.my-masonry-grid_column {
-  padding-left: 10px;
+.home-masonry-grid_column {
+  padding-left: 0px;
   background-clip: padding-box;
 }
 
-.my-masonry-grid_column > .grid-item {
+.home-masonry-grid_column > .grid-item {
   margin-bottom: 10px;
 }
 
-.grid-item {
+.home-masonry-grid_column .grid-item {
   position: relative;
   width: 100%;
   cursor: pointer;
@@ -32,11 +32,12 @@
   overflow: hidden;
 }
 
-.grid-image, .grid-video {
+.grid-image,
+.grid-video {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .grid-item p {
