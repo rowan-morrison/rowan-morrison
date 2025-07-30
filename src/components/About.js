@@ -20,6 +20,7 @@ function About() {
       <br></br>
       <p>
        Her work has been exhibited in the <a id="link" rel="noreferrer" href="https://www.kabk.nl/en" target="_blank">Royal Academy of Art</a> (KABK), The Hague.
+       Her illustration has been featured in <a id="link" rel="noreferrer" href="https://maxibestof.one/websites/47177-carolina-bucci" target="_blank">MaxiBestOf</a>.
       </p>
     </section>
     <section className="socials">
