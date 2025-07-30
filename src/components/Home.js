@@ -14,7 +14,8 @@ const breakpointColumnsObj = {
 const workItems = [
   { id: 'oracle-cats-concept-02', image: '/images/oracle-cats-concept-02.png' },
   { id: 'Art-of-Wishes', image: '/images/Art-of-Wishes-2.jpg' },
-   { id: 'Memory-Pendants', image: '/images/Memory-Pendants-11.mp4' },
+  { id: 'Mojo-Stickers', image: '/images/Mojo-Stickers_WEB1.jpg' },
+  { id: 'Memory-Pendants', image: '/images/Memory-Pendants-11.mp4' },
   { id: 'object-studies', image: '/images/object-studies.png' },
   { id: 'Downtown-rings-tool', image: '/images/Downtown-rings-tool.mp4' },
   { id: 'Animation', image: '/images/Carolina-Bucci-Multi-Wish-Lucky-Bracelet-Animation_WEB.mp4' },
@@ -24,7 +25,7 @@ const workItems = [
   { id: 'EveryDay', image: '/images/Carolina-Bucci-EveryDay-animation_4x5.mp4' },
   { id: 'La-Catena-12', image: '/images/La-Catena-12.jpg' },
   //{ id: 'open-source', image: '/images/open-source-1.gif' },
-  { id: 'Macro', image: '/images/Macro-2.jpg' },
+  //{ id: 'Macro', image: '/images/Macro-2.jpg' },
 ];
 
 function Home() {

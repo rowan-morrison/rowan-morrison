@@ -136,13 +136,16 @@ html.dark-mode cite {
 }
 
 h1 {
+  font-family: 'EB Garamond', sans-serif;
   font-size: 2rem;
   line-height: 1em;
 }
 
 h2 {
+  font-family: 'EB Garamond', sans-serif;
+  font-weight: 400;
   font-size: 1.4rem;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.025rem;
   line-height: 1.6em;
 }
 
@@ -161,6 +164,7 @@ q {
   font-weight: 500;
   margin-bottom: 0.5em;
   text-align: center;
+  line-height: 1.2em;
 }
 
 cite {
@@ -183,10 +187,18 @@ cite {
       }
 
       q {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
       }
 
       cite {
         font-size: 0.75rem;
       }
   }
+
+@media screen and (min-width: 600px) and (max-width: 905px) {
+      q {
+        font-size: 1.3rem;
+      }
+}
+
+

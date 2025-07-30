@@ -19,6 +19,7 @@ function Contact() {
     <section className="contact">
         <img src="/images/pigeon-mail.gif" className="pigeon-mail" alt="pigeon-mail"></img>
       <h2>Contact</h2>
+      <p>If you have any questions, or would like to discuss a project, please feel free to reach out.</p>
       <form 
   action="https://formspree.io/f/meogokpw" 
   method="POST" 

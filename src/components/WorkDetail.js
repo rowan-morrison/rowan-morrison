@@ -196,7 +196,7 @@ const workDetails = {
    'Animation': {
     title: 'Multi-Wish Lucky Bracelet Animation',
   caption: '© 2025 Carolina Bucci Firenze. All rights reserved.',
-     descriptionStart: "An animation to show the components of Carolina Bucci's Multi-Wish Lucky Bracelet. See the animation ",
+     descriptionStart: "An anximation to show the components of Carolina Bucci's Multi-Wish Lucky Bracelet. See the animation ",
   linkText: "here",
   link: "https://carolinabucci.com/products/bespoke-multi-wish-lucky-bracelet/",
   descriptionEnd: ".",
@@ -210,6 +210,14 @@ const workDetails = {
   link: "https://carolinabucci.com/collections/everyday/",
   descriptionEnd: ".",
     image: [ '/images/Carolina-Bucci-EveryDay-animation_4x5.mp4',],
+  },
+       'Mojo-Stickers': {
+    title: 'Mojo Stickers',
+    descriptionStart: "",
+    image: [ '/images/Mojo-Stickers_WEB1.jpg',
+      '/images/Mojo-Stickers_WEB2.jpg',
+      '/images/Mojo-Stickers_WEB3.jpg',
+    ],
   },
 };
 

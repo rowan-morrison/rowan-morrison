@@ -11,11 +11,15 @@ function About() {
       <h2>About</h2>
       <p>
         Rowan Morrison is a multidisciplinary illustrator and graphic designer based in London, UK.
-        She creates expressive visuals and intuitive digital experiences, blending storytelling and technology to create something new.
+        She creates expressive visuals and intuitive digital experiences, blending storytelling and technology to create new ideas.
       </p>
       <br></br>
       <p>
         With a background in both graphic design and front-end development, Rowan enjoys working across disciplines to bring ideas to life.
+      </p>
+      <br></br>
+      <p>
+       Her work has been exhibited in the <a id="link" rel="noreferrer" href="https://www.kabk.nl/en" target="_blank">Royal Academy of Art</a> (KABK), The Hague.
       </p>
     </section>
     <section className="socials">
@@ -30,7 +34,7 @@ function About() {
         <q>Everyone comments on how great the branding is.
           <br></br>
           I’m sure we will work together again.</q>
-      <cite>Simona Deifta, Founder of <a id="nojo-link" rel="noreferrer" href="https://nojolondon.co.uk/" target="_blank">NOJO</a></cite>
+      <cite>Simona Deifta, Founder of <a id="link" rel="noreferrer" href="https://nojolondon.co.uk/" target="_blank">NOJO</a></cite>
       </div>
     </section>
     </div>

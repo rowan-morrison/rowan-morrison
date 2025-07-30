@@ -1,12 +1,12 @@
 .about-container {
     display: flex;
     flex-direction: column;
-    height: auto;
-    width: 100vw;
+    max-width: 600px;
     background-color: transparent;
-    margin: auto;
+    margin: 5vh auto;
     align-items: center;
     justify-content: center;
+    padding: 2rem;
 }
 
 .about-container h2 {
@@ -15,24 +15,15 @@
 }
 
 .about, .socials, .reviews {
-    width: 60vw;
     margin: auto;
     font-size: 1.1rem;
     line-height: 1.6;
     text-align: center;
-    max-width: 800px;
   }
 
   .about {
     flex: 4;
-    padding: 2rem;
     margin-top: 20vh; /* 5vh if portrait visible */
-  }
-
-  @media (max-width: 768px) {
-    .about, .socials, .reviews {
-      width: 90vw;
-    }
   }
 
   .about-portrait {
@@ -55,9 +46,10 @@
   .socials-grid {
     display: flex;
     justify-content: center; 
-    gap: 1.5rem;        
+    gap: 1.3rem;        
     width: 100%;
-    height: 100%;             
+    height: 100%;  
+    padding-top: 2rem;         
   }
 
   .socials-grid a {
@@ -77,6 +69,7 @@
   .reviews {
     flex: 3;
     display: flex-end;
+    padding-top: 2rem; 
   }
 
   .quote-block {
@@ -93,12 +86,12 @@
     min-width: 300px;
     max-width: 800px;
   }
-  
-  #nojo-link {
+
+  #link {
     text-decoration: underline;
     transition: all 0.2s ease-in-out;
   }
 
-    #nojo-link:hover {
+    #link:hover {
     color: var(--rose-quartz);
   }
