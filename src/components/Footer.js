@@ -66,7 +66,7 @@ function Footer() {
 
   return (
     <footer id="footer">
-      <p>Portfolio site coded by Rowan Morrison</p>
+      <p>Designed and coded by Rowan Morrison</p>
       <div className="circle-container">
         <div id="mode-toggle" aria-label="Toggle dark mode">
           <motion.div
