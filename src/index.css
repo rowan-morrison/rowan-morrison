@@ -90,7 +90,7 @@ html.dark-mode cite {
 
 @font-face {
   font-family: 'EB Garamond';
-  src: url('/public/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
+  src: url('/fonts/EBGaramond-VariableFont_wght.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -99,7 +99,7 @@ html.dark-mode cite {
 
 @font-face {
   font-family: 'EB Garamond Italic';
-  src: url('/public/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+  src: url('/fonts/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -108,7 +108,7 @@ html.dark-mode cite {
 
 @font-face {
   font-family: 'Readex Pro';
-  src: url('/public/fonts/ReadexPro-VariableFont_HEXP,wght.ttf') format('truetype');
+  src: url('/fonts/ReadexPro-VariableFont_HEXP,wght.ttf') format('truetype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -118,7 +118,7 @@ html.dark-mode cite {
 
 @font-face {
   font-family: 'Didact Gothic';
-  src: url('/public/fonts/DidactGothic-Regular.ttf') format('truetype');
+  src: url('/fonts/DidactGothic-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -128,7 +128,7 @@ html.dark-mode cite {
 
 @font-face {
   font-family: 'Figtree';
-  src: url('/public/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+  src: url('/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
