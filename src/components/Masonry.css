@@ -1,0 +1,94 @@
+#personal-work,
+#carolina-bucci-work {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.home-masonry-grid {
+  display: block;
+  height: 100%;
+  padding: 15vh 2vw 0;
+  max-width: 100%;
+  overflow-y: auto;
+  background-clip: padding-box;
+}
+
+.home-masonry-grid_column {
+  display: inline-block;
+  vertical-align: top;
+  background-clip: padding-box;
+  padding-left: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .home-masonry-grid {
+    margin: auto;
+    width: 100%;
+    padding: 4vh 4vw;
+  }
+}
+
+.motion-wrapper,
+.grid-image-wrapper {
+width: 100%;
+box-sizing: border-box;
+display: block;
+overflow: hidden;
+}
+
+.home-masonry-grid_column > .grid-item {
+  margin-bottom: 10px;
+}
+
+.grid-image,
+.grid-video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.grid-item {
+  max-width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+}
+
+.grid-item p {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.grid-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/images/Natural-Paper-Bright.jpg') center center / cover no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+  animation: grainFlicker 2s infinite ease-in-out;
+  display: none;
+}
+@keyframes grainFlicker {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.12; }
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+  

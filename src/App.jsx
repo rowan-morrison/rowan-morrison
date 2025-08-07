@@ -7,6 +7,8 @@ import Home from './components/Home';
 import WorkDetail from './components/WorkDetail';
 import About from './components/About';
 import Contact from './components/Contact';
+import CarolinaBucci from './components/CarolinaBucci';
+import Personal from './components/Personal';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -15,6 +17,8 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
+        <Route path="/carolina-bucci" element={<CarolinaBucci />} />
+        <Route path="/personal" element={<Personal />} />
         <Route path="/work/:id" element={<WorkDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

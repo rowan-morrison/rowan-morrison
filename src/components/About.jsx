@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 import './About.css';
 
 function About() {
@@ -19,14 +19,14 @@ function About() {
       </p>
       <br></br>
       <p>
-       Her work has been exhibited in the <a id="link" rel="noreferrer" href="https://www.kabk.nl/en" target="_blank">Royal Academy of Art</a> (KABK), The Hague.
-       Her illustration has been featured in <a id="link" rel="noreferrer" href="https://maxibestof.one/websites/47177-carolina-bucci" target="_blank">MaxiBestOf</a>.
+       Her work has been exhibited in the <a id="link" rel="noreferrer" href="https://www.kabk.nl/en" target="_blank">Royal Academy of Art</a> (KABK), The Hague, and also featured in <a id="link" rel="noreferrer" href="https://maxibestof.one/websites/47177-carolina-bucci" target="_blank">MaxiBestOf</a>.
       </p>
     </section>
     <section className="socials">
         <div className="socials-grid">
         <a rel="noreferrer" href="https://instagram.com/rowanmorrisons/" target="_blank" hidden><FaInstagram  size={32}/></a>
         <a rel="noreferrer" href="https://linkedin.com/rowanmorrison/" target="_blank"><FaLinkedin  size={32}/></a>
+         <a rel="noreferrer" href="https://github.com/rowan-morrison/rowan-morrison/" target="_blank"><FaGithub size={32}/></a>
         </div>
     </section>
     <section className="reviews">

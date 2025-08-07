@@ -265,9 +265,10 @@ function WorkDetail() {
     <div className={`work-detail work-detail-${id}`}>
     <motion.section
       className="work-info"
-      initial={{ opacity: 0, x: -30 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.3 }}
+      initial={{ opacity: 0, scale: 0.98, filter: 'blur(2px)' }}
+      animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+      exit={{ opacity: 0, scale: 0.98, filter: 'blur(2px)' }}
+      transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
   >
         <button onClick={() => navigate(-1)} className="close-btn">
           <span className="material-symbols-outlined">
@@ -337,9 +338,12 @@ arrow_back
 
     <motion.section 
   className="work-image" 
-  layoutId={`work-image-${id}-container`}>
-    
-
+  layoutId={`work-image-${id}-container`}
+   initial={{ opacity: 0, scale: 0.98, filter: 'blur(2px)' }}
+  animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+  exit={{ opacity: 0, scale: 0.98, filter: 'blur(2px)' }}
+  transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+  >
     <Masonry
          breakpointCols={
         id === 'La-Catena-12'

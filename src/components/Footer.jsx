@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './Footer.css';
 import { motion } from 'framer-motion';
+import { FaGithub } from 'react-icons/fa';
 
 function Footer() {
   const toggleRef = useRef();
@@ -66,7 +67,18 @@ function Footer() {
 
   return (
     <footer id="footer">
-      <p>Designed and coded by Rowan Morrison</p>
+      {/* <a rel="noreferrer" href="https://github.com/rowan-morrison/" target="_blank" alt="GitHub Invertocat logo"><FaGithub size={14}/></a> */}
+      <p>Designed and coded by Rowan Morrison — view on <a
+  rel="noreferrer"
+  href="https://github.com/rowan-morrison/rowan-morrison/"
+  target="_blank"
+>
+  <img
+    src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png"
+    alt="GitHub wordmark"
+    style={{ height: '9px', verticalAlign: 'middle', transform: 'translateY(-1.5px)' }}
+  />
+</a></p>
       <div className="circle-container">
         <div id="mode-toggle" aria-label="Toggle dark mode">
           <motion.div
