@@ -22,57 +22,59 @@ const workItems = [
 ];
 
 function CarolinaBucci() {
-  return (
-      <div id="carolina-bucci-work">
+ return (
+    <div id="carolina-bucci-work">
     <Masonry
   breakpointCols={breakpointColumnsObj}
   className="home-masonry-grid"
   columnClassName="home-masonry-grid_column"
 >
-    {workItems && workItems.length > 0 && (
-    <AnimatePresence mode="sync">
-      {workItems.map(item => (
-        <motion.div 
-        key={item.id} 
-        className="grid-item"
-        initial={{ opacity: 0, scale: 0.98, filter: 'blur(2px)' }}
-        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-        exit={{ opacity: 0, scale: 0.98, filter: 'blur(2px)' }}
-        transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+  {workItems.map(item => (
+    <div className="grid-item" key={item.id}>
+      <AnimatePresence mode="sync">
+        <motion.div
+          className="motion-wrapper"
+          initial={{ opacity: 0, scale: 0.98, filter: 'blur(2px)' }}
+          animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+          exit={{ opacity: 0, scale: 0.98, filter: 'blur(2px)' }}
+          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
         >
           <Link to={`/work/${item.id}`}>
-          <motion.div 
-          layoutId={`work-image-${item.id}-container`} 
-          className="grid-image-wrapper">
-      {item.image.endsWith('.mp4') ? (
-    <motion.video
-      layoutId={`work-image-${item.id}`}
-      src={item.image}
-      alt={item.title}
-      preload="auto"
-      playsInline
-      controls={false}
-      disablePictureInPicture
-      autoPlay
-      muted
-      loop
-      className="grid-video"
-    />
-  ) : (
-    <motion.img
-      layoutId={`work-image-${item.id}`}
-      src={item.image}
-      alt={item.title}
-      className="grid-image"
-    />
-  )}
-  </motion.div>
+            <motion.div
+              layoutId={`work-image-${item.id}-container`}
+              className="grid-image-wrapper"
+            >
+              {item.image.endsWith('.mp4') ? (
+                <motion.video
+                  layout
+                  layoutId={`work-image-${item.id}`}
+                  src={item.image}
+                  alt={item.title}
+                  preload="auto"
+                  playsInline
+                  controls={false}
+                  disablePictureInPicture
+                  autoPlay
+                  muted
+                  loop
+                  className="grid-video"
+                />
+              ) : (
+                <motion.img
+                  layout
+                  layoutId={`work-image-${item.id}`}
+                  src={item.image}
+                  alt={item.title}
+                  className="grid-image"
+                />
+              )}
+            </motion.div>
           </Link>
         </motion.div>
-      ))}
       </AnimatePresence>
-      )}
-    </Masonry>
+    </div>
+  ))}
+</Masonry>
     </div>
   );
 }

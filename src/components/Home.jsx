@@ -13,11 +13,12 @@ function Home() {
           animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
         >
+          <div className="home-image-wrapper">
         <img
           src="/images/Lucky-8.jpg"
           alt="Carolina Bucci"
           className="home-large-image"
-        />
+        /></div>
         <div className="home-image-label">Carolina Bucci</div>
       </motion.div>
       </Link>
@@ -27,11 +28,13 @@ function Home() {
           animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
         >
-        <img
-          src="/images/Mojo-Stickers_WEB1.jpg"
-          alt="Personal"
-          className="home-large-image"
-        />
+          <div className="home-image-wrapper">
+            <img
+              src="/images/Mojo-Stickers_WEB1.jpg"
+              alt="Personal"
+              className="home-large-image"
+            />
+          </div>
         <div className="home-image-label">Personal</div>
        </motion.div>
        </Link>
