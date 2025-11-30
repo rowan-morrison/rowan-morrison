@@ -43,12 +43,14 @@ type WorkCategory = (typeof validCategories)[number];
     }
   }
 
-const filteredProjects = projects.filter(
-  (p) =>
-    safeCategory
-      ? p.categories?.map((cat) => cat.toLowerCase()).includes(safeCategory.toLowerCase())
-      : true
-);
+const filteredProjects = projects
+  .filter((p) => {
+    if (safeCategory) {
+      return p.categories?.some(cat => cat.toLowerCase() === safeCategory.toLowerCase());
+    }
+    return p.collection.toLowerCase() === safeCollection.toLowerCase();
+  })
+  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0)); // manual order
 
 const formatCategory = (slug: string) =>
   slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());

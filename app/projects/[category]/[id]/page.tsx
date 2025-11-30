@@ -75,6 +75,7 @@ const workDetails: Record<string, Work> = {
       "/images/archive-16.jpg",
       "/images/archive-17.jpg",
       "/images/wes-1.jpg",
+            "/images/archive-06.mp4",
     ],
                imageCaption: [
       "Pickle study",
@@ -90,6 +91,7 @@ const workDetails: Record<string, Work> = {
       "Archive 15",
       "Archive 16",
       "Archive 17",
+      "Portrait study",
       "Portrait study",
     ],
   },
@@ -288,7 +290,7 @@ const workDetails: Record<string, Work> = {
      A series of illustrations that depict characters from Vivienne Westwood’s Activist play wearing sustainable fashion from independent designers
      </>),
    skills: ["Illustration"],
-    images: ["/images/macro-1.gif",
+    images: [
       "/images/macro-02.jpg",
       "/images/macro-03.jpg",
       "/images/macro-04.jpg",
@@ -296,7 +298,7 @@ const workDetails: Record<string, Work> = {
       "/images/macro-06.jpg",
       "/images/macro-07.jpg",
       "/images/macro-08.jpg",
-      "/images/macro-09.gif",
+
     ],
                imageCaption: [
       "Editorial design of La Catena Issue 3",
@@ -376,11 +378,11 @@ const workDetails: Record<string, Work> = {
   description: (<>
   <a href="https://www.open-collab.org/" target="_blank" rel="noopener noreferrer" className="hyperlink">Open Collab</a> is a platform created to facilitate remote collaboration between creators. Participants respond to a predetermined subject by creating texts or images. Once submitted to the platform, individual content is randomly combined into an endless stream of aleatoric compositions.
     </>),
-    images: [ "/images/open-collab-1.gif",
-      "/images/open-collab-2.gif",
-    "/images/open-collab-3.gif",
-  "/images/open-collab-4.gif",
-"/images/open-collab-5.gif",],
+    images: [ "/images/open-collab-01.mp4",
+      "/images/open-collab-02.mp4",
+    "/images/open-collab-03.mp4",
+  "/images/open-collab-04.mp4",
+"/images/open-collab-05.mp4",],
            imageCaption: [
       "Digital illustration",
       "Graphic illustration",
@@ -436,60 +438,6 @@ export default function ProjectPage() {
   // const dragScrollRef = useRef<HTMLDivElement | null>(null);
     const images = Array.isArray(work.images) ? work.images : work.images ? [work.images] : [];
   const renderCaption = (caption?: string | ReactElement) => caption ?? "";
-
-//   const isDragging = useRef(false);
-// const startX = useRef(0);
-// const scrollLeftStart = useRef(0);
-
-// const mouseDownHandler = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-//   const el = dragScrollRef.current;
-//   if (!el) return;
-//   isDragging.current = true;
-//   const pageX = "touches" in e ? e.touches?.[0]?.pageX ?? 0 : (e as React.MouseEvent<HTMLDivElement>).pageX;
-//   startX.current = pageX - el.offsetLeft;
-//   scrollLeftStart.current = el.scrollLeft;
-//   el.classList.add("active");
-// };
-
-// const endDrag = () => {
-//   isDragging.current = false;
-//   const el = dragScrollRef.current;
-//   if (el) el.classList.remove("active");
-// };
-
-// const mouseMoveHandler = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-//   if (!isDragging.current) return;
-//   if ("touches" in e) return; 
-//   const el = dragScrollRef.current;
-//   if (!el) return;
-// const pageX = (() => {
-//   if ("touches" in e) {
-//   const touchEvent = e as unknown as React.TouchEvent<HTMLDivElement>;
-//   return touchEvent.touches?.[0]?.pageX ?? 0;
-// }
-//   const mouseEvent = e as React.MouseEvent<HTMLDivElement>;
-//   return mouseEvent.pageX;
-// })();
-//   const walk = (pageX - startX.current) * 2;
-//   el.scrollLeft = scrollLeftStart.current - walk;
-// };
-
-// useEffect(() => {
-//   const el = dragScrollRef.current;
-//   if (!el) return;
-
-//   const checkOverflow = () => setIsOverflowing(el.scrollWidth > el.clientWidth);
-//   checkOverflow();
-
-//   const handleResize = () => setIsMobile(window.innerWidth <= 768);
-//   window.addEventListener("resize", handleResize);
-//   el.addEventListener("scroll", checkOverflow);
-
-//   return () => {
-//     window.removeEventListener("resize", handleResize);
-//     el.removeEventListener("scroll", checkOverflow);
-//   };
-// }, []);
 
 if (!mounted) return null;
 if (!work) return <div className={styles.notFound}>Work not found.</div>;

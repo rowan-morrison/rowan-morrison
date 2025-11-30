@@ -17,6 +17,7 @@ export interface Project {
 collection: WorkCollection;
   categories: WorkCategory[];
   isVideo?: boolean;
+  order?: number;
 }
 
 export interface MasonryGridProps {
