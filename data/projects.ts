@@ -18,3 +18,4 @@ export const projects: Project[] = [
     { id: "la-catena", title: "La Catena", images: ["/images/la-catena-mockup-01.jpg"], collection: "professional", categories: ["editorial-design"], order: 9 },
     { id: "lucky", title: "Lucky Icons", images: ["/images/lucky-04.jpg"], collection: "professional", categories: ["print-design"], order: 10 },
   ];
+  
