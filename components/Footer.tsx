@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 export default function Footer() {
   const { setTheme, resolvedTheme } = useTheme();
@@ -42,10 +43,30 @@ useEffect(() => {
   };
 
   return (
-    <footer
-      suppressHydrationWarning
-      className="fixed bottom-0 left-0 -translate-x-5 translate-y-2 w-full z-50 text-current py-4 px-6 flex items-center"
-    >
+  <footer
+  suppressHydrationWarning
+  className="w-full z-50 text-current py-4 px-1 flex flex-col items-center"
+>
+   <section className="footer-container w-full box-border mx-auto p-[var(--container-side-space)]">
+    <p className="mb-1 font-bodySmall text-bodySmall italic">
+      Send me a message
+    </p>
+    <p className="mb-4 font-bodySmall text-bodySmall">
+      If you would like to get in touch, please do and I’ll be happy to hear from you.
+    </p>
+  <div className="footer-logo relative w-[80vw] h-auto aspect-[180/110]">
+                <Image
+                  src={resolvedTheme === "dark" ? "/images/rowan-morrison-logo-white-v2.png" : "/images/rowan-morrison-logo-black-v2.png"}
+                  alt="Rowan Morrison Logo"
+                    fill
+    style={{ objectFit: "contain" }}
+    className="w-full h-auto"
+    sizes="90vw"
+    loading="eager"
+                /></div>
+      <p className="copyright-notice font-bodySmall text-bodySmall">&copy; 2025 Rowan Morrison. All rights reserved.</p>
+      </section>
+
       <button hidden onClick={handleToggle} className="relative w-20 h-20">
         <video ref={videoRef} muted playsInline preload="auto" className="w-full h-full" src={initialSrc} />
       </button>

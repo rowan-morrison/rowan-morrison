@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen font-body bg-isabelline dark:bg-richBlack transition-colors duration-300 text-licorice dark:text-isabelline transition ease-in-out">
+      <body className="flex flex-col min-h-screen font-body bg-white dark:bg-black transition-colors duration-300 text-black dark:text-white transition ease-in-out">
         <Providers >
           <Header />
           <ScrollToTop />

@@ -44,7 +44,7 @@ module.exports = {
   // Body
   bodyLarge: ["1rem", { lineHeight: "1.5rem", letterSpacing: "0.03125rem" }],       // 16px
   bodyMedium: ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0.015625rem" }],// 14px
-  bodySmall: ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.025rem" }],        // 12px
+  bodySmall: ["0.75rem", { lineHeight: "1.25rem", letterSpacing: "0.02rem" }],        // 12px
 
   // Caption / Overline
   caption: ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.025rem" }],          // 12px

@@ -7,7 +7,7 @@ export default function About() {
   return (
     <>
       <div className="max-w-4xl mx-auto px-6 py-12 mt-10 flex flex-col gap-12 text-current">
-        <section className="flex flex-col items-center text-left gap-6">
+        <section className="flex flex-col items-center text-center gap-6">
           <Image
             src="/images/website-portrait.jpeg"
             alt="portrait of Rowan Morrison"
@@ -16,14 +16,14 @@ export default function About() {
             className="rounded-full"
           />
           <h2 className="font-heading text-headingMedium">About</h2>
-          <p className="font-body text-bodyMedium">
+          <p className="font-body text-bodySmall">
             Rowan Morrison is a multidisciplinary illustrator and graphic designer based in London, UK.
             She creates expressive visuals and intuitive digital experiences, blending storytelling and technology to create new ideas.
           </p>
-          <p className="font-body text-bodyMedium">
+          <p className="font-body text-bodySmall">
             With a background in graphic design, illustration and front-end development, Rowan enjoys working across disciplines to bring ideas to life.
           </p>
-          <p className="font-body text-bodyMedium">Her work has been exhibited in the {" "}<a href="https://www.kabk.nl/en" target="_blank" rel="noreferrer" className="hyperlink">Royal Academy of Art</a>{" "}(KABK), The Hague, and also featured in {" "}<a
+          <p className="font-body text-bodySmall">Her work has been exhibited in the {" "}<a href="https://www.kabk.nl/en" target="_blank" rel="noreferrer" className="hyperlink">Royal Academy of Art</a>{" "}(KABK), The Hague, and also featured in {" "}<a
               href="https://maxibestof.one/websites/47177-carolina-bucci" target="_blank" rel="noreferrer" className="hyperlink">MaxiBestOf</a>.</p>
         </section>
 
