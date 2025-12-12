@@ -40,3 +40,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# custom ignores
+node_modules_old/
+reset-dev.sh
+app/projects/[category]/[id]/
