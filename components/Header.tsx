@@ -18,6 +18,7 @@ export default function Header() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hideHeader, setHideHeader] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   
   const infoReady = false;
@@ -26,6 +27,23 @@ export default function Header() {
   useEffect(() => {
     const id = setTimeout(() => setMounted(true), 0);
     return () => clearTimeout(id);
+  }, []);
+
+   // Hide header when at the bottom
+  useEffect(() => {
+    function handleScroll() {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      if (scrollTop + windowHeight >= docHeight - 5) {
+        setHideHeader(true);
+      } else {
+        setHideHeader(false);
+      }
+    }
+     window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -42,7 +60,7 @@ export default function Header() {
 
   return (
     <header id="portfolio-header" ref={headerRef}
-          className="fixed top-0 left-0 right-0 w-full z-[890]">
+          className={`fixed top-0 left-0 right-0 w-full z-[890] transition-opacity ease-in-out duration-300 ${hideHeader ? "opacity-0" : "opacity-100"}`}>
       <div className="container flex items-center align-center justify-between py-4 px-6 h-[10vh] max-w-full">
         <Link href="/" id="logo">
         <div className="relative w-[clamp(100px,40vw,180px)] h-auto aspect-[180/110]">

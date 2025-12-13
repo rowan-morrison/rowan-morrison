@@ -45,7 +45,7 @@ export default function Home() {
           "description": "Portfolio of Rowan Morrison, a multidisciplinary designer and artist based in London.",
           "url": "https://rowanmorrisons.com",
           "sameAs": [
-            "https://www.linkedin.com/in/rowanmorrison/",
+            "https://www.linkedin.com/in/rowanmorrisons/",
             "https://www.instagram.com/rowanmorrisons/",
             "https://github.com/rowan-morrison"
         ]

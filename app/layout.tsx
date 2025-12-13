@@ -18,12 +18,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen font-body bg-white dark:bg-black transition-colors duration-300 text-black dark:text-white transition ease-in-out">
+      <body className="flex flex-col min-h-screen font-body bg-white dark:bg-black duration-300 text-black dark:text-white transition ease-in-out">
         <Providers >
           <Header />
           <ScrollToTop />
           <LoadingOverlay />
-          <main className="grow overflow-auto">{children}</main>
+          <main className="grow flex-1">{children}</main>
           <Footer />
         </Providers>
       </body>

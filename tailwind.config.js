@@ -49,6 +49,10 @@ module.exports = {
   // Caption / Overline
   caption: ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.025rem" }],          // 12px
   overline: ["0.625rem", { lineHeight: "1rem", letterSpacing: "0.06375rem" }],      // 10px
+
+  // Form Elements
+  formMedium: ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.025rem" }],          // 12px
+  formSmall: ["0.625rem", { lineHeight: "1rem", letterSpacing: "0.06375rem" }],      // 10px
 },
         fontWeight: {
         light: 300,
