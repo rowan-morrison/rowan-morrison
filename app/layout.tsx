@@ -1,13 +1,11 @@
+import ClientLayout from "./ClientLayout";
+
 import "./globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { Providers } from "./providers";
-import ScrollToTop from "./ScrollToTop";
-import LoadingOverlay from "@/components/LoadingOverlay";
 
 export const metadata = {
   title: "Rowan Morrison",
-  description: "Portfolio website of Rowan Morrison, a graphic designer specializing in web development, UI/UX design and illustration.",
+  description: "Portfolio website of Rowan Morrison, a graphic designer specializing in illustration, print, graphic design and UX/UI design.",
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
@@ -18,13 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen font-body bg-white dark:bg-black duration-300 text-black dark:text-white transition ease-in-out">
+      <body className="flex flex-col min-h-screen font-body bg-cultured dark:bg-black duration-300 text-black dark:text-white transition ease-in-out">
         <Providers >
-          <Header />
-          <ScrollToTop />
-          <LoadingOverlay />
-          <main className="grow flex-1">{children}</main>
-          <Footer />
+            <ClientLayout>{children}</ClientLayout>
         </Providers>
       </body>
     </html>

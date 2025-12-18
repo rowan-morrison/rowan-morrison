@@ -64,19 +64,26 @@ const formatCategory = (slug: string) =>
   }
 
   return (
-    <div className="container mx-auto px-6 py-20">
+    <>
       {safeCategory && (
-      <h1 className="text-3xl font-semibold mb-8 hidden">
-  {formatCategory(safeCategory)}
-</h1>
+        <div className="bg-white sticky top-0 z-10">
+          <div className="sticky top-[var(--header-height)] bg-white z-10 px-6 py-4">
+            <h1 className="text-titleSmall font-title">
+              {formatCategory(safeCategory)}
+            </h1>
+          </div>
+        </div>
       )}
-      <MasonryGrid
-        projects={filteredProjects}
-        vertical={true}
-        showCaptionsOnClick={true}
-        collection={safeCollection}
-        categories={safeCategory ? [safeCategory] : undefined}
-      />
-    </div>
+
+      <section className="container mx-auto px-6 py-20">
+        <MasonryGrid
+          projects={filteredProjects}
+          vertical={true}
+          showCaptionsOnClick={true}
+          collection={safeCollection}
+          categories={safeCategory ? [safeCategory] : undefined}
+        />
+      </section>
+    </>
   );
 }

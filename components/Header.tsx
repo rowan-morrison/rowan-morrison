@@ -61,23 +61,13 @@ export default function Header() {
   return (
     <header id="portfolio-header" ref={headerRef}
           className={`fixed top-0 left-0 right-0 w-full z-[890] transition-opacity ease-in-out duration-300 ${hideHeader ? "opacity-0" : "opacity-100"}`}>
-      <div className="container flex items-center align-center justify-between py-4 px-6 h-[10vh] max-w-full">
-        <Link href="/" id="logo">
-        <div className="relative w-[clamp(100px,40vw,180px)] h-auto aspect-[180/110]">
-          <Image
-            src={resolvedTheme === "dark" ? "/images/rowan-morrison-logo-white-v2.png" : "/images/rowan-morrison-logo-black-v2.png"}
-            alt="Rowan Morrison Logo"
-            id="rowan-logo"
-            className="w-[clamp(100px,10vw,180px)] h-auto"
-            fill
-            style={{ objectFit: "contain" }}
-            sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, (max-width: 1024px) 150px, 180px"
-            loading="eager"
-          /></div>
-        </Link>
-
-        <button
-          className={`menu-toggle flex flex-col justify-end items-center w-10 h-10 ml-auto z-[999]`}
+            <div className="hidden header-banner w-full h-9 bg-black items-center justify-center">
+              <p className="header-banner-text text-white font-body text-titleSmall">Open for work</p>
+            </div>
+            
+      <div className="relative container flex items-center justify-between py-10 px-5 h-[8vh] max-w-full">
+<button
+          className={`menu-toggle flex flex-col justify-end items-center w-7 h-3 z-[999]`}
           onClick={() => setMenuOpen(prev => !prev)}
           aria-label="Toggle menu"
         >
@@ -115,8 +105,23 @@ export default function Header() {
             priority
           />
         </button>
+      
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-12 sm:w-40 sm:h-16">
+        <Link href="/" id="logo">
+          <Image
+            src={resolvedTheme === "dark" ? "/images/rowan-morrison-logo-white-v2.png" : "/images/rowan-morrison-logo-black-v2.png"}
+            alt="Rowan Morrison Logo"
+            id="rowan-logo"
+            fill
+            className="z-[999]"
+            style={{ objectFit: "contain", mixBlendMode: "difference" }}
+          />
+          </Link>
+          </div> 
+        
+
  <nav
-  className={`fixed top-0 right-0 h-full pt-20 p-6 bg-isabelline dark:bg-richBlack
+  className={`fixed top-0 right-0 h-full pt-20 p-6 bg-white dark:bg-black
       z-[990] transform transition-transform duration-300 ease-in-out text-current
       ${menuOpen ? "translate-x-0" : "translate-x-full"}
       w-1/2`}

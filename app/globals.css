@@ -70,7 +70,7 @@ body, header, main, footer, a, button {
   --color-black: #000;
     --color-white: #fff;
     --container-side-space: 1.5rem;
-    --header-height: 4.375rem;
+   --header-height: clamp(3.5rem, 8vh, 5rem); 
     --rte-link-hover-color: #f8f8f8;
     --rte-link-visited-color: #f8f8f8;
 }
