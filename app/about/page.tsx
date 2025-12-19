@@ -7,7 +7,7 @@ export default function About() {
   return (
     <>
       <div className="max-w-4xl mx-auto px-6 py-12 mt-10 flex flex-col gap-12 text-current">
-        <section className="flex flex-col items-center text-center gap-6">
+        <section className="flex flex-col items-center text-left gap-6">
           <Image
             src="/images/website-portrait.jpeg"
             alt="portrait of Rowan Morrison"
@@ -15,7 +15,7 @@ export default function About() {
             height={180}
             className="rounded-full"
           />
-          <h2 className="font-heading text-headingMedium">About</h2>
+          <h2 className="font-subheading text-headingMedium">About</h2>
           <p className="font-body text-bodySmall">
             Rowan Morrison is a multidisciplinary illustrator and graphic designer based in London, UK.
             She creates expressive visuals and intuitive digital experiences, blending storytelling and technology to create new ideas.

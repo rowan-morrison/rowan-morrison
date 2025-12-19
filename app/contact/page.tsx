@@ -23,8 +23,8 @@ export default function Contact() {
           unoptimized
           loading="eager"
         />
-        <h2 className="text-headingMedium font-heading mb-4 text-center">Contact</h2>
-        <p className="text-left font-body mb-8">
+        <h2 className="text-headingMedium font-subheading mb-4 text-center">Contact</h2>
+        <p className="text-bodySmall font-body mb-8">
           If you have any questions, or would like to discuss a project, please feel free to reach out.
         </p>
         <form
@@ -40,7 +40,7 @@ export default function Contact() {
             onChange={handleChange}
             required
             autoComplete="name"
-            className="font-body w-full px-4 py-3 border border-gray-300 bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-roseQuartz dark:border-gray-600"
+            className="text-bodySmall font-body w-full px-4 py-3 border border-gray-300 bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-roseQuartz dark:border-gray-600"
           />
           <input
             type="email"
@@ -50,7 +50,7 @@ export default function Contact() {
             onChange={handleChange}
             required
             autoComplete="email"
-            className="font-body w-full px-4 py-3 border border-gray-300 bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-roseQuartz dark:border-gray-600"
+            className="text-bodySmall font-body w-full px-4 py-3 border border-gray-300 bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-roseQuartz dark:border-gray-600"
           />
           <textarea
             name="message"
@@ -60,11 +60,11 @@ export default function Contact() {
             onChange={handleChange}
             required
             autoComplete="off"
-            className="font-body w-full px-4 py-3 text-opacity-60 border border-gray-300 bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-roseQuartz dark:border-gray-600 resize-none"
+            className="text-bodySmall font-body w-full px-4 py-3 text-opacity-60 border border-gray-300 bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-roseQuartz dark:border-gray-600 resize-none"
           />
           <button
             type="submit"
-            className="bg-roseQuartz bg-opacity-20 text-md py-3 rounded-md hover:bg-opacity-60 transition-colors duration-200"
+            className="bg-roseQuartz bg-opacity-20 text-bodySmall font-body py-3 rounded-md hover:bg-opacity-60 transition-colors duration-200"
           >
             Send
           </button>

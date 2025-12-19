@@ -19,6 +19,13 @@ export interface Project {
   isVideo?: boolean;
   order?: number;
   previewText?: string | ReactNode;
+  previewHeading?: string | ReactNode;
+  previewCaptions?: string | ReactNode;
+  skills?: string[];
+  linkApp?: string;
+  caption?: string | string[];
+  imageCaption?: ReactNode[];
+  comingSoon?: boolean;
 }
 
 export interface MasonryGridProps {

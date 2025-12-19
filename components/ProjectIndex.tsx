@@ -5,40 +5,108 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { MasonryGridProps } from "@/types/project";
+import projects from "@/data/projects";
+
+const allProjects = projects.filter(
+  (p) => p.collection === "professional" || p.collection === "studio"
+);
+
+// const humanize = (slug?: string) =>
+//   !slug
+//     ? ""
+//     : String(slug)
+//         .replace(/[-_]+/g, " ")
+//         .split(" ")
+//         .filter(Boolean)
+//         .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+//         .join(" ");
+
 
 export default function ProjectIndex({ projects, title }: MasonryGridProps & { title?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [itemWidth, setItemWidth] = useState(420);
-  const [itemHeight, setItemHeight] = useState(560);
-  const GAP = 24; // px, should match tailwind gap-6
-  const PEEK = 56; // how much of the next slide peeks onto the screen
+  const GAP = "2vw";
   const scrollRaf = useRef<number | null>(null);
   const [sidePadding, setSidePadding] = useState(0);
   const latestIndexRef = useRef<number>(0);
   const scrollEndTimeout = useRef<number | null>(null);
   const slotWidthRef = useRef<number | null>(null);
-  // no leading/trailing blanks in the restored behavior
+  // helper: convert slugs like "print-design" or "my_collection" to "Print Design" / "My Collection"
+  const humanize = (slug?: string) =>
+    !slug
+      ? ""
+      : String(slug)
+          .replace(/[-_]+/g, " ")
+          .split(" ")
+          .filter(Boolean)
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(" ");
+
+const formatCollectionAndCategories = (p?: { collection?: string; categories?: string[] | string }) => {
+  if (!p) return "";
+  const allowedCollections = ["professional", "studio"];
+    const parts: string[] = [];
+if (p.collection && allowedCollections.includes(p.collection.toLowerCase())) {
+  parts.push(humanize(p.collection));
+}
+
+  if (p.categories) {
+    const cats = Array.isArray(p.categories) ? p.categories : String(p.categories).split(",").map((s) => s.trim());
+    parts.push(...cats.filter(Boolean).map((c) => humanize(c)));
+  }
+
+  return parts.join(", ");
+};
 
   const scrollToIndex = useCallback((index: number) => {
     const container = containerRef.current;
     if (!container) return;
     const clamped = Math.max(0, Math.min(index, projects.length - 1));
-    const slotWidth = slotWidthRef.current ?? itemWidth + GAP;
-    const offset = clamped * slotWidth; // centering equals i * slotWidth
-    container.scrollTo({ left: offset, behavior: "smooth" });
-  }, [itemWidth, projects.length]);
+    // compute pixel sizes from container for responsive 60vw / 2vw
+      const track = container.firstElementChild as HTMLElement | null;
+      if (!track) return;
+      const children = Array.from(track.children) as HTMLElement[];
+    const cw = container.clientWidth;
+    const itemWidthPx = Math.round(cw * 0.6); // 60vw in px
+    const gapPx = Math.round(cw * 0.02); // 2vw in px
+    const slotWidth = slotWidthRef.current ?? itemWidthPx + gapPx;
+    const targetSlot = clamped;
+    const centerAdjustment = Math.round(cw / 2 - itemWidthPx / 2);
+    if (children[targetSlot]) {
+      const childOffset = children[targetSlot].offsetLeft;
+      const offset = Math.max(0, childOffset - centerAdjustment);
+      const maxScroll = Math.max(0, (track.scrollWidth || 0) - cw);
+      const finalOffset = Math.min(offset, maxScroll);
+      // if (typeof window !== "undefined") {
+      //   // debug: show computed values for centering
+      //   // eslint-disable-next-line no-console
+      //   console.debug("scrollToIndex", { index: clamped, cw, itemWidthPx, gapPx, childOffset, centerAdjustment, offset, maxScroll, finalOffset });
+      // }
+      container.scrollTo({ left: finalOffset, behavior: "smooth" });
+      return;
+    }
+
+    const offset = Math.max(0, targetSlot * slotWidth - centerAdjustment);
+    const maxScroll = Math.max(0, (track.scrollWidth || 0) - cw);
+    const finalOffset = Math.min(offset, maxScroll);
+    container.scrollTo({ left: finalOffset, behavior: "smooth" });
+  }, [projects.length]);
 
   const handleScroll = useCallback(() => {
     const container = containerRef.current;
     if (!container) return;
-    const slotWidth = slotWidthRef.current ?? itemWidth + GAP;
+    const cw = container.clientWidth;
+    const itemWidthPx = Math.round(cw * 0.6);
+    const gapPx = Math.round(cw * 0.02);
+    const slotWidth = slotWidthRef.current ?? itemWidthPx + gapPx;
     const idx = Math.round(container.scrollLeft / slotWidth);
-    const clamped = Math.max(0, Math.min(idx, projects.length - 1));
+    // project index derived directly from slot index
+    const projIdx = Math.round(idx);
+    const clamped = Math.max(0, Math.min(projIdx, projects.length - 1));
     latestIndexRef.current = clamped;
     setCurrentIndex(clamped);
-  }, [itemWidth, projects.length]);
+  }, [projects.length]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -78,35 +146,57 @@ export default function ProjectIndex({ projects, title }: MasonryGridProps & { t
     const measure = () => {
       if (!container) return;
       const cw = container.offsetWidth;
-      const w = cw < 640 ? Math.round(cw * 0.8) : Math.min(520, Math.round(cw * 0.6));
-      const h = Math.round(w * 1.33);
-      setItemWidth(w);
-      setItemHeight(h);
 
-      // compute side padding so first and last items can center, then subtract PEEK so next item peeks in
-      const basePad = Math.max(0, Math.round((cw - w) / 2));
-      const pad = Math.max(0, basePad - Math.round(PEEK / 2));
+      // compute pixel values for responsive 60vw / 2vw sizing
+      const itemWidthPx = Math.round(cw * 0.6);
+      const gapPx = Math.round(cw * 0.02);
+
+      // side padding so first/last items can center, minus half the gap so next item peeks
+      const basePad = Math.max(0, Math.round((cw - itemWidthPx) / 2));
+      const pad = Math.max(0, basePad - Math.round(gapPx / 2));
       setSidePadding(pad);
 
-      // determine actual slot width from DOM (accounts for gap/columnGap)
-      const children = Array.from(container.children) as HTMLElement[];
+      // compute actual slot width from DOM (includes gap)
+        const track = container.firstElementChild as HTMLElement | null;
+        const children = track ? Array.from(track.children) as HTMLElement[] : [];
       if (children.length > 1) {
         const measuredSlot = children[1].offsetLeft - children[0].offsetLeft;
         slotWidthRef.current = measuredSlot;
       } else {
-        slotWidthRef.current = w + GAP;
+        slotWidthRef.current = itemWidthPx + gapPx;
       }
 
-      // recenter latest index after layout changes
-      requestAnimationFrame(() => scrollToIndex(latestIndexRef.current));
+      // if (typeof window !== "undefined") {
+      //   // debug: print measurement info
+      //   // eslint-disable-next-line no-console
+      //   console.debug("carousel:measure", {
+      //     cw,
+      //     itemWidthPx,
+      //     gapPx,
+      //     sidePadding: pad,
+      //       firstOffset: children[0]?.offsetLeft,
+      //       secondOffset: children[1]?.offsetLeft,
+      //     slotWidth: slotWidthRef.current,
+      //   });
+      // }
+
+      // recenter current slide (use direct scrollLeft assignment for immediate effect)
+      const targetIndex = latestIndexRef.current;
+      const currentChild = children[targetIndex] ?? children[0];
+      if (currentChild) {
+        const centerOffset = Math.max(cw - itemWidthPx) / 2;
+        const scrollLeft = Math.max(0, currentChild.offsetLeft - centerOffset);
+        // set scrollLeft directly to ensure immediate centering of the correct slide
+        container.scrollLeft = scrollLeft;
+      }
     };
 
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(container);
 
-    // initial call
-    handleScroll();
+    // initial call (defer to next frame to avoid sync setState in effect)
+    window.requestAnimationFrame(() => handleScroll());
 
     return () => {
       mounted = false;
@@ -127,43 +217,37 @@ export default function ProjectIndex({ projects, title }: MasonryGridProps & { t
       if (e.key === "ArrowLeft") {
         scrollToIndex(Math.max(idx - 1, 0));
       } else if (e.key === "ArrowRight") {
-        scrollToIndex(Math.min(idx + 1, projects.length - 1));
+        scrollToIndex(Math.min(idx + 1, allProjects.length - 1));
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [scrollToIndex, projects.length]);
+  }, [scrollToIndex]);
 
   return (
     <div className="w-full flex flex-col items-center">
-      <h1 className="font-subheading mb-2">{title ?? projects[currentIndex]?.title}</h1>
+      <h1 className="font-subheading mb-2">{title ?? allProjects[currentIndex]?.title}</h1>
 
       <div className="relative w-full overflow-x-auto hide-scrollbar" ref={containerRef}>
         <div
           className="flex gap-1 py-3 snap-x snap-mandatory scroll-smooth items-center"
           style={{ paddingLeft: sidePadding, paddingRight: sidePadding, columnGap: GAP }}
         >
-          {/* leading blank slot to allow first real slide to center */}
-          <div
-            aria-hidden
-            style={{ width: itemWidth, height: itemHeight, flexShrink: 0 }}
-            className="snap-center"
-          />
-          {projects.map((item, index) => {
+           {allProjects.map((item, index) => {
             const isActive = index === currentIndex;
-            const scale = isActive ? 1 : 0.75;
+            const scale = isActive ? 1 : 0.9;
             const z = isActive ? 20 : 10;
 
             return (
               <motion.div
                 key={item.id}
-                className="flex-shrink-0 snap-center cursor-pointer relative overflow-hidden"
-                style={{ width: itemWidth, height: itemHeight, zIndex: z }}
+                className="flex-shrink-0 snap-center cursor-pointer relative overflow-hidden bg-none"
+                  style={{ width: "60vw", aspectRatio: "2 / 3", zIndex: z }}
                 animate={{ scale }}
                 transition={{ type: "spring", stiffness: 260, damping: 30 }}
                 onClick={() => scrollToIndex(index)}
               >
-                <Link href={`/projects/${item.collection}/${item.id}`}>
+                <Link href={`/projects/${item.id}`} prefetch={false}>
                   {item.isVideo ? (
                     <video
                       src={item.images[0]}
@@ -179,10 +263,10 @@ export default function ProjectIndex({ projects, title }: MasonryGridProps & { t
                       <Image
                         src={item.images[0]}
                         alt={typeof item.title === "string" ? item.title : "Project image"}
-                        fill
-                        sizes={isActive ? "(max-width: 500px) 100vw, 50vw" : "(max-width: 400px) 100vw, 33vw"}
-                        className="object-contain"
-                        style={{ objectPosition: "center" }}
+                        width={500}
+                        height={750}
+                        style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center" }}
+                        className=""
                       />
                     </div>
                   )}
@@ -193,50 +277,62 @@ export default function ProjectIndex({ projects, title }: MasonryGridProps & { t
           {/* trailing blank slot to allow last real slide to center */}
           <div
             aria-hidden
-            style={{ width: itemWidth, height: itemHeight, flexShrink: 0 }}
-            className="snap-center"
+            style={{ width: "60vw", aspectRatio: "2 / 3", flexShrink: 0 }}
+            className="snap-center bg-none"
           />
         </div>
       </div>
 
       {/* Navigation icons + pagination dots */}
-      <div className="flex items-center mt-6 gap-4">
-        <button
-          onClick={() => scrollToIndex(Math.max(currentIndex - 1, 0))}
-          className="p-2 rounded-full"
-        >
-          <svg width="24px" height="24px" strokeWidth="1.3" viewBox="0 0 24 24" opacity="0.4" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M15 6L9 12L15 18" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </button>
+      <div className="flex items-center mt-3 gap-4">
+        {currentIndex > 0 ? (
+          <button
+            onClick={() => scrollToIndex(Math.max(currentIndex - 1, 0))}
+            className="p-2 rounded-full transition-opacity ease-in-out"
+            aria-label="Previous slide"
+          >
+            <svg width="24px" height="24px" strokeWidth="1.3" viewBox="0 0 24 24" opacity="0.4" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M15 6L9 12L15 18" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+          </button>
+        ) : (
+          <div className="w-10 h-10" aria-hidden />
+        )}
+
         <div className="flex gap-4">
-          {projects.map((_, i) => (
+          {projects.map((item, i) => (
             <button
-              key={i}
+              key={item.id}
               onClick={() => scrollToIndex(i)}
               aria-label={`Go to slide ${i + 1}`}
               className={`w-1.5 h-1.5 rounded-full ${i === currentIndex ? "bg-gray-800" : "bg-gray-300"}`}
             />
           ))}
         </div>
-        <button
-          onClick={() => scrollToIndex(Math.min(currentIndex + 1, projects.length - 1))}
-          className="p-2 rounded-full"
-        >
-          <svg width="24px" height="24px" strokeWidth="1.3" viewBox="0 0 24 24" opacity="0.4" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M9 6L15 12L9 18" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </button>
+
+        {currentIndex < allProjects.length - 1 ? (
+          <button
+            onClick={() => scrollToIndex(Math.min(currentIndex + 1, allProjects.length - 1))}
+            className="p-2 rounded-full transition-opacity ease-in-out"
+            aria-label="Next slide"
+          >
+            <svg width="24px" height="24px" strokeWidth="1.3" viewBox="0 0 24 24" opacity="0.4" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M9 6L15 12L9 18" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+          </button>
+        ) : (
+          <div className="w-10 h-10" aria-hidden />
+        )}
       </div>
 
       {/* Title and body */}
       <div className="mt-8 px-8 text-center max-w-3xl">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
-            key={currentIndex}
+           key={projects[currentIndex].id}
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
+            exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.4 }}
           >
-            <h2 className="font-subheading mb-2">{projects[currentIndex]?.title}</h2>
-         <p className="text-bodySmall font-body text-gray-700"> {projects[currentIndex]?.previewText} </p>
+            <h2 className="font-body small-caps mb-2">{formatCollectionAndCategories(allProjects[currentIndex]) || allProjects[currentIndex]?.previewHeading}</h2>
+         <p className="text-bodySmall font-body text-left mt-5"> {allProjects[currentIndex]?.previewText} </p>
           </motion.div>
         </AnimatePresence>
       </div>

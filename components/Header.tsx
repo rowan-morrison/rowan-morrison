@@ -64,10 +64,19 @@ export default function Header() {
             <div className="hidden header-banner w-full h-9 bg-black items-center justify-center">
               <p className="header-banner-text text-white font-body text-titleSmall">Open for work</p>
             </div>
-            
+
       <div className="relative container flex items-center justify-between py-10 px-5 h-[8vh] max-w-full">
+     <div className="menu-cta px-2"
+             onClick={() => setMenuOpen(prev => !prev)}
+          aria-label="Toggle menu"
+          >
+          <p className="font-caption text-bodySmall">
+            Menu
+          </p>
+          </div> 
+        
 <button
-          className={`menu-toggle flex flex-col justify-end items-center w-7 h-3 z-[999]`}
+          className={`hidden menu-toggle flex-col justify-end items-center w-7 h-3 z-[999]`}
           onClick={() => setMenuOpen(prev => !prev)}
           aria-label="Toggle menu"
         >
@@ -119,8 +128,8 @@ export default function Header() {
           </Link>
           </div>
 
-          <div className="contact-cta">
-          <Link href="/contact" className="font-caption text-captionSmall">
+          <div className="contact-cta px-2">
+          <Link href="/contact" className="font-caption text-bodySmall">
             Contact
           </Link>
           </div> 
