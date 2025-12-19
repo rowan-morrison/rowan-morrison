@@ -2,6 +2,7 @@
 
 import { useState, ReactElement } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { projects } from "../../../../data/projects";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import styles from "../Projects.module.css";
@@ -430,12 +431,10 @@ export default function ProjectPage() {
   const params = useParams() as unknown as Params;
   const id = Array.isArray(params.id) ? params.id[0] : params.id ?? "";
   const work = workDetails[id];
+  const projectMeta = projects.find((p) => p.id === id);
 
-  // const [isOverflowing, setIsOverflowing] = useState(false);
-  // const [isMobile, setIsMobile] = useState(false);
   const [mounted] = useState(() => typeof window !== "undefined");
   const [previewIndex, setPreviewIndex] = useState<number | null>(null);
-  // const dragScrollRef = useRef<HTMLDivElement | null>(null);
     const images = Array.isArray(work.images) ? work.images : work.images ? [work.images] : [];
   const renderCaption = (caption?: string | ReactElement) => caption ?? "";
 
@@ -444,12 +443,12 @@ if (!work) return <div className={styles.notFound}>Work not found.</div>;
 
   return (
     <>
-      <div className={`${styles.workDetail} h-full w-full mt-[100] overflow-y-auto`}>
+      <div className={`${styles.workDetail} w-full mt-[100]`}>
         <motion.section
           className={styles.workInfo}
-         initial={{ opacity: 0, filter: "blur(2px)" }}
-animate={{ opacity: 1, filter: "blur(0px)" }}
-exit={{ opacity: 0, filter: "blur(2px)" }}
+         initial={{ y: 6, filter: "blur(2px)" }}
+animate={{ y: 0, filter: "blur(0px)" }}
+exit={{ filter: "blur(2px)" }}
 transition={{ duration: 0.6, ease: "easeInOut" }}
         >
           <div className={`${styles.workDetailCopy} mx-5`}>
@@ -466,7 +465,7 @@ transition={{ duration: 0.6, ease: "easeInOut" }}
           <h1 className="text-headingLarge my-3 font-heading text-current">{work.title}</h1>
           <div className={`${styles.descriptionAndSkills} font-body text-bodyMedium text-current`}>
             <p className={`${styles.descriptionText} font-body mt-2 text-current`}>
-              {work.description}
+              {projectMeta?.description ?? work.description}
             </p>
             {work.skills && (
               <div className={`${styles.projectSkills} my-5 flex flex-col`}>
@@ -524,42 +523,41 @@ transition={{ duration: 0.6, ease: "easeInOut" }}
       </div>
 <AnimatePresence mode="wait">
   {previewIndex !== null && (
-    <motion.div
-      className="fixed inset-0 z-[800] flex items-center justify-center backdrop-blur-md"
-      onClick={() => setPreviewIndex(null)}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-    >
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at center, rgba(0,0,0,0.10) 60%, rgba(255,255,255,0) 100%)",
-          mixBlendMode: "soft-light",
-        }}
-      ></div>
+    // <motion.div
+    //   className="fixed inset-0 z-[800] flex items-center justify-center backdrop-blur-md"
+    //   onClick={() => setPreviewIndex(null)}
+    //   initial={{ opacity: 0 }}
+    //   animate={{ opacity: 1 }}
+    //   exit={{ opacity: 0 }}
+    //   transition={{ duration: 0.4, ease: "easeInOut" }}
+    // >
+    //   <div
+    //     className="absolute inset-0 pointer-events-none"
+    //     style={{
+    //       background:
+    //         "radial-gradient(circle at center, rgba(0,0,0,0.10) 60%, rgba(255,255,255,0) 100%)",
+    //       mixBlendMode: "soft-light",
+    //     }}
+    //   ></div>
 
-      <div
-        className="absolute inset-0 z-[850] h-screen w-screen pointer-events-none
-                   bg-[url('/images/paper-texture.jpg')] bg-center"
-        style={{
-          backdropFilter: "blur(100px)",
-          backgroundColor: "rgba(255,255,255,0.15)",
-          backgroundRepeat: "no-repeat",
-          mixBlendMode: "overlay",
-          filter: "brightness(1) contrast(1.05) saturate(0.6)",
-          opacity: 0.7,
-        }}
-      />
-
+    //   <div
+    //     className="absolute inset-0 z-[850] h-screen w-screen pointer-events-none
+    //                bg-[url('/images/paper-texture.jpg')] bg-center"
+    //     style={{
+    //       backdropFilter: "blur(100px)",
+    //       backgroundColor: "rgba(255,255,255,0.15)",
+    //       backgroundRepeat: "no-repeat",
+    //       mixBlendMode: "overlay",
+    //       filter: "brightness(1) contrast(1.05) saturate(0.6)",
+    //       opacity: 0.7,
+    //     }}
+    //   />
       <motion.div
         className="relative flex flex-col items-center justify-center max-w-[90vw] max-h-[90vh] z-[900]"
         onClick={(e) => e.stopPropagation()}
-        initial={{ opacity: 0, scale: 0.95, filter: "blur(8px) saturate(0.7)" }}
-        animate={{ opacity: 1, scale: 1, filter: "blur(0px) saturate(1)" }}
-        exit={{ opacity: 0, scale: 0.95, filter: "blur(8px) saturate(0.7)" }}
+        initial={{ scale: 0.95, filter: "blur(8px) saturate(0.7)" }}
+        animate={{ scale: 1, filter: "blur(0px) saturate(1)" }}
+        exit={{ scale: 0.95, filter: "blur(8px) saturate(0.7)" }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >
         {images[previewIndex]?.endsWith(".mp4") ? (
@@ -588,7 +586,7 @@ transition={{ duration: 0.6, ease: "easeInOut" }}
         <figcaption className="mt-4 text-center font-caption text-bodyMedium text-current max-w-[90vw] break-words">
           {work.imageCaption?.[previewIndex] ?? ""}
         </figcaption>
-      </motion.div>
+      {/* </motion.div> */}
     </motion.div>
   )}
 </AnimatePresence>

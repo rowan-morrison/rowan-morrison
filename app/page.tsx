@@ -1,41 +1,93 @@
-"use client";
+import ProjectIndex from "../components/ProjectIndex";
+import { projects } from "@/data/projects";
 
-import Link from "next/link";
-import Image from "next/image";
+interface PageProps {
+  params: Promise<{ category?: string | string[], collection?: string | string[] }>;
+}
 
-export default function Home() {
+export default async function Home({ params }: PageProps) {
+  const resolvedParams = await params;
+
+  const firstParam = Array.isArray(resolvedParams.category)
+    ? resolvedParams.category[0]
+    : resolvedParams.category ?? "";
+  const secondParam = Array.isArray(resolvedParams.collection)
+    ? resolvedParams.collection[0]
+    : resolvedParams.collection ?? "";
+
+const validCollections = ["professional", "studio"] as const;
+const validCategories = [
+    "illustration",
+    "branding-and-identity",
+    "animation-and-motion",
+    "editorial-design",
+    "print-design",
+    "web-and-digital",
+  ] as const;
+
+type WorkCollection = (typeof validCollections)[number];
+type WorkCategory = (typeof validCategories)[number];
+
+ let safeCollection: WorkCollection = "professional";
+  let safeCategory: WorkCategory | undefined;
+
+  if (validCollections.includes(firstParam as WorkCollection)) {
+    safeCollection = firstParam as WorkCollection;
+    if (validCategories.includes(secondParam as WorkCategory)) {
+      safeCategory = secondParam as WorkCategory;
+    }
+  } else if (validCategories.includes(firstParam as WorkCategory)) {
+    safeCategory = firstParam as WorkCategory;
+    if (validCollections.includes(secondParam as WorkCollection)) {
+      safeCollection = secondParam as WorkCollection;
+    }
+  }
+
+const filteredProjects = projects
+  .filter((p) => {
+    if (safeCategory) {
+      return p.categories?.some(cat => cat.toLowerCase() === safeCategory.toLowerCase());
+    }
+    return p.collection.toLowerCase() === safeCollection.toLowerCase();
+  })
+  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0)); // manual order
+
+const formatCategory = (slug: string) =>
+  slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+  if (!filteredProjects.length) {
+    return (
+      <p className="flex items-center justify-center h-screen text-center text-current">
+        Category not found.
+      </p>
+    );
+  }
+
+  const displayTitle = safeCategory ?? safeCollection;
+
   return (
     <>
-    <div className="flex flex-col gap-8 w-full max-w-4xl mx-auto p-6 mt-[8vh]">
-      <main className="flex flex-col items-center justify-center w-full">
-        <Link href="/projects/professional" className="w-full flex-1">
-        <Image
-          className="w-full h-[40vh] object-cover transition"
-          src="/images/carolina-bucci-store-illustration-01.jpg"
-          alt="Professional Work"
-          width={1200}
-          height={800}
-          priority
-        />
-      <p className="mt-4 text-labelLarge font-label small-caps text-current">
-      Professional Work
-    </p>
-        </Link>
+{displayTitle && (
+  <div className="sticky top-0 z-890">
+    <div className="h-[var(--header-height)]" />
 
-      <Link href="/projects/studio" className="w-full flex-1">
-        <Image
-          src="/images/catelier-01.jpg"
-          alt="Studio Work"
-          width={1200}
-          height={800}
-          className="w-full h-[40vh] object-cover transition"
-        />
-             <p className="mt-4 text-labelLarge font-label small-caps text-current">
-      Studio Work
-    </p>
-      </Link>
-      </main>
+    <div className="px-6 py-4">
+      <h1 className="font-subheading hidden">
+        {formatCategory(displayTitle)}
+      </h1>
     </div>
+  </div>
+)}
+
+      <section className="container mx-auto py-20 z-10">
+        <ProjectIndex
+          projects={filteredProjects}
+          vertical={true}
+          showCaptionsOnClick={true}
+          collection={safeCollection}
+          categories={safeCategory ? [safeCategory] : undefined}
+        />
+      </section>
 
      <script type="application/ld+json">
         {JSON.stringify({

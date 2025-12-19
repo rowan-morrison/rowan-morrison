@@ -53,7 +53,7 @@ useEffect(() => {
   className="w-full text-current py-6 px-1 flex flex-col items-center bg-white dark:bg-black transition-colors duration-300"
 >
    <section className="footer-container w-full box-border mx-auto px-[var(--container-side-space)]">
-    <p className="mb-1 font-bodySmall text-bodySmall italic">
+    <p className="mb-1 font-subheading">
       Send me a message
     </p>
     <p className="mb-4 font-bodySmall text-bodySmall">
@@ -82,13 +82,13 @@ useEffect(() => {
       <svg 
       width="16px" 
       height="16px" 
-      stroke-width="1.5" 
+      strokeWidth="1.5" 
       viewBox="0 0 24 24" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg" 
       color="#000000">
-        <path d="M9 6L15 12L9 18" stroke="#000000" stroke-width="1.5" stroke-linecap="round" 
-        stroke-linejoin="round"></path>
+        <path d="M9 6L15 12L9 18" stroke="#000000" strokeWidth="1.5" strokeLinecap="round"
+        strokeLinejoin="round"></path>
         </svg>
     </button>
       </div>
@@ -112,7 +112,6 @@ useEffect(() => {
     style={{ objectFit: "contain" }}
     className="w-full h-auto"
     sizes="90vw"
-    loading="eager"
                 /></div>
       <p className="copyright-notice font-bodySmall text-bodySmall">&copy; 2025 Rowan Morrison. All rights reserved.</p>
       </section>

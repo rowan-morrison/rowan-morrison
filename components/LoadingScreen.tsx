@@ -1,37 +1,39 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
 
-export default function LoadingScreen() {
-  const [show, setShow] = useState(true);
+interface LoadingScreenProps {
+  visible: boolean;
+}
 
-  useEffect(() => {
-    // Ensure it shows for at least 1 second
-    const minTime = setTimeout(() => setShow(false), 1000);
-
-    return () => clearTimeout(minTime);
-  }, []);
+export default function LoadingScreen({ visible }: LoadingScreenProps) {
+  const [ready, setReady] = React.useState(false);
 
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-white"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <video
-            src="/images/cat-animation.mov"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-contain"
-          />
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div
+      style={{
+        opacity: visible && ready ? 1 : 0,
+        transition: "opacity 1s cubic-bezier(0.4, 0, 0.2, 1)",
+        position: "fixed",
+        inset: 0,
+        zIndex: 9999,
+        pointerEvents: "none",
+        backgroundColor: "white",
+        willChange: "opacity",
+        transform: "translateZ(0)",
+      }}
+    >
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        onLoadedData={() => setReady(true)}
+        className="absolute inset-0 w-full h-full object-contain"
+      >
+        <source src="/images/cat-animation.mov" />
+      </video>
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import ClientLayout from "./ClientLayout";
+import TransitionProvider from "../components/TransitionManager";
 
 import "./globals.css";
 import { Providers } from "./providers";
@@ -18,7 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className="flex flex-col min-h-screen font-body bg-cultured dark:bg-black duration-300 text-black dark:text-white transition ease-in-out">
         <Providers >
-            <ClientLayout>{children}</ClientLayout>
+            <TransitionProvider>
+              <ClientLayout>{children}</ClientLayout>
+            </TransitionProvider>
         </Providers>
       </body>
     </html>

@@ -21,7 +21,7 @@ module.exports = {
         caption: ["'General Sans'", "ui-sans-serif", "system-ui"],
       },
        fontSize: {
-         // Display
+  // Display
   displayLarge: ["3.5625rem", { lineHeight: "4rem", letterSpacing: "-0.015625rem" }], // 57px
   displayMedium: ["2.8125rem", { lineHeight: "3.25rem", letterSpacing: "0rem" }],     // 45px
   displaySmall: ["2.25rem", { lineHeight: "2.75rem", letterSpacing: "0rem" }],      // 36px
@@ -116,6 +116,13 @@ plugins: [
           cursor: "pointer",
         }
       },
+      ".font-subheading": {
+        fontFamily: "'EB Garamond Italic'",
+        fontWeight: "500",
+        fontSize: "0.9rem",
+        lineHeight: "1.5rem",
+        letterSpacing: "0.01rem"
+      }
     });
   },
 ],

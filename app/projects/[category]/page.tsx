@@ -1,4 +1,4 @@
-import MasonryGrid from "../../../components/MasonryGrid";
+import ProjectIndex from "../../../components/ProjectIndex";
 import { projects } from "@/data/projects";
 
 interface PageProps {
@@ -19,10 +19,10 @@ const validCollections = ["professional", "studio"] as const;
 const validCategories = [
     "illustration",
     "branding-and-identity",
-    "animation-motion",
+    "animation-and-motion",
     "editorial-design",
     "print-design",
-    "web-digital",
+    "web-and-digital",
   ] as const;
 
 type WorkCollection = (typeof validCollections)[number];
@@ -63,20 +63,24 @@ const formatCategory = (slug: string) =>
     );
   }
 
+  const displayTitle = safeCategory ?? safeCollection;
+
   return (
     <>
-      {safeCategory && (
-        <div className="bg-white sticky top-0 z-10">
-          <div className="sticky top-[var(--header-height)] bg-white z-10 px-6 py-4">
-            <h1 className="text-titleSmall font-title">
-              {formatCategory(safeCategory)}
-            </h1>
-          </div>
-        </div>
-      )}
+{displayTitle && (
+  <div className="sticky top-0 z-890 bg-white">
+    <div className="h-[var(--header-height)]" />
 
-      <section className="container mx-auto px-6 py-20">
-        <MasonryGrid
+    <div className="px-6 py-4">
+      <h1 className="font-subheading">
+        {formatCategory(displayTitle)}
+      </h1>
+    </div>
+  </div>
+)}
+
+      <section className="container mx-auto py-20 z-10">
+        <ProjectIndex
           projects={filteredProjects}
           vertical={true}
           showCaptionsOnClick={true}

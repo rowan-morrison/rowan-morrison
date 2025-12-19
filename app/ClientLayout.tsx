@@ -11,6 +11,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   const [loading, setLoading] = useState(true);
   const pathname = usePathname();
 
+  
+
   // Initial page load
   useEffect(() => {
     const timeout = setTimeout(() => setLoading(false), 1000);
@@ -34,7 +36,7 @@ useEffect(() => {
     <>
       <Header />
       <ScrollToTop />
-      {loading ? <LoadingScreen /> : <main>{children}</main>}
+      {loading ? <LoadingScreen visible={true} /> : <main>{children}</main>}
       <Footer />
     </>
   );

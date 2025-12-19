@@ -117,6 +117,12 @@ export default function Header() {
             style={{ objectFit: "contain", mixBlendMode: "difference" }}
           />
           </Link>
+          </div>
+
+          <div className="contact-cta">
+          <Link href="/contact" className="font-caption text-captionSmall">
+            Contact
+          </Link>
           </div> 
         
 
@@ -137,17 +143,9 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href={shopReady ? "https://www.etsy.com/uk/shop/RowanMorrisonStudio" : "#"} onClick={(e) => { if (!shopReady) e.preventDefault(); }} className="flex items-center">
-                  <Image
-                    src={resolvedTheme === "dark" ? "/images/coming-soon-white.png" : "/images/coming-soon-black.png"}
-                    id="coming-soon"
-                    alt="Coming Soon!"
-                     width={100}
-  height={100}
-  style={{ width: "auto", height: "auto" }}
-  className="absolute mr-2 translate-3 opacity-80"
-                  />
+              <Link href={shopReady ? "https://www.etsy.com/uk/shop/RowanMorrisonStudio" : "#"} onClick={(e) => { if (!shopReady) e.preventDefault(); }}>
 <h2 className="opacity-25">Shop</h2>
+<p className="opacity-25 font-title text-titleMedium ml-6 mt-2">Coming soon!</p>
               </Link>
             </li>
             <li>

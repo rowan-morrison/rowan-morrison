@@ -98,3 +98,12 @@ html, body, #__next {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
+
+/* utility to hide horizontal scrollbar but keep scroll functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* WebKit */
+}

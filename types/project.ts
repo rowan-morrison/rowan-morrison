@@ -6,18 +6,19 @@ export type WorkCategory =
   | "print-design"
   | "illustration"
   | "editorial-design"
-  | "web-digital"
-  | "animation-motion"
+  | "web-and-digital"
+  | "animation-and-motion"
 
 export interface Project {
   id: string;
   title: string | ReactNode;
   images: string[];
-  description?: string;
-collection: WorkCollection;
+  description?: string | ReactNode;
+  collection: WorkCollection;
   categories: WorkCategory[];
   isVideo?: boolean;
   order?: number;
+  previewText?: string | ReactNode;
 }
 
 export interface MasonryGridProps {
