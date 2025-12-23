@@ -60,19 +60,32 @@ export default function Header() {
 
   return (
     <header id="portfolio-header" ref={headerRef}
-          className={`fixed top-0 left-0 right-0 w-full z-[890] transition-opacity ease-in-out duration-300 ${hideHeader ? "opacity-0" : "opacity-100"}`}>
+          className={`fixed top-0 left-0 right-0 w-full z-[990] transition-opacity ease-in-out duration-300 ${hideHeader ? "opacity-0" : "opacity-100"}`}>
             <div className="hidden header-banner w-full h-9 bg-black items-center justify-center">
               <p className="header-banner-text text-white font-body text-titleSmall">Open for work</p>
             </div>
 
       <div className="relative container flex items-center justify-between py-10 px-5 h-[8vh] max-w-full">
-     <div className="menu-cta px-2"
+     <div className="menu-cta px-2 z-[999]"
              onClick={() => setMenuOpen(prev => !prev)}
           aria-label="Toggle menu"
           >
-          <p className="font-caption text-bodySmall">
-            Menu
-          </p>
+          <p className="relative font-caption text-bodySmall text-current">
+  <span
+    className={`absolute transition-opacity duration-300 ${
+      menuOpen ? "opacity-0" : "opacity-100"
+    }`}
+  >
+    Menu
+  </span>
+  <span
+    className={`absolute transition-opacity duration-300 ${
+      menuOpen ? "opacity-70" : "opacity-0"
+    }`}
+  >
+    Close
+  </span>
+</p>
           </div> 
         
 <button
@@ -115,7 +128,7 @@ export default function Header() {
           />
         </button>
       
-        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-12 sm:w-40 sm:h-16">
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2  z-[999] w-32 h-12 sm:w-40 sm:h-16">
         <Link href="/" id="logo">
           <Image
             src={resolvedTheme === "dark" ? "/images/rowan-morrison-logo-white-v2.png" : "/images/rowan-morrison-logo-black-v2.png"}
@@ -135,11 +148,13 @@ export default function Header() {
           </div> 
         
 
- <nav
-  className={`fixed top-0 right-0 h-full pt-20 p-6 bg-white dark:bg-black
-      z-[990] transform transition-transform duration-300 ease-in-out text-current
-      ${menuOpen ? "translate-x-0" : "translate-x-full"}
-      w-1/2`}
+<nav
+  className={`
+    fixed top-0 left-0 h-full pt-20 p-6 bg-white
+    z-[800] w-1/2
+    transform transition-transform duration-300 ease-in-out will-change-transform
+    ${menuOpen ? "translate-x-0" : "-translate-x-full"}
+  `}
 >
             <div className="flex flex-col h-full">
           <ul className="flex-col items-center space-y-6 text-headingSmall font-heading">
