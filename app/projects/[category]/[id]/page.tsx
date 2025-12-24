@@ -10,7 +10,7 @@ import Script from "next/script";
 import projects from "@/data/projects";
 import ProjectChevrons from "@/components/ProjectChevrons";
 
-type Params = { id: string | string[] };
+type Params = { id: string | string[]; category?: string | string[] };
 
 export default function ProjectPage() {
   // Helper to render description, handling string, ReactElement, or string[]
@@ -23,7 +23,18 @@ const renderDescription = (desc?: ReactNode) => {
   const router = useRouter();
   const params = useParams() as unknown as Params;
   const id = Array.isArray(params.id) ? params.id[0] : params.id ?? "";
- const work = projects.find((p) => p.id === id);
+  const categoryParam = Array.isArray(params.category) ? params.category[0] : params.category ?? "";
+  const work = projects.find((p) => p.id === id);
+
+  // If the URL category segment doesn't match the project's collection, redirect
+  useEffect(() => {
+    if (!work) return;
+    if (categoryParam && work.collection && work.collection !== categoryParam) {
+      const target = `/projects/${work.collection}/${work.id}`;
+      // replace to avoid back navigation loop
+      router.replace(target);
+    }
+  }, [work, categoryParam, router]);
 
 const [hideChevrons, setHideChevrons] = useState(false);
  
@@ -51,13 +62,15 @@ const nextProject = currentIndex < projects.length - 1
 };
 
 useEffect(() => {
- const onKey = (e: KeyboardEvent) => {
-  if (e.key === "ArrowLeft" && prevProject) {
-    router.push(`/projects/${prevProject.id}`);
-  } else if (e.key === "ArrowRight" && nextProject) {
-    router.push(`/projects/${nextProject.id}`);
-  }
-};
+  const onKey = (e: KeyboardEvent) => {
+    if (e.key === "ArrowLeft" && prevProject) {
+      const col = prevProject.collection ?? "professional";
+      router.push(`/projects/${col}/${prevProject.id}`);
+    } else if (e.key === "ArrowRight" && nextProject) {
+      const col = nextProject.collection ?? "professional";
+      router.push(`/projects/${col}/${nextProject.id}`);
+    }
+  };
 
   window.addEventListener("keydown", onKey);
   return () => window.removeEventListener("keydown", onKey);
@@ -83,12 +96,6 @@ useEffect(() => {
 
 if (!mounted) return null;
 if (!work) return <div className={styles.notFound}>Work not found.</div>;
-
-   <ProjectChevrons
-    prevProject={prevProject}
-    nextProject={nextProject}
-    hide={hideChevrons}
-  />
 
   return (
     <>
@@ -230,14 +237,14 @@ transition={{ duration: 0.6, ease: "easeInOut" }}
   type="application/ld+json"
   strategy="afterInteractive"
   dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": work.title,
-      "description": "A collection of my design and development projects",
-      "url": `https://rowanmorrisons.com/projects/${id}`,
-      "creator": { "@type": "Person", "name": "Rowan Morrison" },
-    }),
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": work.title,
+          "description": "A collection of my design and development projects",
+          "url": `https://rowanmorrisons.com/projects/${work.collection}/${id}`,
+          "creator": { "@type": "Person", "name": "Rowan Morrison" },
+        }),
   }}
 />
     </>

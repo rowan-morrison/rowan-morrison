@@ -1,5 +1,6 @@
 import ProjectIndex from "@/components/ProjectIndex";
 import { projects } from "@/data/projects";
+import StickyFadeHeader from "@/components/StickyFadeHeader";
 
 type PageParams = {
   category?: string | string[];
@@ -7,8 +8,9 @@ type PageParams = {
 };
 
 export default async function CategoryPage({ params }: { params: PageParams }) {
-  const firstParam = Array.isArray(params.category) ? params.category[0] : params.category ?? "";
-  const secondParam = Array.isArray(params.collection) ? params.collection[0] : params.collection ?? "";
+  const resolved = await params;
+  const firstParam = Array.isArray(resolved.category) ? resolved.category[0] : resolved.category ?? "";
+  const secondParam = Array.isArray(resolved.collection) ? resolved.collection[0] : resolved.collection ?? "";
 
   const validCollections = ["professional", "studio"] as const;
   const validCategories = [
@@ -19,6 +21,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
     "print-design",
     "web-and-digital",
   ] as const;
+  
 
   type WorkCollection = (typeof validCollections)[number];
   type WorkCategory = (typeof validCategories)[number];
@@ -38,10 +41,15 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
     }
   }
 
+  
+
   const filteredProjects = projects
     .filter((p) => {
       if (safeCategory) {
-        return p.categories?.some((cat) => cat.toLowerCase() === safeCategory.toLowerCase());
+        return (
+          p.collection.toLowerCase() === safeCollection.toLowerCase() &&
+          p.categories?.some((cat) => cat.toLowerCase() === safeCategory.toLowerCase())
+        );
       }
       return p.collection.toLowerCase() === safeCollection.toLowerCase();
     })
@@ -60,13 +68,12 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
   return (
     <>
       {displayTitle && (
-        <div className="sticky top-0 z-890">
-          <div className="h-[var(--header-height)]" />
-
-          <div className="px-6 py-4">
+        <StickyFadeHeader>
+          <div className="h-[var(--header-height)] bg-white" />
+          <div className="px-6 py-4 bg-white">
             <h1 className="font-subheading">{formatCategory(displayTitle)}</h1>
           </div>
-        </div>
+        </StickyFadeHeader>
       )}
 
       <section className="container mx-auto py-20 z-10">

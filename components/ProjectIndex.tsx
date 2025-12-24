@@ -7,24 +7,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MasonryGridProps } from "@/types/project";
 import projects from "@/data/projects";
 
-const allProjects = projects.filter(
+const siteProjects = projects.filter(
   (p) => p.collection === "professional" || p.collection === "studio"
 );
-
-// const humanize = (slug?: string) =>
-//   !slug
-//     ? ""
-//     : String(slug)
-//         .replace(/[-_]+/g, " ")
-//         .split(" ")
-//         .filter(Boolean)
-//         .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-//         .join(" ");
-
 
 export default function ProjectIndex({ projects, title }: MasonryGridProps & { title?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const items = projects && projects.length ? projects : siteProjects;
 
   const GAP = "2vw";
   const scrollRaf = useRef<number | null>(null);
@@ -43,20 +33,27 @@ export default function ProjectIndex({ projects, title }: MasonryGridProps & { t
           .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
           .join(" ");
 
-const formatCollectionAndCategories = (p?: { collection?: string; categories?: string[] | string }) => {
+// const formatCollectionAndCategories = (p?: { collection?: string; categories?: string[] | string }) => {
+//   if (!p) return "";
+//   const allowedCollections = ["professional", "studio"];
+//     const parts: string[] = [];
+// if (p.collection && allowedCollections.includes(p.collection.toLowerCase())) {
+//   parts.push(humanize(p.collection));
+// }
+
+//   if (p.categories) {
+//     const cats = Array.isArray(p.categories) ? p.categories : String(p.categories).split(",").map((s) => s.trim());
+//     parts.push(...cats.filter(Boolean).map((c) => humanize(c)));
+//   }
+
+//   return parts.join(", ");
+// };
+
+const formatCategories = (p?: { categories?: string[] | string }) => {
   if (!p) return "";
-  const allowedCollections = ["professional", "studio"];
-    const parts: string[] = [];
-if (p.collection && allowedCollections.includes(p.collection.toLowerCase())) {
-  parts.push(humanize(p.collection));
-}
-
-  if (p.categories) {
-    const cats = Array.isArray(p.categories) ? p.categories : String(p.categories).split(",").map((s) => s.trim());
-    parts.push(...cats.filter(Boolean).map((c) => humanize(c)));
-  }
-
-  return parts.join(", ");
+  if (!p.categories) return "";
+  const cats = Array.isArray(p.categories) ? p.categories : String(p.categories).split(",").map((s) => s.trim());
+  return cats.filter(Boolean).map((c) => humanize(c)).join(", ");
 };
 
   const scrollToIndex = useCallback((index: number) => {
@@ -217,23 +214,23 @@ if (p.collection && allowedCollections.includes(p.collection.toLowerCase())) {
       if (e.key === "ArrowLeft") {
         scrollToIndex(Math.max(idx - 1, 0));
       } else if (e.key === "ArrowRight") {
-        scrollToIndex(Math.min(idx + 1, allProjects.length - 1));
+        scrollToIndex(Math.min(idx + 1, items.length - 1));
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [scrollToIndex]);
+  }, [scrollToIndex, items.length]);
 
   return (
     <div className="w-full flex flex-col items-center">
-      <h1 className="font-subheading mb-2">{title ?? allProjects[currentIndex]?.title}</h1>
+      <h1 className="font-subheading mb-2">{title ?? items[currentIndex]?.title}</h1>
 
       <div className="relative w-full overflow-x-auto hide-scrollbar" ref={containerRef}>
         <div
           className="flex gap-1 py-3 snap-x snap-mandatory scroll-smooth items-center"
           style={{ paddingLeft: sidePadding, paddingRight: sidePadding, columnGap: GAP }}
         >
-           {allProjects.map((item, index) => {
+           {items.map((item, index) => {
             const isActive = index === currentIndex;
             const scale = isActive ? 1 : 0.9;
             const z = isActive ? 20 : 10;
@@ -247,7 +244,7 @@ if (p.collection && allowedCollections.includes(p.collection.toLowerCase())) {
                 transition={{ type: "spring", stiffness: 260, damping: 30 }}
                 onClick={() => scrollToIndex(index)}
               >
-                <Link href={`/projects/${item.id}`} prefetch={false}>
+                <Link href={`/projects/${item.collection}/${item.id}`} prefetch={false}>
                   {item.isVideo ? (
                     <video
                       src={item.images[0]}
@@ -308,9 +305,9 @@ if (p.collection && allowedCollections.includes(p.collection.toLowerCase())) {
           ))}
         </div>
 
-        {currentIndex < allProjects.length - 1 ? (
+        {currentIndex < items.length - 1 ? (
           <button
-            onClick={() => scrollToIndex(Math.min(currentIndex + 1, allProjects.length - 1))}
+            onClick={() => scrollToIndex(Math.min(currentIndex + 1, items.length - 1))}
             className="p-2 rounded-full transition-opacity ease-in-out"
             aria-label="Next slide"
           >
@@ -325,14 +322,14 @@ if (p.collection && allowedCollections.includes(p.collection.toLowerCase())) {
       <div className="mt-8 px-8 text-center max-w-3xl">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
-           key={projects[currentIndex].id}
+           key={items[currentIndex]?.id}
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.4 }}
           >
-            <h2 className="font-body small-caps mb-2">{formatCollectionAndCategories(allProjects[currentIndex]) || allProjects[currentIndex]?.previewHeading}</h2>
-         <p className="text-bodySmall font-body text-left mt-5"> {allProjects[currentIndex]?.previewText} </p>
+            <h2 className="font-body small-caps mb-2">{formatCategories(items[currentIndex]) || items[currentIndex]?.previewHeading}</h2>
+         <p className="text-bodySmall font-body text-left mt-5"> {items[currentIndex]?.previewText} </p>
           </motion.div>
         </AnimatePresence>
       </div>

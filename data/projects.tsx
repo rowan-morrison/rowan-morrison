@@ -1,3 +1,4 @@
+import React from "react";
 import type { Project } from "../types/project";
 
 export const projects: Project[] = [
@@ -522,13 +523,13 @@ export const projects: Project[] = [
       "/images/la-catena-12.jpg",
     "/images/madame-vo-newsletter-hero.png"],
         imageCaption: [
-    <>Editorial design of <em>La Catena</em> Issue 3</>,
-  <>Front cover + spread of <em>La Catena</em> Issue 3</>,
-  "Blog post creation via Shopify CMS",
+    <React.Fragment key="la-catena-0">Editorial design of <em>La Catena</em> Issue 3</React.Fragment>,
+    <React.Fragment key="la-catena-1">Front cover + spread of <em>La Catena</em> Issue 3</React.Fragment>,
+    "Blog post creation via Shopify CMS",
       "Hero illustrations",
       "Graphic illustrations",
       "A pendant with a drawing of a cactus",
- <>Editorial design of <em>La Catena</em> Issue 2</>,
+    <React.Fragment key="la-catena-6">Editorial design of <em>La Catena</em> Issue 2</React.Fragment>,
        "Social media",
     ],
   },
@@ -594,8 +595,8 @@ export const projects: Project[] = [
 {
   id: "macro",
   title: "MACRO",
-  collection: "professional",
-  categories: ["editorial-design"],
+  collection: "studio",
+  categories: ["editorial-design", "illustration"],
   order: 9,
   previewHeading: <>Studio observational studies</>,
   previewText: <>A series of illustrations that depict characters from Vivienne Westwood’s Activist play wearing sustainable fashion from independent designers.</>,
