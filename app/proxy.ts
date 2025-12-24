@@ -1,24 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const PASS = process.env.BASIC_AUTH_PASS;
+// const PASS = process.env.BASIC_AUTH_PASS;
 
 export async function GET(req: NextRequest) {
-  const auth = req.headers.get("authorization");
+  // const auth = req.headers.get("authorization");
 
-  if (auth) {
-    const b64 = auth.split(" ")[1] ?? "";
-    try {
-      const [, pass] = atob(b64).split(":");
-      if (pass === PASS) {
-        return NextResponse.next();
-      }
-    } catch {}
-  }
+  return NextResponse.next();
 
-  return new NextResponse("Auth required", {
-    status: 401,
-    headers: { "WWW-Authenticate": 'Basic realm="Portfolio"' },
-  });
+  // if (auth) {
+  //   const b64 = auth.split(" ")[1] ?? "";
+  //   try {
+  //     const [, pass] = atob(b64).split(":");
+  //     if (pass === PASS) {
+  //       return NextResponse.next();
+  //     }
+  //   } catch {}
+  // }
+
+  // return new NextResponse("Auth required", {
+  //   status: 401,
+  //   headers: { "WWW-Authenticate": 'Basic realm="Portfolio"' },
+  // });
 }
 
 export const config = {

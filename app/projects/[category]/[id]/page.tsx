@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
@@ -8,6 +8,7 @@ import styles from "../Projects.module.css";
 import Image from "next/image";
 import Script from "next/script";
 import projects from "@/data/projects";
+import ProjectChevrons from "@/components/ProjectChevrons";
 
 type Params = { id: string | string[] };
 
@@ -24,6 +25,18 @@ const renderDescription = (desc?: ReactNode) => {
   const id = Array.isArray(params.id) ? params.id[0] : params.id ?? "";
  const work = projects.find((p) => p.id === id);
 
+const [hideChevrons, setHideChevrons] = useState(false);
+ 
+ const currentIndex = projects.findIndex((p) => p.id === id);
+
+const prevProject = currentIndex > 0
+  ? projects[currentIndex - 1]
+  : null;
+
+const nextProject = currentIndex < projects.length - 1
+  ? projects[currentIndex + 1]
+  : null;
+
   const [mounted] = useState(() => typeof window !== "undefined");
   const [previewIndex, setPreviewIndex] = useState<number | null>(null);
    const images = Array.isArray(work?.images)
@@ -37,11 +50,53 @@ const renderDescription = (desc?: ReactNode) => {
   return caption;
 };
 
+useEffect(() => {
+ const onKey = (e: KeyboardEvent) => {
+  if (e.key === "ArrowLeft" && prevProject) {
+    router.push(`/projects/${prevProject.id}`);
+  } else if (e.key === "ArrowRight" && nextProject) {
+    router.push(`/projects/${nextProject.id}`);
+  }
+};
+
+  window.addEventListener("keydown", onKey);
+  return () => window.removeEventListener("keydown", onKey);
+}, [prevProject, nextProject, router]);
+
+useEffect(() => {
+  const target = document.getElementById("footer-sentinel");
+  if (!target) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      setHideChevrons(entry.isIntersecting);
+    },
+    {
+      root: null,
+      threshold: 0,
+    }
+  );
+
+  observer.observe(target);
+  return () => observer.disconnect();
+}, []);
+
 if (!mounted) return null;
 if (!work) return <div className={styles.notFound}>Work not found.</div>;
 
+   <ProjectChevrons
+    prevProject={prevProject}
+    nextProject={nextProject}
+    hide={hideChevrons}
+  />
+
   return (
     <>
+     <ProjectChevrons
+    prevProject={prevProject}
+    nextProject={nextProject}
+    hide={hideChevrons}
+  />
       <div className={`${styles.projects} w-full mt-[100]`}>
         <motion.section
           className={styles.workInfo}
@@ -121,19 +176,27 @@ transition={{ duration: 0.6, ease: "easeInOut" }}
 )}
         </motion.section>
       </div>
-<AnimatePresence mode="wait">
+
+<AnimatePresence>
   {previewIndex !== null && (
+    <motion.div
+      className="fixed inset-0 z-[980] flex items-center justify-center bg-white/70 backdrop-blur-md"
+      onClick={() => setPreviewIndex(null)}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+    >
       <motion.div
-        className="relative flex flex-col items-center justify-center max-w-[90vw] max-h-[90vh] z-[900]"
+        className="relative max-w-[95vw] max-h-[95vh]"
         onClick={(e) => e.stopPropagation()}
-        initial={{ scale: 0.95, filter: "blur(8px) saturate(0.7)" }}
-        animate={{ scale: 1, filter: "blur(0px) saturate(1)" }}
-        exit={{ scale: 0.95, filter: "blur(8px) saturate(0.7)" }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
+        initial={{ scale: 0.96 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.96 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
       >
         {images[previewIndex]?.endsWith(".mp4") ? (
           <video
-            key={images[previewIndex]}
             src={images[previewIndex]}
             autoPlay
             loop
@@ -143,20 +206,21 @@ transition={{ duration: 0.6, ease: "easeInOut" }}
           />
         ) : (
           <Image
-            key={images[previewIndex]}
             src={images[previewIndex]}
             alt={`Preview ${previewIndex + 1}`}
-            width={1600}
-            height={1200}
+            width={2000}
+            height={1500}
             className="max-w-full max-h-full object-contain"
             priority
-            unoptimized
           />
         )}
 
-        <figcaption className="mt-4 text-center font-caption text-bodyMedium text-current max-w-[90vw] break-words">
-          {work.imageCaption?.[previewIndex] ?? null}
-        </figcaption>
+        {work.imageCaption?.[previewIndex] && (
+          <figcaption className="mt-4 text-center font-caption text-bodySmall text-current">
+            {work.imageCaption[previewIndex]}
+          </figcaption>
+        )}
+      </motion.div>
     </motion.div>
   )}
 </AnimatePresence>

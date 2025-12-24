@@ -1,108 +1,38 @@
-import ProjectIndex from "../components/ProjectIndex";
-import { projects } from "@/data/projects";
+import Link from "next/link";
+import Image from "next/image";
 
-interface PageProps {
-  params: Promise<{ category?: string | string[], collection?: string | string[] }>;
-}
-
-export default async function Home({ params }: PageProps) {
-  const resolvedParams = await params;
-
-  const firstParam = Array.isArray(resolvedParams.category)
-    ? resolvedParams.category[0]
-    : resolvedParams.category ?? "";
-  const secondParam = Array.isArray(resolvedParams.collection)
-    ? resolvedParams.collection[0]
-    : resolvedParams.collection ?? "";
-
-const validCollections = ["professional", "studio"] as const;
-const validCategories = [
-    "illustration",
-    "branding-and-identity",
-    "animation-and-motion",
-    "editorial-design",
-    "print-design",
-    "web-and-digital",
-  ] as const;
-
-type WorkCollection = (typeof validCollections)[number];
-type WorkCategory = (typeof validCategories)[number];
-
- let safeCollection: WorkCollection = "professional";
-  let safeCategory: WorkCategory | undefined;
-
-  if (validCollections.includes(firstParam as WorkCollection)) {
-    safeCollection = firstParam as WorkCollection;
-    if (validCategories.includes(secondParam as WorkCategory)) {
-      safeCategory = secondParam as WorkCategory;
-    }
-  } else if (validCategories.includes(firstParam as WorkCategory)) {
-    safeCategory = firstParam as WorkCategory;
-    if (validCollections.includes(secondParam as WorkCollection)) {
-      safeCollection = secondParam as WorkCollection;
-    }
-  }
-
-const filteredProjects = projects
-  .filter((p) => {
-    if (safeCategory) {
-      return p.categories?.some(cat => cat.toLowerCase() === safeCategory.toLowerCase());
-    }
-    return p.collection.toLowerCase() === safeCollection.toLowerCase();
-  })
-  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0)); // manual order
-
-const formatCategory = (slug: string) =>
-  slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-
-  if (!filteredProjects.length) {
-    return (
-      <p className="flex items-center justify-center h-screen text-center text-current">
-        Category not found.
-      </p>
-    );
-  }
-
-  const displayTitle = safeCategory ?? safeCollection;
-
+export default function Home() {
   return (
-    <>
-{displayTitle && (
-  <div className="sticky top-0 z-890">
-    <div className="h-[var(--header-height)]" />
-
-    <div className="px-6 py-4">
-      <h1 className="font-subheading hidden">
-        {formatCategory(displayTitle)}
-      </h1>
-    </div>
-  </div>
-)}
-
-      <section className="container mx-auto py-20 z-10">
-        <ProjectIndex
-          projects={filteredProjects}
-          vertical={true}
-          showCaptionsOnClick={true}
-          collection={safeCollection}
-          categories={safeCategory ? [safeCategory] : undefined}
+    <main className="min-h-screen grid grid-cols-1 md:grid-cols-2">
+      <Link href="/projects/professional" className="relative group block h-[50vh] md:h-screen">
+        <Image
+          src="/images/lucky-07.jpg"
+          alt="Professional work"
+          fill
+          style={{ objectFit: "cover" }}
+          className="brightness-90 group-hover:brightness-75 transition"
         />
-      </section>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="bg-black/20 backdrop-blur-sm px-6 py-3 rounded-full">
+            <h2 className="text-white text-titleLarge font-title hover:font-italic">Professional</h2>
+          </div>
+        </div>
+      </Link>
 
-     <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "HomePage",
-          "name": "Rowan Morrison",
-          "description": "Portfolio of Rowan Morrison, a multidisciplinary designer and artist based in London.",
-          "url": "https://rowanmorrisons.com",
-          "sameAs": [
-            "https://www.linkedin.com/in/rowanmorrisons/",
-            "https://www.instagram.com/rowanmorrisons/",
-            "https://github.com/rowan-morrison"
-        ]
-      })}
-      </script>
-      </>
+      <Link href="/projects/studio" className="relative group block h-[50vh] md:h-screen">
+        <Image
+          src="/images/catelier-03.jpg"
+          alt="Studio work"
+          fill
+          style={{ objectFit: "cover" }}
+          className="brightness-90 group-hover:brightness-75 transition"
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="bg-black/20 backdrop-blur-sm px-6 py-3 rounded-full">
+            <h2 className="text-white text-titleLarge font-title">Studio</h2>
+          </div>
+        </div>
+      </Link>
+    </main>
   );
 }

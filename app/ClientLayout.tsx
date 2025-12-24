@@ -37,6 +37,7 @@ useEffect(() => {
       <Header />
       <ScrollToTop />
       {loading ? <LoadingScreen visible={true} /> : <main>{children}</main>}
+      <div id="footer-sentinel" className="h-px w-full" />
       <Footer />
     </>
   );

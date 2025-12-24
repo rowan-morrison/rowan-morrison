@@ -4,6 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import Image from "next/image";
+import { slugify } from "@/lib/slugify";
+
 
 const projectCategories = [
   "Branding & Identity",
@@ -20,6 +22,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hideHeader, setHideHeader] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const [projectsOpen, setProjectsOpen] = useState(false);
   
   const infoReady = false;
   const shopReady = false;
@@ -70,16 +73,16 @@ export default function Header() {
              onClick={() => setMenuOpen(prev => !prev)}
           aria-label="Toggle menu"
           >
-          <p className="relative font-caption text-bodySmall text-current">
+          <p className="relative font-caption text-bodySmall text-current  w-12 h-[1.1em] leading-none">
   <span
-    className={`absolute transition-opacity duration-300 ${
+    className={`absolute inset-0 transition-opacity duration-300 ${
       menuOpen ? "opacity-0" : "opacity-100"
     }`}
   >
     Menu
   </span>
   <span
-    className={`absolute transition-opacity duration-300 ${
+    className={`absolute inset-0 transition-opacity duration-300 ${
       menuOpen ? "opacity-70" : "opacity-0"
     }`}
   >
@@ -129,20 +132,22 @@ export default function Header() {
         </button>
       
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2  z-[999] w-32 h-12 sm:w-40 sm:h-16">
-        <Link href="/" id="logo">
+        <Link href="/" id="logo" className="relative block w-full h-full">
           <Image
             src={resolvedTheme === "dark" ? "/images/rowan-morrison-logo-white-v2.png" : "/images/rowan-morrison-logo-black-v2.png"}
             alt="Rowan Morrison Logo"
             id="rowan-logo"
             fill
+            sizes="(max-width: 640px) 160px, 320px"
+            loading="eager"
             className="z-[999]"
             style={{ objectFit: "contain", mixBlendMode: "difference" }}
           />
-          </Link>
-          </div>
+        </Link>
+        </div>
 
           <div className="contact-cta px-2">
-          <Link href="/contact" className="font-caption text-bodySmall">
+          <Link href="/contact" className="font-caption text-bodySmall text-current">
             Contact
           </Link>
           </div> 
@@ -157,7 +162,7 @@ export default function Header() {
   `}
 >
             <div className="flex flex-col h-full">
-          <ul className="flex-col items-center space-y-6 text-headingSmall font-heading">
+          <ul className="flex-col items-center space-y-6 text-titleMedium font-heading text-current">
             <li>
               <Link 
               href={infoReady ? "/info" : "#"}
@@ -169,7 +174,7 @@ export default function Header() {
             <li>
               <Link href={shopReady ? "https://www.etsy.com/uk/shop/RowanMorrisonStudio" : "#"} onClick={(e) => { if (!shopReady) e.preventDefault(); }}>
 <h2 className="opacity-25">Shop</h2>
-<p className="opacity-25 font-title text-titleMedium ml-6 mt-2">Coming soon!</p>
+<p className="opacity-25 font-caption text-bodySmall text-current ml-6 mt-2">Coming soon!</p>
               </Link>
             </li>
             <li>
@@ -179,16 +184,46 @@ export default function Header() {
               <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
             </li>
             <li>
-              <h2>Projects</h2>
-              {projectCategories.map((cat) => (
-    <Link key={cat} href={`/projects/${cat.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`} onClick={() => setMenuOpen(false)}>
-      <p className="font-title text-titleMedium ml-6 mt-2">{cat}</p>
-    </Link>
-  ))}
-            </li>
+               <button
+    type="button"
+    onClick={() => setProjectsOpen(prev => !prev)}
+    className="flex items-center gap-2 focus:outline-none"
+  >
+    <h2>Projects</h2>
+    <span
+      className={`transition-transform duration-300 ${
+        projectsOpen ? "rotate-180" : "rotate-0"
+      }`}
+      aria-hidden
+    >
+     <svg width="20px" height="20px" strokeWidth="1.3" viewBox="0 0 24 24" opacity="0.4" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M6 9L12 15L18 9" stroke="#000000" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+    </span>
+  </button>
+
+  <div
+    className={`overflow-hidden transition-all duration-300 ${
+      projectsOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+    }`}
+  >
+    {projectCategories.map((cat) => (
+      <Link
+        key={cat}
+        href={`/projects/${slugify(cat)}`}
+        onClick={() => {
+          setMenuOpen(false);
+          setProjectsOpen(false);
+        }}
+      >
+        <p className="font-caption text-bodySmall text-current ml-6 mt-2">
+          {cat}
+        </p>
+      </Link>
+    ))}
+  </div>
+</li>
           </ul>
 </div>
-            <div id="nav-footer" className="relative mt-auto bottom-10 text-bodySmall font-body">
+            <div id="nav-footer" className="relative mt-auto bottom-10 text-bodySmall font-body text-current">
             <p>Designed and coded by Rowan Morrison</p>
           </div>
         </nav>
