@@ -147,7 +147,7 @@ transition={{ duration: 0.6, ease: "easeInOut" }}
     <div className={styles.masonry}>
   {images.map((src: string, index: number) => (
     <figure
-      key={index}
+      key={`${work.id}-img-${index}`}
       className={`${styles["masonry-item"]} cursor-pointer overflow-hidden`}
       onClick={() => setPreviewIndex(index)}
     >
