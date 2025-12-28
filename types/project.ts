@@ -23,7 +23,7 @@ export interface Project {
   previewCaptions?: string | ReactNode;
   skills?: string[];
   linkApp?: string;
-  caption?: string | string[];
+  caption?: string | ReactNode;
   imageCaption?: ReactNode[];
   comingSoon?: boolean;
 }

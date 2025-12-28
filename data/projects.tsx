@@ -512,7 +512,7 @@ export const projects: Project[] = [
     <br></br>
     <br></br>
     Read ‘Yen Vo and Jimmy Ly First Bonded over Beignets’ on <em>La Catena</em> <a href="https://carolinabucci.com/blogs/la-catena/yen-vo-and-jimmy-ly-first-bonded-over-beignets?srsltid=AfmBOoqCOjSa0M06g-Pv2UUyRh0VxbOA2v3kqt9go_bd4W0FODp02M6Y" target="_blank" rel="noopener noreferrer" className="hyperlink">here</a>.</>),
-    caption: "© 2025 Carolina Bucci Firenze. All rights reserved.",
+    caption: "© ${currentYear} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.",
      skills: ["Editorial design", "Print production", "Digital illustration"],
     images: ["/images/la-catena-01.jpg",
       "/images/la-catena-mockup-01.jpg",
@@ -554,7 +554,10 @@ export const projects: Project[] = [
         Created 24 icon illustrations for Carolina Bucci’s first collection, Lucky. See them in context <a href="https://carolinabucci.com/products/pineider-lucky-stationery-set" target="_blank" rel="noopener noreferrer" className="hyperlink">here</a>.
       </>
     ),
-    caption: "© 2025 Carolina Bucci Firenze. All rights reserved.",
+    caption: ( 
+    <>
+    © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
+  </>),
      skills: ["Icon design", "Packaging & print production", "Pattern/swatch design"],
     images: [ "/images/8-selected-lucky-charms-web.png",
       "/images/carolina-bucci-florentine-finish-forte-got-lucky-stud-earrings-atelier-lifestyle-meta-1x1.mp4",
