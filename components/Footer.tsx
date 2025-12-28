@@ -50,7 +50,7 @@ useEffect(() => {
   return (
   <footer
   suppressHydrationWarning
-  className="w-full text-current py-6 px-1 flex flex-col items-center bg-white dark:bg-black transition-colors duration-300"
+  className="w-full py-6 px-1 flex flex-col items-center bg-white dark:bg-black text-current transition-colors duration-300"
 >
    <section className="footer-container w-full box-border mx-auto px-[var(--container-side-space)]">
     <p className="mb-1 font-subheading">

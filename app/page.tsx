@@ -14,7 +14,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 flex items-center justify-center sm:opacity-100 md:opacity-50 md:group-hover:opacity-100 transition-opacity ease-in-out">
           <div className="px-6 py-3">
-            <h2 className="text-white text-titleLarge font-title hover:font-italic">Professional</h2>
+            <h2 className="text-white text-titleLarge font-title md:text-headingMedium">Professional</h2>
           </div>
         </div>
       </Link>
@@ -29,7 +29,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 flex items-center justify-center sm:opacity-100 md:opacity-50 md:group-hover:opacity-100 transition-opacity ease-in-out">
           <div className="px-6 py-3">
-            <h2 className="text-white text-titleLarge font-title">Studio</h2>
+            <h2 className="text-white text-titleLarge font-title md:text-headingMedium">Studio</h2>
           </div>
         </div>
       </Link>

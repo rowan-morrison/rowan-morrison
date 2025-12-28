@@ -222,7 +222,7 @@ const formatCategories = (p?: { categories?: string[] | string }) => {
   }, [scrollToIndex, items.length]);
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center text-current">
       <h1 className="font-subheading mb-2">{title ?? items[currentIndex]?.title}</h1>
 
       <div className="relative w-full overflow-x-auto hide-scrollbar" ref={containerRef}>

@@ -76,7 +76,7 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
         </StickyFadeHeader>
       )}
 
-      <section className="container mx-auto py-20 z-10">
+      <section className="container mx-auto py-20 z-10 md:max-h-[80vh]">
         <ProjectIndex projects={filteredProjects} vertical={true} showCaptionsOnClick={true} collection={safeCollection} categories={safeCategory ? [safeCategory] : undefined} />
       </section>
     </>
