@@ -187,7 +187,7 @@ transition={{ duration: 0.6, ease: "easeInOut" }}
 <AnimatePresence>
   {previewIndex !== null && (
     <motion.div
-      className="fixed inset-0 z-[980] flex items-center justify-center bg-white/70 backdrop-blur-md"
+      className="fixed inset-0 z-[980] flex items-center justify-center bg-white/70 dark:bg-black/70 backdrop-blur-md"
       onClick={() => setPreviewIndex(null)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

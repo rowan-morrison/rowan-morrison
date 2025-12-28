@@ -65,7 +65,7 @@ export default function Header() {
     <header id="portfolio-header" ref={headerRef}
           className={`fixed top-0 left-0 right-0 w-full z-[990] transition-opacity ease-in-out duration-300 ${hideHeader ? "opacity-0" : "opacity-100"}`}>
             <div className="hidden header-banner w-full h-9 bg-black items-center justify-center">
-              <p className="header-banner-text text-white font-body text-titleSmall">Open for work</p>
+              <p className="header-banner-text text-current font-body text-titleSmall">Open for work</p>
             </div>
 
       <div className="relative container flex items-center justify-between py-10 px-5 h-[8vh] max-w-full">
@@ -73,7 +73,7 @@ export default function Header() {
              onClick={() => setMenuOpen(prev => !prev)}
           aria-label="Toggle menu"
           >
-          <p className="relative font-caption text-bodySmall text-current  w-12 h-[1.1em] leading-none">
+          <p className="relative font-caption text-bodySmall text-current w-12 h-[1.1em] leading-none">
   <span
     className={`absolute inset-0 transition-opacity duration-300 ${
       menuOpen ? "opacity-0" : "opacity-100"
@@ -82,7 +82,7 @@ export default function Header() {
     Menu
   </span>
   <span
-    className={`absolute inset-0 transition-opacity duration-300 ${
+    className={`absolute inset-0 transition-opacity duration-300 cursor-pointer ${
       menuOpen ? "opacity-70" : "opacity-0"
     }`}
   >
@@ -155,7 +155,7 @@ export default function Header() {
 
 <nav
   className={`
-    fixed top-0 left-0 h-full pt-20 p-6 bg-white
+    fixed top-0 left-0 h-full pt-20 p-6 bg-white dark:bg-black text-current
     z-[800] w-1/2
     transform transition-transform duration-300 ease-in-out will-change-transform
     ${menuOpen ? "translate-x-0" : "-translate-x-full"}
@@ -177,10 +177,10 @@ export default function Header() {
 <p className="opacity-25 font-caption text-bodySmall text-current ml-6 mt-2">Coming soon!</p>
               </Link>
             </li>
-            <li>
+            <li className="hover:opacity-80">
               <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
             </li>
-            <li>
+            <li className="hover:opacity-80">
               <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
             </li>
             <li>
@@ -196,7 +196,7 @@ export default function Header() {
       }`}
       aria-hidden
     >
-     <svg width="20px" height="20px" strokeWidth="1.3" viewBox="0 0 24 24" opacity="0.4" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M6 9L12 15L18 9" stroke="#000000" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+     <svg width="20px" height="20px" strokeWidth="1.3" viewBox="0 0 24 24" opacity="0.4" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke={resolvedTheme === "dark" ? "#FFFFFF" : "#000000"} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"></path></svg>
     </span>
   </button>
 
@@ -214,7 +214,7 @@ export default function Header() {
           setProjectsOpen(false);
         }}
       >
-        <p className="font-caption text-bodySmall text-current ml-6 mt-2">
+        <p className="font-caption text-bodySmall text-current ml-6 mt-2 hover:opacity-80">
           {cat}
         </p>
       </Link>

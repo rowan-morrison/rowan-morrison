@@ -162,6 +162,10 @@ export const projects: Project[] = [
     title: "Wrapping Paper",
     collection: "studio",
     categories: ["print-design"],
+    caption: ( 
+    <>
+    © {new Date().getFullYear()} Central23. All rights reserved. Work produced for Central23. All rights and assets are the property of Central23. Shown here for portfolio purposes only.
+  </>),
     order: 12,
     previewText: (
       <>
@@ -301,7 +305,10 @@ export const projects: Project[] = [
         Drawing pendants to capture clients’ memories forever in 18k gold and precious stones. See them <a href="https://carolinabucci.com/products/memory-pendant" target="_blank" rel="noopener noreferrer">here</a>.
       </>
     ),
-    caption: "© 2025 Carolina Bucci Firenze. All rights reserved.",
+    caption: ( 
+    <>
+    © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
+  </>),
     skills: ["Bespoke client illustration", "Narrative animation"],
     previewCaptions: [
       "A pendant with a drawing of a dog.",
@@ -355,7 +362,10 @@ export const projects: Project[] = [
     <>
     Some of many different types of visual collateral made for Carolina Bucci.
     </>),
-  caption: "© 2025 Carolina Bucci Firenze. All rights reserved.",
+  caption: ( 
+    <>
+    © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
+  </>),
    skills: ["Print production", "Packaging & editorial design", "Large-scale prints"],
   images: ["/images/illustration-homepage-01.jpg",
     "/images/lucky-06.jpg",
@@ -413,7 +423,10 @@ export const projects: Project[] = [
         in support of Make-A-Wish UK®. Learn more and support Make-A-Wish UK® <a href="https://carolinabucci.com/blogs/la-catena/wishful-thinking" target="_blank" rel="noopener noreferrer">here</a>.
       </>
     ),
-    caption: "Imagery © 2025 Carolina Bucci Firenze. All rights reserved.\nOriginal illustrations made by Rosie, Emily and Noah, with Make-a-Wish UK®.",
+      caption: ( 
+    <>
+    © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Original illustrations made by Rosie, Emily and Noah, with Make-a-Wish UK®. Shown here for portfolio purposes only.
+  </>),
     skills: ["Pattern design", "Print production"],
     images: [ "/images/art-of-wishes-01.jpg",
       "/images/art-of-wishes-insert-card-02.jpg",
@@ -451,7 +464,10 @@ export const projects: Project[] = [
           here
         </a>.
        </>),
-  caption: "© 2025 Carolina Bucci Firenze. All rights reserved.",
+    caption: ( 
+    <>
+    © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
+  </>),
    skills: ["UX/UI", "Interactive coding", "Illustration & animation", "Newsletter creation & design"],
   images: ["/images/downtown-rings-tool.mp4",
     "/images/rowan-morrison-downtown-rings-ad.mp4",
@@ -483,7 +499,10 @@ export const projects: Project[] = [
         Animations to show the personalisable elements of Carolina Bucci’s bracelets and necklaces.
       </>
     ),
-    caption: ["© 2025 Carolina Bucci Firenze. All rights reserved."],
+     caption: ( 
+    <>
+    © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
+  </>),
     images: [ "/images/carolina-bucci-everyday-animation-4x5.mp4",
       "/images/carolina-bucci-multi-wish-lucky-bracelet-animation-web.mp4"
     ],
@@ -512,7 +531,10 @@ export const projects: Project[] = [
     <br></br>
     <br></br>
     Read ‘Yen Vo and Jimmy Ly First Bonded over Beignets’ on <em>La Catena</em> <a href="https://carolinabucci.com/blogs/la-catena/yen-vo-and-jimmy-ly-first-bonded-over-beignets?srsltid=AfmBOoqCOjSa0M06g-Pv2UUyRh0VxbOA2v3kqt9go_bd4W0FODp02M6Y" target="_blank" rel="noopener noreferrer" className="hyperlink">here</a>.</>),
-    caption: "© ${currentYear} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.",
+     caption: ( 
+    <>
+    © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
+  </>),
      skills: ["Editorial design", "Print production", "Digital illustration"],
     images: ["/images/la-catena-01.jpg",
       "/images/la-catena-mockup-01.jpg",

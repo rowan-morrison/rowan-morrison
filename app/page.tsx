@@ -10,10 +10,10 @@ export default function Home() {
           alt="Professional work"
           fill
           style={{ objectFit: "cover" }}
-          className="brightness-90 group-hover:brightness-75 transition"
+          className="brightness-80 group-hover:brightness-100 transition"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-black/20 backdrop-blur-sm px-6 py-3 rounded-full">
+        <div className="absolute inset-0 flex items-center justify-center sm:opacity-100 md:opacity-50 md:group-hover:opacity-100 transition-opacity ease-in-out">
+          <div className="px-6 py-3">
             <h2 className="text-white text-titleLarge font-title hover:font-italic">Professional</h2>
           </div>
         </div>
@@ -25,10 +25,10 @@ export default function Home() {
           alt="Studio work"
           fill
           style={{ objectFit: "cover" }}
-          className="brightness-90 group-hover:brightness-75 transition"
+          className="brightness-80 group-hover:brightness-100 transition"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-black/20 backdrop-blur-sm px-6 py-3 rounded-full">
+        <div className="absolute inset-0 flex items-center justify-center sm:opacity-100 md:opacity-50 md:group-hover:opacity-100 transition-opacity ease-in-out">
+          <div className="px-6 py-3">
             <h2 className="text-white text-titleLarge font-title">Studio</h2>
           </div>
         </div>

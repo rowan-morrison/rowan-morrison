@@ -69,8 +69,8 @@ export default async function CategoryPage({ params }: { params: PageParams }) {
     <>
       {displayTitle && (
         <StickyFadeHeader>
-          <div className="h-[var(--header-height)] bg-white" />
-          <div className="px-6 py-4 bg-white">
+          <div className="h-[var(--header-height)] bg-white dark:bg-black " />
+          <div className="px-6 py-4 bg-white dark:bg-black">
             <h1 className="font-subheading">{formatCategory(displayTitle)}</h1>
           </div>
         </StickyFadeHeader>
