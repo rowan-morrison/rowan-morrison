@@ -4,6 +4,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="min-h-screen grid grid-cols-1 md:grid-cols-2">
+      
       <Link href="/projects/professional" className="relative group block h-[50vh] md:h-screen">
         <Image
           src="/images/lucky-07.jpg"
