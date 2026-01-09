@@ -12,6 +12,8 @@ export type WorkCategory =
 export interface Project {
   id: string;
   title: string | ReactNode;
+  href?: string;
+  blocks: ImageBlock[];
   images: string[];
   description?: string | ReactNode;
   collection: WorkCollection;
@@ -28,6 +30,15 @@ export interface Project {
   comingSoon?: boolean;
 }
 
+export type ImageBlock = {
+  type: "full" | "half" | "video";
+  src?: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+  images?: { src: string; caption: string; width?: number; height?: number }[];
+}
+
 export interface MasonryGridProps {
   projects: Project[];
   vertical?: boolean;
@@ -35,3 +46,4 @@ export interface MasonryGridProps {
   collection: WorkCollection;
   categories?: WorkCategory[];
 }
+

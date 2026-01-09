@@ -2,13 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/data/projects";
 
-type ImageBlock = {
-  type: "full" | "half" | "video";
-  images?: { src: string; caption: string; width?: number; height?: number }[];
-  src?: string;
-  caption?: string;
-};
-
 export default function Home() {
   return (
     <main className="min-h-screen grid grid-cols-1 gap-8 m-5 pt-[100px] md:p-5 md:overflow-y-auto">
@@ -21,10 +14,10 @@ export default function Home() {
       >
       {project.href ? (
         <Link href={project.href} className="block h-full">
-          <Image src={block.src!} alt={project.title} fill className="object-cover" />
+          <Image src={block.src!} alt={String(project.title ?? "")} fill className="object-cover" />
         </Link>
       ) : (
-        <Image src={block.src!} alt={project.title} fill className="object-cover" />
+        <Image src={block.src!} alt={String(project.title ?? "")} fill className="object-cover" />
       )}
     </div>
   );
@@ -43,7 +36,7 @@ export default function Home() {
       <Link href={project.href}>
         <Image
           src={img.src}
-          alt={project.title}
+          alt={String(project.title ?? "")}
           fill
           className="object-cover"
         />
@@ -51,7 +44,7 @@ export default function Home() {
     ) : (
       <Image
         src={img.src}
-        alt={project.title}
+        alt={String(project.title ?? "")}
         fill
         className="object-cover"
       />

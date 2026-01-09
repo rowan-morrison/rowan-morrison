@@ -83,12 +83,11 @@ export const projects: Project[] = [
     title: "Stickers",
     href: "/mojo-stickers",
     blocks: [
-      { type: "full", src: "/images/rowan-morrison-mojo-stickers-mockup.jpg", caption: "Sticker sheet with cut lines" },
       {
         type: "half",
         images: [
-          { src: "/images/mojo-stickers-01.jpg", caption: "" },
-          { src: "/images/mojo-stickers-web-01.jpg", caption: "" }
+          { src: "/images/mojo-stickers-01.jpg", caption: "Sticker sheet with cut lines" },
+          { src: "/images/mojo-stickers-web-01.jpg", caption: "Sticker sheet with cut lines" }
         ]
       }
     ],
@@ -238,13 +237,9 @@ export const projects: Project[] = [
   {
     id: "archive",
     title: "Archive",
-     href: "/oracle-cats",
+     href: "/archive",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
-    ],
-     href: "/oracle-cats",
-    blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "full", src: "/images/archive-12.jpg", caption: "Digital illustration" },
     ],
     collection: "studio",
     categories: ["illustration"],
@@ -297,9 +292,10 @@ export const projects: Project[] = [
   {
     id: "open-collab",
     title: "Open Collab",
-     href: "/oracle-cats",
+    //  href: "/oracle-cats",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "video", src: "/images/open-collab-01.mp4", caption: "Digital illustration" },
+      { type: "video", src: "/images/open-collab-02.mp4", caption: "Digital illustration" },
     ],
     collection: "studio",
     categories: ["web-and-digital", "illustration"],
@@ -507,6 +503,9 @@ export const projects: Project[] = [
   {
     id: "downtown-rings",
     title: "Digital Design",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
     collection: "professional",
     categories: ["web-and-digital"],
     isVideo: true,
@@ -543,6 +542,9 @@ export const projects: Project[] = [
   {
     id: "animation",
     title: "Animation",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
     collection: "professional",
     categories: ["animation-and-motion", "illustration"],
     isVideo: true,
