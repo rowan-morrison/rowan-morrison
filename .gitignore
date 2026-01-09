@@ -46,3 +46,4 @@ node_modules_old/
 reset-dev.sh
 app/projects/[category]/[id]/
 .codebasenotes-annotations.json
+package-lock*.json

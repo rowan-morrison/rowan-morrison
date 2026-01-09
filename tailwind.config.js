@@ -94,6 +94,7 @@ module.exports = {
         faluRed: "#751B1E",
         babyPowder: "#F7F7EF",
         cultured: "#F8F8F8",
+        parchment: "#EEEBE7",
       },
     },
   },

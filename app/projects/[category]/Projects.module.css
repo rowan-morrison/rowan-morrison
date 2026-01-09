@@ -218,8 +218,7 @@ html.dark-mode #close-btn-arrow svg {
   min-width: 180px;
   object-fit: cover;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  pointer-events: auto;
-  user-select: none;   
+  pointer-events: auto;  
 }
 
 /* Scroll arrows */

@@ -5,6 +5,16 @@ export const projects: Project[] = [
   {
     id: "catelier",
     title: "Catelier",
+    // href: "/catelier",
+    blocks: [
+      {
+        type: "half",
+        images: [
+          { src: "/images/catelier-01.jpg", caption: "CATELIER" },
+          { src: "/images/catelier-03.jpg", caption: "CATELIER" }
+        ]
+      }
+    ],
     collection: "studio",
     categories: ["web-and-digital", "illustration"],
     order: 1,
@@ -38,6 +48,10 @@ export const projects: Project[] = [
   {
     id: "oracle-cats",
     title: "Cat Oracle",
+    // href: "/oracle-cats",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
     collection: "studio",
     categories: ["web-and-digital"],
     order: 5,
@@ -67,6 +81,17 @@ export const projects: Project[] = [
   {
     id: "mojo-stickers",
     title: "Stickers",
+    href: "/mojo-stickers",
+    blocks: [
+      { type: "full", src: "/images/rowan-morrison-mojo-stickers-mockup.jpg", caption: "Sticker sheet with cut lines" },
+      {
+        type: "half",
+        images: [
+          { src: "/images/mojo-stickers-01.jpg", caption: "" },
+          { src: "/images/mojo-stickers-web-01.jpg", caption: "" }
+        ]
+      }
+    ],
     collection: "studio",
     categories: ["print-design", "illustration"],
     order: 6,
@@ -103,6 +128,16 @@ export const projects: Project[] = [
   {
     id: "object-studies",
     title: "Still Life",
+    href: "/object-studies",
+    blocks: [
+       {
+        type: "half",
+        images: [
+          { src: "/images/catelier-01.jpg", caption: "Studio observational studies" },
+          { src: "/images/archive-06.mp4", caption: "Studio observational studies" }
+        ]
+      }
+    ],
     collection: "studio",
     categories: ["illustration"],
     order: 11,
@@ -160,6 +195,10 @@ export const projects: Project[] = [
   {
     id: "central23",
     title: "Wrapping Paper",
+     href: "/central23",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
     collection: "studio",
     categories: ["print-design"],
     caption: ( 
@@ -199,6 +238,14 @@ export const projects: Project[] = [
   {
     id: "archive",
     title: "Archive",
+     href: "/oracle-cats",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
+     href: "/oracle-cats",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
     collection: "studio",
     categories: ["illustration"],
     isVideo: true,
@@ -250,6 +297,10 @@ export const projects: Project[] = [
   {
     id: "open-collab",
     title: "Open Collab",
+     href: "/oracle-cats",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
     collection: "studio",
     categories: ["web-and-digital", "illustration"],
     isVideo: true,
@@ -286,6 +337,10 @@ export const projects: Project[] = [
   {
     id: "memory-pendants",
     title: "Memory Pendants",
+     href: "/memory-pendants",
+    blocks: [
+      { type: "video", src: "/images/memory-pendants-11.mp4", caption: "Digital illustration" },
+    ],
     collection: "professional",
     categories: ["animation-and-motion", "illustration"],
     isVideo: true,
@@ -345,6 +400,10 @@ export const projects: Project[] = [
   {
     id: "merchandising",
     title: "Brand & Merchandising",
+     href: "/oracle-cats",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
     collection: "professional",
     categories: ["branding-and-identity", "illustration"],
     order: 3,
@@ -404,6 +463,10 @@ export const projects: Project[] = [
   {
     id: "art-of-wishes",
     title: "Carolina Bucci × Art of Wishes",
+     href: "/oracle-cats",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
     collection: "professional",
     categories: ["print-design"],
     order: 4,
@@ -514,10 +577,14 @@ export const projects: Project[] = [
   {
     id: "la-catena",
     title: (<><em style={{fontFamily: "'EB Garamond Italic'",}}>La Catena</em></>),
+     href: "/oracle-cats",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
     collection: "professional",
     categories: ["editorial-design"],
     order: 9,
-      previewHeading: (
+    previewHeading: (
         <>
         Studio observational studies
         </>
@@ -558,6 +625,10 @@ export const projects: Project[] = [
   {
     id: "lucky",
     title: "Lucky Icons",
+     href: "/oracle-cats",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
     collection: "professional",
     categories: ["print-design"],
     order: 10,
@@ -620,6 +691,10 @@ export const projects: Project[] = [
 {
   id: "macro",
   title: "MACRO",
+   href: "/oracle-cats",
+    blocks: [
+      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+    ],
   collection: "studio",
   categories: ["editorial-design", "illustration"],
   order: 9,

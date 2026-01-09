@@ -1,39 +1,111 @@
 import Link from "next/link";
 import Image from "next/image";
+import { projects } from "@/data/projects";
+
+type ImageBlock = {
+  type: "full" | "half" | "video";
+  images?: { src: string; caption: string; width?: number; height?: number }[];
+  src?: string;
+  caption?: string;
+};
 
 export default function Home() {
   return (
-    <main className="min-h-screen grid grid-cols-1 md:grid-cols-2">
-      
-      <Link href="/projects/professional" className="relative group block h-[50vh] md:h-screen">
-        <Image
-          src="/images/lucky-07.jpg"
-          alt="Professional work"
-          fill
-          style={{ objectFit: "cover" }}
-          className="brightness-80 group-hover:brightness-100 transition"
-        />
-        <div className="absolute inset-0 flex items-center justify-center sm:opacity-100 md:opacity-50 md:group-hover:opacity-100 transition-opacity ease-in-out">
-          <div className="px-6 py-3">
-            <h2 className="text-white text-titleLarge font-title md:text-headingMedium">Professional</h2>
-          </div>
-        </div>
-      </Link>
+    <main className="min-h-screen grid grid-cols-1 gap-8 m-5 pt-[100px] md:p-5 md:overflow-y-auto">
+      {projects.map((project) => (
+        <div key={project.id} className="space-y-8">
+   {project.blocks?.map((block, idx) => {
+           if (block.type === "full") {
+  return (
+    <div key={idx} className="relative w-full overflow-hidden"  style={{ aspectRatio: block.width && block.height ? `${block.width} / ${block.height}` : undefined }}
+      >
+      {project.href ? (
+        <Link href={project.href} className="block h-full">
+          <Image src={block.src!} alt={project.title} fill className="object-cover" />
+        </Link>
+      ) : (
+        <Image src={block.src!} alt={project.title} fill className="object-cover" />
+      )}
+    </div>
+  );
+}
 
-      <Link href="/projects/studio" className="relative group block h-[50vh] md:h-screen">
+           if (block.type === "half") {
+              return (
+                <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {block.images?.map((img, i) => (
+  <div
+    key={i}
+    className="relative group w-full overflow-hidden"
+    style={{ aspectRatio: img.width && img.height ? `${img.width} / ${img.height}` : undefined }}
+          >
+    {project.href ? (
+      <Link href={project.href}>
         <Image
-          src="/images/catelier-03.jpg"
-          alt="Studio work"
+          src={img.src}
+          alt={project.title}
           fill
-          style={{ objectFit: "cover" }}
-          className="brightness-80 group-hover:brightness-100 transition"
+          className="object-cover"
         />
-        <div className="absolute inset-0 flex items-center justify-center sm:opacity-100 md:opacity-50 md:group-hover:opacity-100 transition-opacity ease-in-out">
-          <div className="px-6 py-3">
-            <h2 className="text-white text-titleLarge font-title md:text-headingMedium">Studio</h2>
-          </div>
-        </div>
       </Link>
+    ) : (
+      <Image
+        src={img.src}
+        alt={project.title}
+        fill
+        className="object-cover"
+      />
+    )}
+
+  <div className="
+    absolute bottom-0 left-0 w-full
+    bg-black bg-opacity-60 text-white font-bodyMedium
+    text-base md:text-lg font-medium
+    p-3
+    opacity-0 group-hover:opacity-100
+    transition-opacity duration-300
+    md:group-hover:opacity-100
+  ">
+    {img.caption || project.title}
+  </div>
+</div>
+))}
+                </div>
+              );
+            }
+
+           if (block.type === "video") {
+    return (
+      <div
+        key={idx}
+        className="relative group w-full overflow-hidden"
+        style={{ aspectRatio: "16/9" }}
+      >
+        <video
+        autoPlay
+        muted
+        loop
+        playsInline
+          className="w-full h-full object-cover"
+          src={block.src}
+        />
+        {block.caption && (
+          <div className="
+            absolute bottom-0 left-0 w-full
+            bg-black bg-opacity-60 text-white p-3
+            opacity-0 group-hover:opacity-100 transition-opacity duration-300
+          ">
+            {block.caption}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return null;
+})}
+        </div>
+      ))}
     </main>
   );
 }

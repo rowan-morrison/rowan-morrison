@@ -63,13 +63,25 @@ export default function Header() {
 
   return (
     <header id="portfolio-header" ref={headerRef}
-          className={`fixed top-0 left-0 right-0 w-full z-[990] transition-opacity ease-in-out duration-300 ${hideHeader ? "opacity-0" : "opacity-100"}`}>
-            <div className="hidden header-banner w-full h-9 bg-black items-center justify-center">
-              <p className="header-banner-text text-current font-body text-titleSmall">Open for work</p>
-            </div>
+          className={`fixed top-0 inset-x-0 w-full z-[990] md:static md:h-screen md:w-[240px] transition-opacity ease-in-out duration-300 ${hideHeader ? "opacity-0" : "opacity-100"}`}>
 
-      <div className="relative container flex items-center justify-between py-10 px-5 h-[8vh] max-w-full">
-     <div className="menu-cta px-2 z-[999]"
+      <div className="relative flex flex-row items-center px-5 py-5 w-full
+md:flex-col md:items-start md:justify-start md:h-full">
+        <div className="relative z-[999] w-32 h-12 sm:w-40 sm:h-16 md:mb-8 md:mt-0 md:pl-5">
+        <Link href="/" id="logo" className="relative block w-full h-full">
+          <Image
+            src={resolvedTheme === "dark" ? "/images/rowan-morrison-logo-white-v2.png" : "/images/rowan-morrison-logo-black-v2.png"}
+            alt="Rowan Morrison Logo"
+            id="rowan-logo"
+            fill
+            sizes="(max-width: 640px) 160px, 320px"
+            loading="eager"
+            className="z-[999]"
+            style={{ objectFit: "contain", mixBlendMode: "difference" }}
+          />
+        </Link>
+        </div>
+        <div className="menu-cta z-[999] md:hidden ml-auto self-center"
              onClick={() => setMenuOpen(prev => !prev)}
           aria-label="Toggle menu"
           >
@@ -89,8 +101,7 @@ export default function Header() {
     Close
   </span>
 </p>
-          </div> 
-        
+        </div> 
 <button
           className={`hidden menu-toggle flex-col justify-end items-center w-7 h-3 z-[999]`}
           onClick={() => setMenuOpen(prev => !prev)}
@@ -130,34 +141,12 @@ export default function Header() {
             priority
           />
         </button>
-      
-        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2  z-[999] w-32 h-12 sm:w-40 sm:h-16">
-        <Link href="/" id="logo" className="relative block w-full h-full">
-          <Image
-            src={resolvedTheme === "dark" ? "/images/rowan-morrison-logo-white-v2.png" : "/images/rowan-morrison-logo-black-v2.png"}
-            alt="Rowan Morrison Logo"
-            id="rowan-logo"
-            fill
-            sizes="(max-width: 640px) 160px, 320px"
-            loading="eager"
-            className="z-[999]"
-            style={{ objectFit: "contain", mixBlendMode: "difference" }}
-          />
-        </Link>
-        </div>
-
-          <div className="contact-cta px-2">
-          <Link href="/contact" className="font-caption text-bodySmall text-current">
-            Contact
-          </Link>
-          </div> 
-        
 
 <nav
   className={`
     fixed top-0 left-0 h-full pt-20 p-6 bg-white dark:bg-black text-current
-    z-[800] w-1/2
-    transform transition-transform duration-300 ease-in-out will-change-transform
+    z-[800] w-1/2 transform transition-transform duration-300 ease-in-out will-change-transform
+    md:static md:translate-x-0 md:w-full md:h-auto md:p-5 md:bg-transparent
     ${menuOpen ? "translate-x-0" : "-translate-x-full"}
   `}
 >
@@ -222,10 +211,10 @@ export default function Header() {
   </div>
 </li>
           </ul>
-</div>
-            <div id="nav-footer" className="relative mt-auto bottom-10 text-bodySmall font-body text-current">
+            <div id="nav-footer" className="mt-auto pt-10 text-bodySmall font-body text-current">
             <p>Designed and coded by Rowan Morrison</p>
           </div>
+</div>
         </nav>
       </div>
     </header>
