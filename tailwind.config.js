@@ -19,6 +19,7 @@ module.exports = {
         quote: ["'EB Garamond Italic'", "ui-serif"],
         body: ["'General Sans'", "ui-sans-serif", "system-ui"],
         caption: ["'General Sans'", "ui-sans-serif", "system-ui"],
+        garamond: ["'EB Garamond'", "ui-sans-serif", "system-ui"],
       },
        fontSize: {
   // Display
@@ -52,7 +53,7 @@ module.exports = {
 
   // Form Elements
   formMedium: ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.025rem" }],          // 12px
-  formSmall: ["0.625rem", { lineHeight: "1rem", letterSpacing: "0.06375rem" }],      // 10px
+  formSmall: ["0.625rem", { lineHeight: "1rem", letterSpacing: "0.015rem" }],      // 10px
 },
         fontWeight: {
         light: 300,

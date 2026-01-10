@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 
 export type WorkCollection = "professional" | "studio";
+
 export type WorkCategory =
   | "branding-and-identity"
   | "print-design"
@@ -11,12 +12,12 @@ export type WorkCategory =
 
 export interface Project {
   id: string;
-  title: string | ReactNode;
+  title?: string | React.ReactNode;
   href?: string;
-  blocks: ImageBlock[];
+  blocks: Block[];
   images: string[];
   description?: string | ReactNode;
-  collection: WorkCollection;
+  collection?: WorkCollection;
   categories: WorkCategory[];
   isVideo?: boolean;
   order?: number;
@@ -25,19 +26,25 @@ export interface Project {
   previewCaptions?: string | ReactNode;
   skills?: string[];
   linkApp?: string;
-  caption?: string | ReactNode;
+  caption?: string | React.ReactNode;
   imageCaption?: ReactNode[];
   comingSoon?: boolean;
 }
 
-export type ImageBlock = {
-  type: "full" | "half" | "video";
-  src?: string;
-  caption?: string;
-  width?: number;
-  height?: number;
-  images?: { src: string; caption: string; width?: number; height?: number }[];
+export type MediaItem = {
+  src: string
+  caption?: string | ReactNode
 }
+
+export type Block =
+  | {
+      type: "full"
+      media: MediaItem[]
+    }
+  | {
+      type: "half"
+      media: MediaItem[]
+    }
 
 export interface MasonryGridProps {
   projects: Project[];

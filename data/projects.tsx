@@ -9,7 +9,7 @@ export const projects: Project[] = [
     blocks: [
       {
         type: "half",
-        images: [
+        media: [
           { src: "/images/catelier-01.jpg", caption: "CATELIER" },
           { src: "/images/catelier-03.jpg", caption: "CATELIER" }
         ]
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     title: "Cat Oracle",
     // href: "/oracle-cats",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "full", media: [{ src: "/images/oracle-cats-concept-02.png", caption: "A mini interactive app to find out some facts about cats." }] },
     ],
     collection: "studio",
     categories: ["web-and-digital"],
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     blocks: [
       {
         type: "half",
-        images: [
+        media: [
           { src: "/images/mojo-stickers-01.jpg", caption: "Sticker sheet with cut lines" },
           { src: "/images/mojo-stickers-web-01.jpg", caption: "Sticker sheet with cut lines" }
         ]
@@ -93,7 +93,6 @@ export const projects: Project[] = [
     ],
     collection: "studio",
     categories: ["print-design", "illustration"],
-    order: 6,
       previewHeading: (
         <>
         Studio observational studies
@@ -130,26 +129,14 @@ export const projects: Project[] = [
     href: "/object-studies",
     blocks: [
        {
-        type: "half",
-        images: [
-          { src: "/images/catelier-01.jpg", caption: "Studio observational studies" },
-          { src: "/images/archive-06.mp4", caption: "Studio observational studies" }
+        type: "full",
+        media: [
+          { src: "/images/object-studies.png", caption: "Studio observational studies" },
         ]
       }
     ],
     collection: "studio",
     categories: ["illustration"],
-    order: 11,
-    previewHeading: (
-        <>
-        Studio observational studies
-        </>
-    ),
-    previewText: (
-      <>
-        A selection of analogue and digital drawings.
-      </>
-    ),
     description: (
       <>
         A selection of analogue and digital drawings.
@@ -196,9 +183,9 @@ export const projects: Project[] = [
     title: "Wrapping Paper",
      href: "/central23",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "full", media: [{ src: "/images/central23-04.jpg", caption: "Central23 — wrapping paper designs" }] },
     ],
-    collection: "studio",
+    collection: "professional",
     categories: ["print-design"],
     caption: ( 
     <>
@@ -239,12 +226,11 @@ export const projects: Project[] = [
     title: "Archive",
      href: "/archive",
     blocks: [
-      { type: "full", src: "/images/archive-12.jpg", caption: "Digital illustration" },
+      { type: "full", media: [{ src: "/images/archive-12.jpg", caption: "archive of digital illustrations and studies"}] },
     ],
     collection: "studio",
     categories: ["illustration"],
     isVideo: true,
-    order: 13,
       previewHeading: (
         <>
         Studio observational studies
@@ -294,13 +280,12 @@ export const projects: Project[] = [
     title: "Open Collab",
     //  href: "/oracle-cats",
     blocks: [
-      { type: "video", src: "/images/open-collab-01.mp4", caption: "Digital illustration" },
-      { type: "video", src: "/images/open-collab-02.mp4", caption: "Digital illustration" },
+      { type: "full", media: [{ src: "/images/open-collab-01.mp4", caption: "Digital illustration" }] },
+      { type: "full", media: [{ src: "/images/open-collab-02.mp4", caption: "Digital illustration" }] },
     ],
     collection: "studio",
     categories: ["web-and-digital", "illustration"],
     isVideo: true,
-    order: 14,
       previewHeading: (
         <>
         Studio observational studies
@@ -335,7 +320,7 @@ export const projects: Project[] = [
     title: "Memory Pendants",
      href: "/memory-pendants",
     blocks: [
-      { type: "video", src: "/images/memory-pendants-11.mp4", caption: "Digital illustration" },
+      { type: "full", media: [{ src: "/images/memory-pendants-11.mp4", caption: "Carolina Bucci — memory pendants" }] },
     ],
     collection: "professional",
     categories: ["animation-and-motion", "illustration"],
@@ -396,9 +381,22 @@ export const projects: Project[] = [
   {
     id: "merchandising",
     title: "Brand & Merchandising",
-     href: "/oracle-cats",
+    //  href: "/oracle-cats",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "full", media: [
+        { src: "/images/illustration-homepage-01.jpg", caption: "Carolina Bucci — illustration + photoshoot assisting" },
+        { src: "/images/lucky-06.jpg", caption: "Carolina Bucci — laser-cut vinyls" },
+        { src: "/images/montecito-boarding-3.jpg", caption: "Carolina Bucci — hoarding" },
+        { src: "/images/tote-bag-02.jpg", caption: "Carolina Bucci — canvas tote bags" },
+        { src: "/images/lucky-01.jpg", caption: "Carolina Bucci — matchstick box" },
+        { src: "/images/lucky-03.jpg", caption: "Carolina Bucci — paper stationery" },
+        { src: "/images/lucky-02.jpg", caption: "Carolina Bucci — advent calendar" },
+        { src: "/images/guides-01.jpg", caption: "Carolina Bucci — collection guide booklets" },
+        { src: "/images/rowan-morrison-how-to-forte-beads-guide-spread-01.jpg", caption: "Carolina Bucci — spread from HOW TO: FORTE Beads collection guide" },
+        { src: "/images/rowan-morrison-how-to-forte-beads-guide-spread-02.jpg", caption: "Carolina Bucci — spread from HOW TO: FORTE Beads collection guide" },
+        { src: "/images/rowan-morrison-how-to-forte-beads-guide-spread-03.jpg", caption: "Carolina Bucci — spread from HOW TO: FORTE Beads collection guide" },
+        { src: "/images/carolina-bucci-store-illustration-01.jpg", caption: "Carolina Bucci — digital illustration" },
+      ] },
     ],
     collection: "professional",
     categories: ["branding-and-identity", "illustration"],
@@ -459,13 +457,23 @@ export const projects: Project[] = [
   {
     id: "art-of-wishes",
     title: "Carolina Bucci × Art of Wishes",
-     href: "/oracle-cats",
+    //  href: "/oracle-cats",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "full", media: [{ src: "/images/art-of-wishes-01.jpg",
+        caption: (
+       <>
+            Carolina Bucci × Art of Wishes <br />
+            Branding for marketing the UK charity Art of Wishes, in support of Make-A-Wish UK®. <br />
+            <br />
+            — <br />
+            <br />
+            1 page insert card, produced as part of my role
+          </>
+          )
+        }] },
     ],
     collection: "professional",
     categories: ["print-design"],
-    order: 4,
       previewHeading: (
         <>
         Studio observational studies
@@ -504,12 +512,20 @@ export const projects: Project[] = [
     id: "downtown-rings",
     title: "Digital Design",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "full", media: [{ src: "/images/downtown-rings-01.jpg", caption: (
+       <>
+            <span className="font-bold">Carolina Bucci × Art of Wishes</span> <br />
+            Branding for marketing the UK charity Art of Wishes, in support of Make-A-Wish UK®. <br />
+            <br />
+            — <br />
+            <br />
+            1 page insert card, produced as part of my role
+          </>
+          ) }] },
     ],
     collection: "professional",
     categories: ["web-and-digital"],
     isVideo: true,
-    order: 7,
       previewHeading: (
         <>
         Studio observational studies
@@ -543,12 +559,11 @@ export const projects: Project[] = [
     id: "animation",
     title: "Animation",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "full", media: [{ src: "/images/lucky-5.mp4", caption: "Carolina Bucci — animations" }] },
     ],
     collection: "professional",
     categories: ["animation-and-motion", "illustration"],
     isVideo: true,
-    order: 8,
       previewHeading: (
         <>
         Studio observational studies
@@ -579,13 +594,12 @@ export const projects: Project[] = [
   {
     id: "la-catena",
     title: (<><em style={{fontFamily: "'EB Garamond Italic'",}}>La Catena</em></>),
-     href: "/oracle-cats",
+    //  href: "/oracle-cats",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "full", media: [{ src: "/images/madame-vo-newsletter-hero.png", caption: "Carolina Bucci — graphic illustrations" }] },
     ],
     collection: "professional",
     categories: ["editorial-design"],
-    order: 9,
     previewHeading: (
         <>
         Studio observational studies
@@ -627,9 +641,13 @@ export const projects: Project[] = [
   {
     id: "lucky",
     title: "Lucky Icons",
-     href: "/oracle-cats",
+    //  href: "/oracle-cats",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "half", media: [{ src: "/images/8-selected-lucky-charms-web.png", caption: "Carolina Bucci — illustrated icons" },
+      { src: "/images/carolina-bucci-florentine-finish-forte-got-lucky-stud-earrings-atelier-lifestyle-meta-1x1.mp4", caption: "Carolina Bucci — video editing" },
+      { src: "/images/24-lucky-charms-pattern-web.png", caption: "Carolina Bucci — pattern design" },
+      { src: "/images/lucky-04.jpg", caption: "Carolina Bucci Lucky Keychains" }
+      ] },
     ],
     collection: "professional",
     categories: ["print-design"],
@@ -693,13 +711,12 @@ export const projects: Project[] = [
 {
   id: "macro",
   title: "MACRO",
-   href: "/oracle-cats",
+  //  href: "/oracle-cats",
     blocks: [
-      { type: "full", src: "/images/oracle-cats-01.jpg", caption: "Digital illustration" },
+      { type: "full", media: [{ src: "/images/macro-01.jpg", caption: "Digital illustration" }] },
     ],
   collection: "studio",
   categories: ["editorial-design", "illustration"],
-  order: 9,
   previewHeading: <>Studio observational studies</>,
   previewText: <>A series of illustrations that depict characters from Vivienne Westwood’s Activist play wearing sustainable fashion from independent designers.</>,
   description: <>A series of illustrations that depict characters from Vivienne Westwood’s Activist play wearing sustainable fashion from independent designers.</>,

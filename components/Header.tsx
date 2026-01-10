@@ -5,15 +5,15 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import Image from "next/image";
 import { slugify } from "@/lib/slugify";
-
+import { usePathname } from "next/navigation";
 
 const projectCategories = [
-  "Branding & Identity",
-  "Print Design",
-  "Illustration",
-  "Editorial Design",
-  "Animation & Motion",
-  "Web & Digital",
+  "branding & identity",
+  "print design",
+  "illustration",
+  "editorial design",
+  "animation",
+  "web & digital",
 ];
 
 export default function Header() {
@@ -23,8 +23,8 @@ export default function Header() {
   const [hideHeader, setHideHeader] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const [projectsOpen, setProjectsOpen] = useState(false);
-  
-  const infoReady = false;
+
+  const pathname = usePathname();
   const shopReady = false;
 
   useEffect(() => {
@@ -64,8 +64,7 @@ export default function Header() {
   return (
     <header id="portfolio-header" ref={headerRef}
           className={`fixed top-0 inset-x-0 w-full z-[990] md:static md:h-screen md:w-[240px] transition-opacity ease-in-out duration-300 ${hideHeader ? "opacity-0" : "opacity-100"}`}>
-
-      <div className="relative flex flex-row items-center px-5 py-5 w-full
+      <div className="relative flex flex-row items-center px-5 py-4 w-full
 md:flex-col md:items-start md:justify-start md:h-full">
         <div className="relative z-[999] w-32 h-12 sm:w-40 sm:h-16 md:mb-8 md:mt-0 md:pl-5">
         <Link href="/" id="logo" className="relative block w-full h-full">
@@ -85,20 +84,20 @@ md:flex-col md:items-start md:justify-start md:h-full">
              onClick={() => setMenuOpen(prev => !prev)}
           aria-label="Toggle menu"
           >
-          <p className="relative font-caption text-bodySmall text-current w-12 h-[1.1em] leading-none">
+          <p className="relative font-garamond text-bodyMedium text-current w-12 leading-none">
   <span
     className={`absolute inset-0 transition-opacity duration-300 ${
       menuOpen ? "opacity-0" : "opacity-100"
     }`}
   >
-    Menu
+    menu
   </span>
   <span
     className={`absolute inset-0 transition-opacity duration-300 cursor-pointer ${
       menuOpen ? "opacity-70" : "opacity-0"
     }`}
   >
-    Close
+    close
   </span>
 </p>
         </div> 
@@ -144,33 +143,37 @@ md:flex-col md:items-start md:justify-start md:h-full">
 
 <nav
   className={`
-    fixed top-0 left-0 h-full pt-20 p-6 bg-white dark:bg-black text-current
+    fixed top-0 left-0 h-screen pt-20 p-6 bg-white dark:bg-black text-current
     z-[800] w-1/2 transform transition-transform duration-300 ease-in-out will-change-transform
-    md:static md:translate-x-0 md:w-full md:h-auto md:p-5 md:bg-transparent
+    md:static md:translate-x-0 md:w-full md:p-5 md:bg-transparent
     ${menuOpen ? "translate-x-0" : "-translate-x-full"}
   `}
 >
             <div className="flex flex-col h-full">
-          <ul className="flex-col items-center space-y-6 text-titleMedium font-heading text-current">
-            <li>
-              <Link 
-              href={infoReady ? "/info" : "#"}
-              onClick={(e) => { if (!infoReady) e.preventDefault(); }}
-              >
-                  <h2 className="hidden">Info</h2>
-              </Link>
-            </li>
+          <ul className="flex-col items-center space-y-6 text-bodyMedium font-garamond text-current">
             <li>
               <Link href={shopReady ? "https://www.etsy.com/uk/shop/RowanMorrisonStudio" : "#"} onClick={(e) => { if (!shopReady) e.preventDefault(); }}>
-<h2 className="opacity-25">Shop</h2>
-<p className="opacity-25 font-caption text-bodySmall text-current ml-6 mt-2">Coming soon!</p>
+<h2 className="opacity-25 hidden">Shop</h2>
+<p className="opacity-25 font-garamond text-bodySmall text-current ml-6 mt-2 hidden">Coming soon!</p>
               </Link>
             </li>
             <li className="hover:opacity-80">
-              <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
+              <Link href="/contact" onClick={() => setMenuOpen(false)}>
+               <span className={pathname === "/contact" ? "font-subheading" : ""}>
+      contact
+    </span></Link>
             </li>
-            <li className="hover:opacity-80">
-              <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+              <li className="hover:opacity-80">
+              <Link href="/professional-work" onClick={() => setMenuOpen(false)}>
+               <span className={pathname === "/professional-work" ? "font-subheading" : ""}>
+      professional work
+    </span></Link>
+            </li>
+              <li className="hover:opacity-80">
+              <Link href="/personal-work" onClick={() => setMenuOpen(false)}>
+               <span className={pathname === "/personal-work" ? "font-subheading" : ""}>
+      personal work
+    </span></Link>
             </li>
             <li>
                <button
@@ -178,7 +181,7 @@ md:flex-col md:items-start md:justify-start md:h-full">
     onClick={() => setProjectsOpen(prev => !prev)}
     className="flex items-center gap-2 focus:outline-none"
   >
-    <h2>Projects</h2>
+    <h2>projects</h2>
     <span
       className={`transition-transform duration-300 ${
         projectsOpen ? "rotate-180" : "rotate-0"
@@ -203,7 +206,7 @@ md:flex-col md:items-start md:justify-start md:h-full">
           setProjectsOpen(false);
         }}
       >
-        <p className="font-caption text-bodySmall text-current ml-6 mt-2 hover:opacity-80">
+        <p className="font-garamond text-formSmall text-current ml-6 mt-2 hover:opacity-80">
           {cat}
         </p>
       </Link>
@@ -211,8 +214,8 @@ md:flex-col md:items-start md:justify-start md:h-full">
   </div>
 </li>
           </ul>
-            <div id="nav-footer" className="mt-auto pt-10 text-bodySmall font-body text-current">
-            <p>Designed and coded by Rowan Morrison</p>
+            <div id="nav-footer" className="mt-auto pt-10 text-formSmall font-garamond text-current">
+            <p>designed and coded by Rowan Morrison</p>
           </div>
 </div>
         </nav>

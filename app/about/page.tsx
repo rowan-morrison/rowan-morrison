@@ -23,8 +23,8 @@ export default function About() {
           <p className="font-body text-bodySmall">
             With a background in graphic design, illustration and front-end development, Rowan enjoys working across disciplines to bring ideas to life.
           </p>
-          <p className="font-body text-bodySmall">Her work has been exhibited in the {" "}<a href="https://www.kabk.nl/en" target="_blank" rel="noreferrer" className="hyperlink">Royal Academy of Art</a>{" "}(KABK), The Hague, and also featured in {" "}<a
-              href="https://maxibestof.one/websites/47177-carolina-bucci" target="_blank" rel="noreferrer" className="hyperlink">MaxiBestOf</a>.</p>
+          <p className="font-body text-bodySmall">Her work has been exhibited in the {" "}<a href="https://www.kabk.nl/en" target="_blank" rel="noopener noreferrer" className="hyperlink">Royal Academy of Art</a>{" "}(KABK), The Hague, and also featured in {" "}<a
+              href="https://maxibestof.one/websites/47177-carolina-bucci" target="_blank" rel="noopener noreferrer" className="hyperlink">MaxiBestOf</a>.</p>
         </section>
 
         <section className="flex justify-center text-center">
@@ -32,7 +32,7 @@ export default function About() {
             <a
               href="https://instagram.com/rowanmorrisons/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               hidden
               className="text-current hover:opacity-50 transition duration-200 ease-in-out"
             >
@@ -41,7 +41,7 @@ export default function About() {
             <a
               href="https://linkedin.com/rowanmorrisons/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-current hover:opacity-50 transition duration-200 ease-in-out"
             >
               <FaLinkedin size={50} />
@@ -49,7 +49,7 @@ export default function About() {
             <a
               href="https://github.com/rowan-morrison/rowan-morrison/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-current hover:opacity-50 transition duration-200 ease-in-out"
             >
               <FaGithub size={50} />
@@ -57,7 +57,7 @@ export default function About() {
             <a
               href="https://uk.pinterest.com/rowanmorrisons/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="text-current hover:opacity-50 transition duration-200 ease-in-out"
             >
               <FaPinterest size={50} />
@@ -76,7 +76,7 @@ export default function About() {
               <a
                 href="https://nojolondon.co.uk/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="hyperlink"
               >
                 NOJO

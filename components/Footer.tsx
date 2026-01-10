@@ -50,14 +50,14 @@ useEffect(() => {
   return (
   <footer
   suppressHydrationWarning
-  className="w-full py-6 px-1 flex flex-col items-center bg-white dark:bg-black text-current transition-colors duration-300"
+  className="w-full py-6 px-1 flex flex-col items-center bg-white md:bg-transparent dark:bg-black text-current transition-colors duration-300"
 >
    <section className="footer-container w-full box-border mx-auto px-[var(--container-side-space)]">
-    <p className="mb-1 font-subheading">
-      Send me a message
+    <p className="mb-1 font-subheading text-current">
+      send me a message
     </p>
-    <p className="mb-4 font-bodySmall text-bodySmall">
-      If you’d like to get in touch, please do and I’ll be happy to hear from you.
+    <p className="mb-4 font-garamond text-bodyMedium">
+      get in touch to say hello! I’ll be happy to hear from you.
     </p>
     <form
      action="https://formspree.io/f/meogokpw"
@@ -110,10 +110,10 @@ useEffect(() => {
     alt="Rowan Morrison Logo"
     fill
     style={{ objectFit: "contain" }}
-    className="w-full h-auto"
+    className="w-full h-auto max-w-80"
     sizes="90vw"
                 /></div>
-      <p className="copyright-notice font-bodySmall text-bodySmall">&copy; 2025 Rowan Morrison. All rights reserved.</p>
+      <p className="copyright-notice font-garamond text-bodyMedium">&copy; 2025 Rowan Morrison. all rights reserved.</p>
       </section>
 
       <button hidden onClick={handleToggle} className="relative w-20 h-20">

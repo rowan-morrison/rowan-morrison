@@ -1,8 +1,14 @@
-import { projects } from "@/data/projects";
+import projects from "@/data/projects";
 
-export default function Home() {
+type Project = typeof projects[number];
+
+interface ProjectGridProps {
+  projects: Project[];
+}
+
+export default function ProjectGrid({ projects }: ProjectGridProps) {
   return (
-    <main className="min-h-screen flex flex-col gap-16 m-5 pt-[100px] md:p-5">
+    <>
       {projects.map((project) => (
         <div key={project.id} className="space-y-16">
           {project.blocks?.map((block, blockIdx) => (
@@ -18,7 +24,10 @@ export default function Home() {
                 const isVideo = item.src.endsWith(".mp4");
 
                 return (
-                  <div key={mediaIdx} className="relative w-full cursor-pointer transition-opacity duration-300 group">
+                  <div
+                    key={mediaIdx}
+                    className="relative w-full cursor-pointer transition-opacity duration-300 group"
+                  >
                     {isVideo ? (
                       <video
                         src={item.src}
@@ -31,20 +40,19 @@ export default function Home() {
                     ) : (
                       <img
                         src={item.src}
-                        alt={item.caption || ""}
+                       alt={item.caption ? String(item.caption) : ""}
                         className="w-full h-auto block"
                       />
                     )}
 
                     {item.caption && (
                       <div className="
-      absolute bottom-0 left-0 w-full
-      bg-black/30 text-white text-overline
-      px-3 py-2
-      opacity-0
-      transition-opacity duration-300
-      group-hover:opacity-100
-    ">
+                        absolute bottom-0 left-0 w-full text-current text-overline
+                        px-3 py-2
+                        opacity-0
+                        transition-opacity duration-300
+                        group-hover:opacity-100
+                      ">
                         {item.caption}
                       </div>
                     )}
@@ -55,6 +63,6 @@ export default function Home() {
           ))}
         </div>
       ))}
-    </main>
+    </>
   );
 }

@@ -84,6 +84,7 @@ html, body, #__next {
   height: 100%;
   margin: 0;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 /* smooth inertial scrolling (especially Safari / iOS) */
@@ -95,6 +96,10 @@ main {
   backface-visibility: hidden;
   transform-style: preserve-3d;
   image-rendering: -webkit-optimize-contrast;
+}
+
+cite {
+  font-style: normal;
 }
 
 #hamburger-line {
@@ -110,4 +115,8 @@ main {
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* WebKit */
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
