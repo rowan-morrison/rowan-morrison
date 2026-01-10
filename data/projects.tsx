@@ -81,7 +81,7 @@ export const projects: Project[] = [
   {
     id: "mojo-stickers",
     title: "Stickers",
-    href: "/mojo-stickers",
+    // href: "/mojo-stickers",
     blocks: [
       {
         type: "half",
@@ -126,7 +126,7 @@ export const projects: Project[] = [
   {
     id: "object-studies",
     title: "Still Life",
-    href: "/object-studies",
+    // href: "/object-studies",
     blocks: [
        {
         type: "full",
@@ -181,7 +181,7 @@ export const projects: Project[] = [
   {
     id: "central23",
     title: "Wrapping Paper",
-     href: "/central23",
+    //  href: "/central23",
     blocks: [
       { type: "full", media: [{ src: "/images/central23-04.jpg", caption: "Central23 — wrapping paper designs" }] },
     ],
@@ -224,7 +224,7 @@ export const projects: Project[] = [
   {
     id: "archive",
     title: "Archive",
-     href: "/archive",
+    //  href: "/archive",
     blocks: [
       { type: "full", media: [{ src: "/images/archive-12.jpg", caption: "archive of digital illustrations and studies"}] },
     ],
@@ -318,7 +318,7 @@ export const projects: Project[] = [
   {
     id: "memory-pendants",
     title: "Memory Pendants",
-     href: "/memory-pendants",
+    //  href: "/memory-pendants",
     blocks: [
       { type: "full", media: [{ src: "/images/memory-pendants-11.mp4", caption: "Carolina Bucci — memory pendants" }] },
     ],
@@ -713,7 +713,7 @@ export const projects: Project[] = [
   title: "MACRO",
   //  href: "/oracle-cats",
     blocks: [
-      { type: "full", media: [{ src: "/images/macro-01.jpg", caption: "Digital illustration" }] },
+      { type: "full", media: [{ src: "/images/macro-02.jpg", caption: "Digital illustration series inspired by Vivienne Westwood’s Activist play" }] },
     ],
   collection: "studio",
   categories: ["editorial-design", "illustration"],

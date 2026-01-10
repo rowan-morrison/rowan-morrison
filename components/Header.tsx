@@ -157,19 +157,19 @@ md:flex-col md:items-start md:justify-start md:h-full">
 <p className="opacity-25 font-garamond text-bodySmall text-current ml-6 mt-2 hidden">Coming soon!</p>
               </Link>
             </li>
-            <li className="hover:opacity-80">
+            <li className="hover:opacity-70">
               <Link href="/contact" onClick={() => setMenuOpen(false)}>
                <span className={pathname === "/contact" ? "font-subheading" : ""}>
       contact
     </span></Link>
             </li>
-              <li className="hover:opacity-80">
+              <li className="hover:opacity-70">
               <Link href="/professional-work" onClick={() => setMenuOpen(false)}>
                <span className={pathname === "/professional-work" ? "font-subheading" : ""}>
       professional work
     </span></Link>
             </li>
-              <li className="hover:opacity-80">
+              <li className="hover:opacity-70">
               <Link href="/personal-work" onClick={() => setMenuOpen(false)}>
                <span className={pathname === "/personal-work" ? "font-subheading" : ""}>
       personal work

@@ -17,10 +17,10 @@ export default function About() {
             className="rounded-full"
           />
           <p className="font-garamond text-bodyMedium">
-            Hello! I’m a multidisciplinary illustrator and graphic designer based in London, UK.
+            hello! I’m a multidisciplinary illustrator and graphic designer based in London, UK.
             I create expressive visuals and intuitive digital experiences, blending storytelling and technology to create new ideas.
           </p>
-          <p className="font-garamond text-bodyMedium">My work has been exhibited in the {" "}<a href="https://www.kabk.nl/en" target="_blank" rel="noopener noreferrer" className="hyperlink">Royal Academy of Art</a>{" "}(KABK), The Hague, and also featured in {" "}<a
+          <p className="font-garamond text-bodyMedium">my work has been exhibited in the {" "}<a href="https://www.kabk.nl/en" target="_blank" rel="noopener noreferrer" className="hyperlink">Royal Academy of Art</a>{" "}(KABK), The Hague, and also featured in {" "}<a
               href="https://maxibestof.one/websites/47177-carolina-bucci" target="_blank" rel="noopener noreferrer" className="hyperlink">MaxiBestOf</a>.</p>
         </section>
 
@@ -63,13 +63,13 @@ export default function About() {
         </section>
 
         <section className="flex flex-col gap-6">
-          <h2 className="text-bodyMedium font-garamond text-center">Some kind words about my work:</h2>
+          <h2 className="text-bodyMedium font-garamond text-center">some kind words about my work:</h2>
           <div className="flex flex-col gap-2">
             <q className="font-subheading text-bodyMedium pb-1">
-              Everyone comments on how great the branding is. I’m sure we will work together again.
+              everyone comments on how great the branding is. I’m sure we will work together again.
             </q>
             <cite className="font-garamond text-bodySmall ml-auto pr-5">
-              — Simona Deifta, Founder of{" "}
+              — Simona Deifta, founder of{" "}
               <a
                 href="https://nojolondon.co.uk/"
                 target="_blank"
