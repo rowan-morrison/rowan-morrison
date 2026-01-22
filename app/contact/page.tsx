@@ -17,7 +17,7 @@ export default function About() {
             className="rounded-full"
           />
           <p className="font-garamond text-bodyMedium">
-            hello! I’m a multidisciplinary illustrator and graphic designer based in London, UK.
+            hello! I’m an illustrator and graphic designer based in London, UK.
             I create expressive visuals and intuitive digital experiences, blending storytelling and technology to create new ideas.
           </p>
           <p className="font-garamond text-bodyMedium">my work has been exhibited in the {" "}<a href="https://www.kabk.nl/en" target="_blank" rel="noopener noreferrer" className="hyperlink">Royal Academy of Art</a>{" "}(KABK), The Hague, and also featured in {" "}<a
