@@ -1,5 +1,9 @@
 import React from "react";
-
+// Placeholder MediaItemBlock component
+function MediaItemBlock({ item }: { item: MediaItem }) {
+  // Simple placeholder rendering, adjust later to handle images, video, text, etc.
+  return <div>{JSON.stringify(item)}</div>;
+}
 
 type MediaItem = 
   | { type: "image"; src: string; alt?: string }
@@ -13,13 +17,16 @@ type Project = {
   credits?: { role: string; name: string }[];
 };
 
-export default function ProjectBlock({ project }: { project: Project }) {
-  if (!project) return null;
+type ProjectBlockProps = {
+  project: Project;
+};
+
+export default function ProjectBlock({ project }: ProjectBlockProps) {
   return (
     <article className="grid gap-12 md:grid-cols-2">
       <div className="space-y-6">
         {project.title && <h2 className="text-formLarge font-garamond">{project.title}</h2>}
-        {project.description && <p className="text-formSmall leading-relaxed">{project.description}</p>}
+        {project.description && <p className="text-formSmall">{project.description}</p>}
 
         {project.credits && project.credits.length > 0 && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-2 text-formSmall">
@@ -40,18 +47,4 @@ export default function ProjectBlock({ project }: { project: Project }) {
       </div>
     </article>
   );
-}
-
-function MediaItemBlock({ item }: { item: MediaItem }) {
-  // Placeholder rendering; can be replaced with proper image/video/text components later
-  switch (item.type) {
-    case "image":
-      return <img src={item.src} alt={item.alt ?? ""} />;
-    case "video":
-      return <video src={item.src} poster={item.poster} controls />;
-    case "text":
-      return <p>{item.content}</p>;
-    default:
-      return null;
-  }
 }

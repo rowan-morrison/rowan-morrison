@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export type WorkCollection = "professional" | "studio";
+export type WorkCollection = "professional-work" | "studio-work";
 
 export type WorkCategory =
   | "branding-and-identity"
@@ -29,6 +29,7 @@ export interface Project {
   caption?: string | React.ReactNode;
   imageCaption?: ReactNode[];
   comingSoon?: boolean;
+  credits?: { role: string; name: string }[];
 }
 
 export type MediaItem = {

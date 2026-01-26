@@ -22,32 +22,44 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hideHeader, setHideHeader] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const bottomSentinelRef = useRef<HTMLDivElement>(null);
   const [projectsOpen, setProjectsOpen] = useState(false);
 
   const pathname = usePathname();
   const shopReady = false;
+  const MOBILE_BREAKPOINT = 768;
 
   useEffect(() => {
     const id = setTimeout(() => setMounted(true), 0);
     return () => clearTimeout(id);
   }, []);
 
-   // Hide header when at the bottom
   useEffect(() => {
-    function handleScroll() {
-      const scrollTop = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
-
-      if (scrollTop + windowHeight >= docHeight - 5) {
-        setHideHeader(true);
-      } else {
-        setHideHeader(false);
-      }
+    if (window.innerWidth >= MOBILE_BREAKPOINT) {
+      return;
     }
-     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHideHeader(entry.isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0.1,
+      }
+    );
+
+    if (bottomSentinelRef.current) {
+      observer.observe(bottomSentinelRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
+
+useEffect(() => {
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  setHideHeader(false);
+}, [pathname]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -220,6 +232,11 @@ md:flex-col md:items-start md:justify-start md:h-full">
 </div>
         </nav>
       </div>
+      <div
+        ref={bottomSentinelRef}
+        aria-hidden
+        className="w-full h-px"
+      />
     </header>
     );
 }

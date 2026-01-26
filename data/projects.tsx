@@ -6,21 +6,25 @@ export const projects: Project[] = [
     id: "catelier",
     title: "Catelier",
     // href: "/catelier",
+    credits: [
+      { role: "Art Direction", name: "Rowan Morrison" },
+      { role: "3D Rendering", name: "Rowan Morrison" }
+    ],
     blocks: [
       {
         type: "half",
         media: [
           { src: "/images/catelier-01.jpg", caption: "CATELIER" },
           { src: "/images/catelier-03.jpg", caption: "CATELIER" }
-        ]
+        ],
       }
     ],
-    collection: "studio",
+    collection: "studio-work",
     categories: ["web-and-digital", "illustration"],
     order: 1,
       previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
     previewText: (
@@ -49,15 +53,19 @@ export const projects: Project[] = [
     id: "oracle-cats",
     title: "Cat Oracle",
     // href: "/oracle-cats",
+    credits: [
+      { role: "Art Direction", name: "Rowan Morrison" },
+      { role: "Animation", name: "Studio-work XYZ" }
+    ],
     blocks: [
       { type: "full", media: [{ src: "/images/oracle-cats-concept-02.png", caption: "A mini interactive app to find out some facts about cats." }] },
     ],
-    collection: "studio",
+    collection: "studio-work",
     categories: ["web-and-digital"],
     order: 5,
       previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
     previewText: (
@@ -82,6 +90,10 @@ export const projects: Project[] = [
     id: "mojo-stickers",
     title: "Stickers",
     // href: "/mojo-stickers",
+    credits: [
+      { role: "Art Direction", name: "Rowan Morrison" },
+      { role: "Animation", name: "Studio-work XYZ" }
+    ],
     blocks: [
       {
         type: "half",
@@ -91,11 +103,11 @@ export const projects: Project[] = [
         ]
       }
     ],
-    collection: "studio",
+    collection: "studio-work",
     categories: ["print-design", "illustration"],
       previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
     previewText: (
@@ -131,11 +143,11 @@ export const projects: Project[] = [
        {
         type: "full",
         media: [
-          { src: "/images/object-studies.png", caption: "Studio observational studies" },
+          { src: "/images/object-studies.png", caption: "Studio-work observational studies" },
         ]
       }
     ],
-    collection: "studio",
+    collection: "studio-work",
     categories: ["illustration"],
     description: (
       <>
@@ -182,10 +194,14 @@ export const projects: Project[] = [
     id: "central23",
     title: "Wrapping Paper",
     //  href: "/central23",
+    credits: [
+      { role: "Art Direction", name: "Rowan Morrison" },
+      { role: "Animation", name: "Studio-work XYZ" }
+    ],
     blocks: [
       { type: "full", media: [{ src: "/images/central23-04.jpg", caption: "Central23 — wrapping paper designs" }] },
     ],
-    collection: "professional",
+    collection: "professional-work",
     categories: ["print-design"],
     caption: ( 
     <>
@@ -228,12 +244,12 @@ export const projects: Project[] = [
     blocks: [
       { type: "full", media: [{ src: "/images/archive-12.jpg", caption: "archive of digital illustrations and studies"}] },
     ],
-    collection: "studio",
+    collection: "studio-work",
     categories: ["illustration"],
     isVideo: true,
       previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
     previewText: (
@@ -283,7 +299,7 @@ export const projects: Project[] = [
       { type: "full", media: [{ src: "/images/open-collab-01.mp4", caption: "Digital illustration" }] },
       { type: "full", media: [{ src: "/images/open-collab-02.mp4", caption: "Digital illustration" }] },
     ],
-    collection: "studio",
+    collection: "studio-work",
     categories: ["web-and-digital", "illustration"],
     isVideo: true,
       previewHeading: (
@@ -319,16 +335,20 @@ export const projects: Project[] = [
     id: "memory-pendants",
     title: "Memory Pendants",
     //  href: "/memory-pendants",
+    collection: "professional-work",
+    credits: [
+      { role: "Illustration", name: "Rowan Morrison" },
+      { role: "Pendant Design", name: "Carolina Bucci" }
+    ],
     blocks: [
       { type: "full", media: [{ src: "/images/memory-pendants-11.mp4", caption: "Carolina Bucci — memory pendants" }] },
     ],
-    collection: "professional",
     categories: ["animation-and-motion", "illustration"],
     isVideo: true,
     order: 2,
       previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
     previewText: (
@@ -376,12 +396,17 @@ export const projects: Project[] = [
        "Final products",
       "Final products",
       "Final products",
-    ]
+    ],
   },
   {
     id: "merchandising",
     title: "Brand & Merchandising",
     //  href: "/oracle-cats",
+    collection: "professional-work",
+    credits: [
+      { role: "Illustration", name: "Rowan Morrison" },
+      { role: "Jewellery Design", name: "Carolina Bucci" }
+    ],
     blocks: [
       { type: "full", media: [
         { src: "/images/illustration-homepage-01.jpg", caption: "Carolina Bucci — illustration + photoshoot assisting" },
@@ -398,12 +423,11 @@ export const projects: Project[] = [
         { src: "/images/carolina-bucci-store-illustration-01.jpg", caption: "Carolina Bucci — digital illustration" },
       ] },
     ],
-    collection: "professional",
     categories: ["branding-and-identity", "illustration"],
     order: 3,
       previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
     previewText: (
@@ -415,7 +439,7 @@ export const projects: Project[] = [
     <>
     Some of many different types of visual collateral made for Carolina Bucci.
     </>),
-  caption: ( 
+    caption: ( 
     <>
     © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
   </>),
@@ -457,6 +481,11 @@ export const projects: Project[] = [
   {
     id: "art-of-wishes",
     title: "Carolina Bucci × Art of Wishes",
+    collection: "professional-work",
+    credits: [
+      { role: "Art Direction", name: "Rowan Morrison" },
+      { role: "Animation", name: "Studio-work XYZ" }
+    ],
     //  href: "/oracle-cats",
     blocks: [
       { type: "full", media: [{ src: "/images/art-of-wishes-01.jpg",
@@ -472,11 +501,10 @@ export const projects: Project[] = [
           )
         }] },
     ],
-    collection: "professional",
     categories: ["print-design"],
       previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
     previewText: (
@@ -511,6 +539,11 @@ export const projects: Project[] = [
   {
     id: "downtown-rings",
     title: "Digital Design",
+    collection: "professional-work",
+    credits: [
+      { role: "Art Direction", name: "Rowan Morrison" },
+      { role: "Animation", name: "Studio-work XYZ" }
+    ],
     blocks: [
       { type: "full", media: [{ src: "/images/downtown-rings-01.jpg", caption: (
        <>
@@ -523,12 +556,11 @@ export const projects: Project[] = [
           </>
           ) }] },
     ],
-    collection: "professional",
     categories: ["web-and-digital"],
     isVideo: true,
       previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
     previewText: (
@@ -558,15 +590,19 @@ export const projects: Project[] = [
   {
     id: "animation",
     title: "Animation",
+    collection: "professional-work",
+    credits: [
+      { role: "Art Direction", name: "Rowan Morrison" },
+      { role: "Animation", name: "Studio-work XYZ" }
+    ],
     blocks: [
       { type: "full", media: [{ src: "/images/lucky-5.mp4", caption: "Carolina Bucci — animations" }] },
     ],
-    collection: "professional",
     categories: ["animation-and-motion", "illustration"],
     isVideo: true,
       previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
     previewText: (
@@ -595,14 +631,18 @@ export const projects: Project[] = [
     id: "la-catena",
     title: (<><em style={{fontFamily: "'EB Garamond Italic'",}}>La Catena</em></>),
     //  href: "/oracle-cats",
+    collection: "professional-work",
+    credits: [
+      { role: "Art Direction", name: "Rowan Morrison" },
+      { role: "Animation", name: "Studio-work XYZ" }
+    ],
     blocks: [
       { type: "full", media: [{ src: "/images/madame-vo-newsletter-hero.png", caption: "Carolina Bucci — graphic illustrations" }] },
     ],
-    collection: "professional",
     categories: ["editorial-design"],
     previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
      previewText: (
@@ -642,6 +682,11 @@ export const projects: Project[] = [
     id: "lucky",
     title: "Lucky Icons",
     //  href: "/oracle-cats",
+    collection: "professional-work",
+    credits: [
+      { role: "Art Direction", name: "Rowan Morrison" },
+      { role: "Animation", name: "Studio-work XYZ" }
+    ],
     blocks: [
       { type: "half", media: [{ src: "/images/8-selected-lucky-charms-web.png", caption: "Carolina Bucci — illustrated icons" },
       { src: "/images/carolina-bucci-florentine-finish-forte-got-lucky-stud-earrings-atelier-lifestyle-meta-1x1.mp4", caption: "Carolina Bucci — video editing" },
@@ -649,12 +694,11 @@ export const projects: Project[] = [
       { src: "/images/lucky-04.jpg", caption: "Carolina Bucci Lucky Keychains" }
       ] },
     ],
-    collection: "professional",
     categories: ["print-design"],
     order: 10,
       previewHeading: (
         <>
-        Studio observational studies
+        Studio-work observational studies
         </>
     ),
     previewText: (
@@ -715,9 +759,9 @@ export const projects: Project[] = [
     blocks: [
       { type: "full", media: [{ src: "/images/macro-02.jpg", caption: "Digital illustration series inspired by Vivienne Westwood’s Activist play" }] },
     ],
-  collection: "studio",
+  collection: "studio-work",
   categories: ["editorial-design", "illustration"],
-  previewHeading: <>Studio observational studies</>,
+  previewHeading: <>Studio-work observational studies</>,
   previewText: <>A series of illustrations that depict characters from Vivienne Westwood’s Activist play wearing sustainable fashion from independent designers.</>,
   description: <>A series of illustrations that depict characters from Vivienne Westwood’s Activist play wearing sustainable fashion from independent designers.</>,
   skills: ["Illustration"],

@@ -47,11 +47,12 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
 
                     {item.caption && (
                       <div className="
-                        absolute bottom-0 left-0 w-full text-current text-overline
+                        absolute bottom-0 left-0 w-full text-overline
                         px-3 py-2
                         opacity-0
                         transition-opacity duration-300
                         group-hover:opacity-100
+                        mix-blend-difference text-white
                       ">
                         {item.caption}
                       </div>
