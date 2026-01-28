@@ -1,57 +1,25 @@
+'use client';
+
 import React from "react";
+import projects from "@/data/projects";
+import { useParams } from "next/navigation";
 
-
-type MediaItem = 
-  | { type: "image"; src: string; alt?: string }
-  | { type: "video"; src: string; poster?: string }
-  | { type: "text"; content: string };
-
-type Project = {
-  title?: string | React.ReactNode;
-  description?: string | React.ReactNode;
-  media?: MediaItem[];
-  credits?: { role: string; name: string }[];
-};
-
-export default function ProjectBlock({ project }: { project: Project }) {
-  if (!project) return null;
-  return (
-    <article className="grid gap-12 md:grid-cols-2">
-      <div className="space-y-6">
-        {project.title && <h2 className="text-formLarge font-garamond">{project.title}</h2>}
-        {project.description && <p className="text-formSmall leading-relaxed">{project.description}</p>}
-
-        {project.credits && project.credits.length > 0 && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-2 text-formSmall">
-            {project.credits.map((c, i) => (
-              <React.Fragment key={i}>
-                <span className="opacity-60">{c.role}</span>
-                <span>{c.name}</span>
-              </React.Fragment>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div className="space-y-12">
-        {project.media?.map((item, i) => (
-          <MediaItemBlock key={i} item={item} />
-        ))}
-      </div>
-    </article>
+export default function CategoryPage() {
+  const params = useParams();
+  const category = params.category as string;
+  
+  const filteredProjects = projects.filter(p => 
+    p.categories?.includes(category)
   );
-}
 
-function MediaItemBlock({ item }: { item: MediaItem }) {
-  // Placeholder rendering; can be replaced with proper image/video/text components later
-  switch (item.type) {
-    case "image":
-      return <img src={item.src} alt={item.alt ?? ""} />;
-    case "video":
-      return <video src={item.src} poster={item.poster} controls />;
-    case "text":
-      return <p>{item.content}</p>;
-    default:
-      return null;
+  if (filteredProjects.length === 0) {
+    return <div className="container mx-auto py-20">No projects found in this category</div>;
   }
+
+  return (
+    <section className="container mx-auto py-20">
+      <h1 className="text-4xl font-garamond mb-12">{category}</h1>
+      {/* Render your project grid or list here */}
+    </section>
+  );
 }
