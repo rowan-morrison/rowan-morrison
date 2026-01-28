@@ -2,9 +2,21 @@ import ProjectBlock from "@/components/ProjectBlock";
 import projects from "@/data/projects";
 import React from "react";
 import Script from "next/script";
+import type { WorkCategory } from "@/types/project";
 
-export default function MerchandisingPage() {
-  const project = projects.find(p => p.id === "merchandising");
+interface PageProps {
+  params: {
+    category: WorkCategory;
+    id: string;
+  };
+}
+
+// export default function MerchandisingPage() {
+//   const project = projects.find(p => p.id === "merchandising");
+//   if (!project) return <div>Project not found</div>;
+
+export default function ProjectDetailPage({ params }: PageProps) {
+  const project = projects.find(p => p.id === params.id);
   if (!project) return <div>Project not found</div>;
 
   return (
