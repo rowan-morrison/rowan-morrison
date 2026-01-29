@@ -1,19 +1,20 @@
 import React from "react";
-// Placeholder MediaItemBlock component
-function MediaItemBlock({ item }: { item: MediaItem }) {
-  // Simple placeholder rendering, adjust later to handle images, video, text, etc.
-  return <div>{JSON.stringify(item)}</div>;
-}
 
-type MediaItem = 
-  | { type: "image"; src: string; alt?: string }
-  | { type: "video"; src: string; poster?: string }
-  | { type: "text"; content: string };
+// function MediaItemBlock({ item }: { item: MediaItem }) {
+//   return <div>{JSON.stringify(item)}</div>;
+// }
+
+// type MediaItem = 
+//   | { type: "image"; src: string; alt?: string }
+//   | { type: "video"; src: string; poster?: string }
+//   | { type: "text"; content: string };
 
 type Project = {
   title?: string | React.ReactNode;
   description?: string | React.ReactNode;
-  media?: MediaItem[];
+  // media?: MediaItem[];
+  images?: string[];
+  imageCaption?: string[];
   credits?: { role: string; name: string }[];
 };
 
@@ -41,8 +42,15 @@ export default function ProjectBlock({ project }: ProjectBlockProps) {
       </div>
 
       <div className="space-y-12">
-        {project.media?.map((item, i) => (
-          <MediaItemBlock key={i} item={item} />
+      {project.images?.map((src, i) => (
+          <div key={i} className="relative w-full">
+            {src.endsWith('.mp4') ? (
+              <video src={src} controls className="w-full" />
+            ) : (
+              <img src={src} alt={project.imageCaption?.[i] || `Project image ${i + 1}`} className="w-full h-auto" />
+            )}
+            {project.imageCaption?.[i] && <p className="text-formSmall mt-2">{project.imageCaption[i]}</p>}
+          </div>
         ))}
       </div>
     </article>

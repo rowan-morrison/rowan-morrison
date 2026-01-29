@@ -32,22 +32,36 @@ useEffect(() => {
   }
 }, [pathname]);
 
+//   return (
+//     <>
+//     <div className="min-h-screen flex md:h-screen">
+//       <Header />
+//       <ScrollToTop />
+//      {loading ? (
+//   <LoadingScreen visible={true} />
+// ) : (
+//   <main className="flex-1 overflow-y-auto md:h-screen overscroll-contain scroll-smooth flex flex-col">
+//     <div className="flex-grow">
+//     {children}
+//   </div>
+//     <Footer />
+//   </main>
+// )}
+//       </div>
+//     </>
+//   );
   return (
     <>
     <div className="min-h-screen flex md:h-screen">
       <Header />
       <ScrollToTop />
-     {loading ? (
-  <LoadingScreen visible={true} />
-) : (
   <main className="flex-1 overflow-y-auto md:h-screen overscroll-contain scroll-smooth flex flex-col">
     <div className="flex-grow">
     {children}
   </div>
     <Footer />
   </main>
-)}
-     
+{loading && <LoadingScreen visible={true} />}
       </div>
     </>
   );

@@ -28,11 +28,13 @@ export default function StickyFadeHeader({ children, threshold = 5, className = 
   }, [threshold]);
 
   return (
+    <>
     <div
       className={`sticky top-0 z-[985] ${className}`}
       style={{ transition: "opacity 300ms ease-in-out", opacity: faded ? 0 : 1, backgroundColor: "white" }}
     >
       {children}
     </div>
+    </>
   );
 }

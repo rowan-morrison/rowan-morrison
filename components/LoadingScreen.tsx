@@ -30,7 +30,7 @@ export default function LoadingScreen({ visible }: LoadingScreenProps) {
         playsInline
         preload="auto"
         onLoadedData={() => setReady(true)}
-        className="absolute inset-0 w-full h-full object-contain"
+        className="absolute inset-0 w-full h-full object-contain pointer-events-none"
       >
         <source src="/images/cat-animation.mov" />
       </video>

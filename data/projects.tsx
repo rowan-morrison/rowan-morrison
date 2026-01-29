@@ -193,10 +193,9 @@ export const projects: Project[] = [
   {
     id: "central23",
     title: "Wrapping Paper",
-    //  href: "/central23",
+    href: "/central23",
     credits: [
-      { role: "Art Direction", name: "Rowan Morrison" },
-      { role: "Animation", name: "Studio-work XYZ" }
+      { role: "Digital Illustration", name: "Rowan Morrison" }
     ],
     blocks: [
       { type: "full", media: [{ src: "/images/central23-04.jpg", caption: "Central23 — wrapping paper designs" }] },
@@ -213,11 +212,11 @@ export const projects: Project[] = [
         Wrapping paper designs for award-winning packaging brand Central23.
         </>
     ),
-    description: (
-      <>
-        Wrapping paper designs for award-winning packaging brand <a href="https://central23.co/en-uk" target="_blank" rel="noopener noreferrer">Central23</a>.
-      </>
-    ),
+    // description: (
+    //   <>
+    //     Wrapping paper designs for award-winning packaging brand <a href="https://central23.co/en-uk" target="_blank" rel="noopener noreferrer">Central23</a>.
+    //   </>
+    // ),
    skills: ["Digital illustration", "Seamless pattern design"],
     images: ["/images/central23-04.jpg",
       "/images/rowan-morrison-central23-wrapping-paper-frogs.jpg",
@@ -312,11 +311,11 @@ export const projects: Project[] = [
         Open Collab is a platform created to facilitate remote collaboration between creators. Participants respond to a predetermined subject by creating texts or images. Once submitted to the platform, individual content is randomly combined into an endless stream of aleatoric compositions.
       </>
     ),
-    description: (
-      <>
-        <a href="https://www.open-collab.org/" target="_blank" rel="noopener noreferrer">Open Collab</a> is a platform created to facilitate remote collaboration between creators. Participants respond to a predetermined subject by creating texts or images. Once submitted to the platform, individual content is randomly combined into an endless stream of aleatoric compositions.
-      </>
-    ),
+    // description: (
+    //   <>
+    //     <a href="https://www.open-collab.org/" target="_blank" rel="noopener noreferrer">Open Collab</a> is a platform created to facilitate remote collaboration between creators. Participants respond to a predetermined subject by creating texts or images. Once submitted to the platform, individual content is randomly combined into an endless stream of aleatoric compositions.
+    //   </>
+    // ),
     images: [ "/images/open-collab-01.mp4",
       "/images/open-collab-02.mp4",
     "/images/open-collab-03.mp4",
@@ -334,7 +333,7 @@ export const projects: Project[] = [
   {
     id: "memory-pendants",
     title: "Memory Pendants",
-    //  href: "/memory-pendants",
+    href: "/carolina-bucci",
     collection: "professional-work",
     credits: [
       { role: "Illustration", name: "Rowan Morrison" },
@@ -356,11 +355,11 @@ export const projects: Project[] = [
         Drawing pendants to capture clients’ memories forever in 18k gold and precious stones. See them <a href="https://carolinabucci.com/products/memory-pendant" target="_blank" rel="noopener noreferrer">here</a>.
       </>
     ),
-    description: (
-      <>
-        Drawing pendants to capture clients’ memories forever in 18k gold and precious stones. See them <a href="https://carolinabucci.com/products/memory-pendant" target="_blank" rel="noopener noreferrer">here</a>.
-      </>
-    ),
+    // description: (
+    //   <>
+    //     Drawing pendants to capture clients’ memories forever in 18k gold and precious stones. See them <a href="https://carolinabucci.com/products/memory-pendant" target="_blank" rel="noopener noreferrer">here</a>.
+    //   </>
+    // ),
     caption: ( 
     <>
     © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
@@ -401,7 +400,7 @@ export const projects: Project[] = [
   {
     id: "merchandising",
     title: "Brand & Merchandising",
-    //  href: "/oracle-cats",
+    href: "/carolina-bucci",
     collection: "professional-work",
     credits: [
       { role: "Illustration", name: "Rowan Morrison" },
@@ -430,11 +429,11 @@ export const projects: Project[] = [
         Studio-work observational studies
         </>
     ),
-    previewText: (
-      <>
-        Some of many different types of visual collateral made for Carolina Bucci.
-      </>
-    ),
+    // previewText: (
+    //   <>
+    //     Some of many different types of visual collateral made for Carolina Bucci.
+    //   </>
+    // ),
      description: (
     <>
     Some of many different types of visual collateral made for Carolina Bucci.
@@ -481,6 +480,7 @@ export const projects: Project[] = [
   {
     id: "art-of-wishes",
     title: "Carolina Bucci × Art of Wishes",
+    href: "/carolina-bucci",
     collection: "professional-work",
     credits: [
       { role: "Art Direction", name: "Rowan Morrison" },
@@ -507,17 +507,17 @@ export const projects: Project[] = [
         Studio-work observational studies
         </>
     ),
-    previewText: (
-      <>
-        Collateral supporting Carolina Bucci’s collaboration with Art of Wishes, in support of Make-A-Wish UK®.
-      </>
-    ),
-         description: (
-      <>
-        Collateral supporting Carolina Bucci’s collaboration with Art of Wishes, 
-        in support of Make-A-Wish UK®. Learn more and support Make-A-Wish UK® <a href="https://carolinabucci.com/blogs/la-catena/wishful-thinking" target="_blank" rel="noopener noreferrer">here</a>.
-      </>
-    ),
+    // previewText: (
+    //   <>
+    //     Collateral supporting Carolina Bucci’s collaboration with Art of Wishes, in support of Make-A-Wish UK®.
+    //   </>
+    // ),
+    //      description: (
+    //   <>
+    //     Collateral supporting Carolina Bucci’s collaboration with Art of Wishes, 
+    //     in support of Make-A-Wish UK®. Learn more and support Make-A-Wish UK® <a href="https://carolinabucci.com/blogs/la-catena/wishful-thinking" target="_blank" rel="noopener noreferrer">here</a>.
+    //   </>
+    // ),
       caption: ( 
     <>
     © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Original illustrations made by Rosie, Emily and Noah, with Make-a-Wish UK®. Shown here for portfolio purposes only.
@@ -539,6 +539,7 @@ export const projects: Project[] = [
   {
     id: "downtown-rings",
     title: "Digital Design",
+    href: "/carolina-bucci",
     collection: "professional-work",
     credits: [
       { role: "Art Direction", name: "Rowan Morrison" },
@@ -568,12 +569,12 @@ export const projects: Project[] = [
         A built-in PDP tool for clients to play with the many possibilities of Carolina Bucci’s Downtown rings.
       </>
     ),
-    description: (<>
-  A built-in PDP tool for clients to play with the many possibilities of Carolina Bucci’s Downtown rings. See it at work 
-   <a href="https://www.carolinabucci.com/products/downtown-ring" target="_blank" rel="noopener noreferrer" className="hyperlink">
-          here
-        </a>.
-       </>),
+  //   description: (<>
+  // A built-in PDP tool for clients to play with the many possibilities of Carolina Bucci’s Downtown rings. See it at work 
+  //  <a href="https://www.carolinabucci.com/products/downtown-ring" target="_blank" rel="noopener noreferrer" className="hyperlink">
+  //         here
+  //       </a>.
+  //      </>),
     caption: ( 
     <>
     © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
@@ -629,8 +630,8 @@ export const projects: Project[] = [
   },
   {
     id: "la-catena",
-    title: (<><em style={{fontFamily: "'EB Garamond Italic'",}}>La Catena</em></>),
-    //  href: "/oracle-cats",
+    title: "La Catena",
+    href: "/carolina-bucci",
     collection: "professional-work",
     credits: [
       { role: "Art Direction", name: "Rowan Morrison" },
@@ -650,14 +651,14 @@ export const projects: Project[] = [
         <em>La Catena</em> is Carolina Bucci’s blog and annual magazine. I worked on the editorial design of Issues 2 & 3, as well as creating illustrations and posts for the online blog.
       </>
     ),
-    description:  (<><em className="hyperlink">La Catena</em> is Carolina Bucci’s blog and annual magazine. I worked on the editorial design of Issues 2 & 3, as well as creating illustrations and posts for the online blog.
-    <br></br>
-    <br></br>
-    Read ‘Yen Vo and Jimmy Ly First Bonded over Beignets’ on <em>La Catena</em> <a href="https://carolinabucci.com/blogs/la-catena/yen-vo-and-jimmy-ly-first-bonded-over-beignets?srsltid=AfmBOoqCOjSa0M06g-Pv2UUyRh0VxbOA2v3kqt9go_bd4W0FODp02M6Y" target="_blank" rel="noopener noreferrer" className="hyperlink">here</a>.</>),
-     caption: ( 
-    <>
-    © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
-  </>),
+  //   description:  (<><em className="hyperlink">La Catena</em> is Carolina Bucci’s blog and annual magazine. I worked on the editorial design of Issues 2 & 3, as well as creating illustrations and posts for the online blog.
+  //   <br></br>
+  //   <br></br>
+  //   Read ‘Yen Vo and Jimmy Ly First Bonded over Beignets’ on <em>La Catena</em> <a href="https://carolinabucci.com/blogs/la-catena/yen-vo-and-jimmy-ly-first-bonded-over-beignets?srsltid=AfmBOoqCOjSa0M06g-Pv2UUyRh0VxbOA2v3kqt9go_bd4W0FODp02M6Y" target="_blank" rel="noopener noreferrer" className="hyperlink">here</a>.</>),
+  //    caption: ( 
+  //   <>
+  //   © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
+  // </>),
      skills: ["Editorial design", "Print production", "Digital illustration"],
     images: ["/images/la-catena-01.jpg",
       "/images/la-catena-mockup-01.jpg",
@@ -681,7 +682,7 @@ export const projects: Project[] = [
   {
     id: "lucky",
     title: "Lucky Icons",
-    //  href: "/oracle-cats",
+    href: "/carolina-bucci",
     collection: "professional-work",
     credits: [
       { role: "Art Direction", name: "Rowan Morrison" },
@@ -706,11 +707,11 @@ export const projects: Project[] = [
         Created 24 icon illustrations for Carolina Bucci’s first collection, Lucky.
       </>
     ),
-    description: (
-      <>
-        Created 24 icon illustrations for Carolina Bucci’s first collection, Lucky. See them in context <a href="https://carolinabucci.com/products/pineider-lucky-stationery-set" target="_blank" rel="noopener noreferrer" className="hyperlink">here</a>.
-      </>
-    ),
+    // description: (
+    //   <>
+    //     Created 24 icon illustrations for Carolina Bucci’s first collection, Lucky. See them in context <a href="https://carolinabucci.com/products/pineider-lucky-stationery-set" target="_blank" rel="noopener noreferrer" className="hyperlink">here</a>.
+    //   </>
+    // ),
     caption: ( 
     <>
     © {new Date().getFullYear()} Carolina Bucci Firenze. All rights reserved. Work produced as part of my role at Carolina Bucci. All rights and assets are the property of Carolina Bucci. Shown here for portfolio purposes only.
@@ -755,7 +756,6 @@ export const projects: Project[] = [
 {
   id: "macro",
   title: "MACRO",
-  //  href: "/oracle-cats",
     blocks: [
       { type: "full", media: [{ src: "/images/macro-02.jpg", caption: "Digital illustration series inspired by Vivienne Westwood’s Activist play" }] },
     ],

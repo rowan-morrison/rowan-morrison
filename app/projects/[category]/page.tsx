@@ -3,7 +3,7 @@
 import React from "react";
 import projects from "@/data/projects";
 import { useParams } from "next/navigation";
-import Link from "next/link";
+// import Link from "next/link";
 import type { WorkCategory } from "@/types/project";
 
 export default function CategoryPage() {
@@ -23,16 +23,16 @@ export default function CategoryPage() {
       <h1 className="text-4xl font-garamond mb-12 capitalize">{category.replace(/-/g, ' ')}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {filteredProjects.map(project => (
-          <Link 
+          <div 
             key={project.id}
             href={`/projects/${category}/${project.id}`}
             className="hover:opacity-75 transition"
           >
             <div>
               <h3 className="text-xl font-garamond">{project.title}</h3>
-              <p className="text-sm text-gray-600">{project.previewText}</p>
+              <div className="text-sm text-gray-600">{project.previewText}</div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </section>

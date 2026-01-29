@@ -79,7 +79,7 @@ useEffect(() => {
       <div className="relative flex flex-row items-center px-5 py-4 w-full
 md:flex-col md:items-start md:justify-start md:h-full">
         <div className="relative z-[999] w-32 h-12 sm:w-40 sm:h-16 md:mb-8 md:mt-0 md:pl-5">
-        <Link href="/" id="logo" className="relative block w-full h-full">
+        <Link href="/professional-work" id="logo" className="relative block w-full h-full">
           <Image
             src={resolvedTheme === "dark" ? "/images/rowan-morrison-logo-white-v2.png" : "/images/rowan-morrison-logo-black-v2.png"}
             alt="Rowan Morrison Logo"
