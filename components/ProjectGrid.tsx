@@ -1,6 +1,15 @@
+// ProjectBlock displays title, description, credits, media, captions. It does nothing else.
+
 import projects from "@/data/projects";
+import Link from "next/link";
+
 
 type Project = typeof projects[number];
+
+type MediaItem = {
+  src: string;
+  caption?: string | React.ReactNode;
+};
 
 interface ProjectGridProps {
   projects: Project[];
@@ -20,29 +29,47 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
                   : "flex flex-col gap-6"
               }
             >
-              {block.media.map((item, mediaIdx) => {
+              {(block.media as MediaItem[]).map((item, mediaIdx) => {
                 const isVideo = item.src.endsWith(".mp4");
 
                 return (
-                  <div
-                    key={mediaIdx}
-                    className="relative w-full cursor-pointer transition-opacity duration-300 group"
-                  >
-                    {isVideo ? (
-                      <video
-                        src={item.src}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-auto"
-                      />
+                  <div key={mediaIdx} className="relative w-full cursor-pointer transition-opacity duration-300 group">
+                    {project.href ? (
+                      <Link href={project.href} className="block">
+                        {isVideo ? (
+                          <video
+                            src={item.src}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="w-full h-auto"
+                          />
+                        ) : (
+                          <img
+                            src={item.src}
+                            alt={item.caption ? String(item.caption) : ""}
+                            className="w-full h-auto block"
+                          />
+                        )}
+                      </Link>
                     ) : (
-                      <img
-                        src={item.src}
-                       alt={item.caption ? String(item.caption) : ""}
-                        className="w-full h-auto block"
-                      />
+                      isVideo ? (
+                        <video
+                          src={item.src}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="w-full h-auto"
+                        />
+                      ) : (
+                        <img
+                          src={item.src}
+                          alt={item.caption ? String(item.caption) : ""}
+                          className="w-full h-auto block"
+                        />
+                      )
                     )}
 
                     {item.caption && (

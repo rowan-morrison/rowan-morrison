@@ -10,27 +10,37 @@ export type WorkCategory =
   | "web-and-digital"
   | "animation-and-motion"
 
-export interface Project {
+export type Project = {
   id: string;
   title?: string | React.ReactNode;
-  href?: string;
-  blocks: Block[];
-  images: string[];
-  description?: string | ReactNode;
-  collection?: WorkCollection;
-  categories: WorkCategory[];
-  isVideo?: boolean;
-  order?: number;
-  previewText?: string | ReactNode;
-  previewHeading?: string | ReactNode;
-  previewCaptions?: string | ReactNode;
-  skills?: string[];
-  linkApp?: string;
-  caption?: string | React.ReactNode;
-  imageCaption?: ReactNode[];
-  comingSoon?: boolean;
+  description?: string | React.ReactNode;
+  images?: string[];
+  imageCaption?: React.ReactNode[];
   credits?: { role: string; name: string }[];
-}
+  href?: string;
+  collection?: string;
+  categories?: string[];
+  blocks?: {
+    type: "full" | "half";
+    media: { src: string; caption?: string | React.ReactNode }[];
+  }[];
+  skills?: string[];
+  subSections?: {
+    heading?: string | React.ReactNode;
+    description?: string | React.ReactNode;
+    blocks: {
+      type: "full" | "half";
+      media: {
+        src: string;
+        caption?: string | React.ReactNode;
+      }[];
+    }[];
+  }[];
+  isVideo?: boolean;
+  caption?: string | React.ReactNode;
+  previewHeading?: string | React.ReactNode;
+  previewText?: string | React.ReactNode;  
+};
 
 export type MediaItem = {
   src: string

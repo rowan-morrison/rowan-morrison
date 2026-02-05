@@ -187,7 +187,7 @@ md:flex-col md:items-start md:justify-start md:h-full">
       personal work
     </span></Link>
             </li>
-            <li>
+            <li hidden>
                <button
     type="button"
     onClick={() => setProjectsOpen(prev => !prev)}

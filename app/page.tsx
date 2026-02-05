@@ -1,13 +1,19 @@
-import React from "react";
-import { projects } from "@/data/projects";
-import ProjectGrid from "@/components/ProjectGrid";
+// import React from "react";
+// import { projects } from "@/data/projects";
+// import ProjectGrid from "@/components/ProjectGrid";
 
-const Home = () => {
-  return (
-    <main className="min-h-screen flex flex-col gap-16 m-5 pt-[100px] md:p-5">
-      <ProjectGrid projects={projects} />
-    </main>
-  );
+// const Home = () => {
+//   return (
+//     <main className="min-h-screen flex flex-col gap-16 m-5 pt-[100px] md:p-5">
+//       <ProjectGrid projects={projects} />
+//     </main>
+//   );
+// }
+
+// export default Home;
+
+import { redirect } from "next/navigation";
+
+export default function Home() {
+  redirect("/professional-work");
 }
-
-export default Home;
