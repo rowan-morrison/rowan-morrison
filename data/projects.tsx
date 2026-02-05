@@ -5,9 +5,9 @@ export const projects: Project[] = [
 
   // STUDIO WORK
     {
-    id: "studio-work",
-    title: "Studio Work",
-    href: "/studio-work",
+    id: "personal-work",
+    title: "Personal Work",
+    href: "/personal-work",
     collection: "personal-work",
     credits: [
       { role: "Graphic Design, Illustration", name: "Rowan Morrison" }
